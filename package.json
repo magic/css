@@ -24,6 +24,7 @@
   "scripts": {
     "start": "t -p",
     "test": "t",
-    "format": "f -w"
+    "format": "f -w",
+    "calls": "calls"
   }
 }
