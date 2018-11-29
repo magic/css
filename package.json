@@ -1,0 +1,29 @@
+{
+  "name": "@magic/css",
+  "version": "0.0.1",
+  "description": "css in js",
+  "author": "Wizards & Witches",
+  "license": "AGPL-3.0",
+  "contributors": [
+    {
+      "name": "jascha ehrenreich",
+      "github": "jaeh"
+    }
+  ],
+  "main": "src/index.js",
+  "dependencies": {
+    "@magic/deep": "github:magic/deep",
+    "@magic/types": "github:magic/types"
+  },
+  "files": [
+    "src"
+  ],
+  "devDependencies": {
+    "@magic/test": "github:magic/test"
+  },
+  "scripts": {
+    "start": "t -p",
+    "test": "t",
+    "format": "f -w"
+  }
+}
