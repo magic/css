@@ -1,4 +1,4 @@
-const { is } = require('@magic/test')
+const { is, tryCatch } = require('@magic/test')
 const path = require('path')
 const fs = require('fs')
 
@@ -38,50 +38,50 @@ const style = opts => ({
   '.testing': true,
 })
 
+const outFile = path.join(__dirname, '..', 'src', 'out.css')
+
 const opts = {
   id: 'green',
   test: 'orange',
+  OUTFILE: outFile,
 }
 
-const styler = css(opts)
-
-const nesting = styler.parse({ div: { p: { '.active': { color: 'green' } } } })
+const nesting = css.parse({ div: { p: { '.active': { color: 'green' } } } })
 const expectNesting = ['div p .active', { color: 'green' }]
 
-const multiClass = styler.parse({ div: { '.foo,&.bar': { color: 'green' } } })
+const multiClass = css.parse({ div: { '.foo,&.bar': { color: 'green' } } })
 const expectMultiClass = ['div .foo, div.bar', { color: 'green' }]
 
-const canHandleExtensions = styler.parse({ div: { '&:hover': { color: 'green' } } })
+const canHandleExtensions = css.parse({ div: { '&:hover': { color: 'green' } } })
 const expectCanHandleExtensions = ['div:hover', { color: 'green' }]
 
-const parsed = styler.parse(style)
-
-const outFile = path.join(__dirname, '..', 'src', 'out.css')
+const parsed = css.parse(style)
 
 const beforeWrite = () => () => {
   fs.unlinkSync(outFile)
 }
 
-const write = () => styler.write(style, outFile)
+const write = () => css.write(style, opts)
 
 const expectWritten = () => fs.existsSync(outFile)
 
 module.exports = [
-  { fn: css(), expect: is.object, info: 'css returns an object' },
-  { fn: () => styler.parse, expect: is.fn, info: 'styler.parse is a function' },
-  { fn: () => styler.stringify, expect: is.fn, info: 'styler.stringify is a function' },
-  { fn: parsed, expect: is.array, info: 'styler.parse returns an array' },
-  { fn: nesting, expect: expectNesting, info: 'styler.parse returns correct css' },
+  { fn: css, expect: is.object, info: 'css returns an object' },
+  { fn: () => css.parse, expect: is.fn, info: 'css.parse is a function' },
+  { fn: () => css.stringify, expect: is.fn, info: 'css.stringify is a function' },
+  { fn: parsed, expect: is.array, info: 'css.parse returns an array' },
+  { fn: nesting, expect: expectNesting, info: 'css.parse returns correct css' },
   { fn: multiClass, expect: expectMultiClass, info: 'multiple definitions in one line' },
   {
-    fn: styler.stringify({ div: { color: 'green' } }),
+    fn: css.stringify({ div: { color: 'green' } }),
     expect: 'div { color: green; }\n',
     info: 'can stringify',
   },
   {
-    fn: styler.minify(styler.stringify({ div: { color: 'green' } })),
-    expect: 'div{color:green;}',
+    fn: css.minify('div { color: green; }\n'),
+    expect: 'div{color:green}',
     info: 'can minify',
   },
   { fn: write, expect: expectWritten, before: beforeWrite, info: 'can write file' },
+  { fn: tryCatch(css.write, 'div{color:green;}'), expect: is.error, info: 'write without opts errors' },
 ]
