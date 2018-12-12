@@ -7,6 +7,7 @@ const css = {
   stringify: require('./stringify'),
   write: require('./write'),
   minify: require('./minify'),
+  classes: require('./classes'),
 }
 
 module.exports = css

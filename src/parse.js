@@ -1,35 +1,7 @@
 const is = require('@magic/types')
+const deep = require('@magic/deep')
 
-const camel2kebab = require('./camel2kebab')
-
-// . is a class
-// # is an id,
-// & is a property (:hover, :active),
-// media are media queries
-const special = ['.', '#', '&', 'media']
-
-const getSelector = (parent, name) => {
-  // names that contain , have to be split and prefixed separately
-  if (name.includes(',')) {
-    return name
-      .split(',')
-      .map(n => getSelector(parent, n.trim()))
-      .join(', ')
-      .trim()
-  }
-
-  // compose the selector
-  let res = parent
-
-  // selectors starting with & get appended to parent
-  if (name.startsWith('&')) {
-    res += name.substr(1)
-  } else {
-    res += ` ${name}`
-  }
-
-  return res.trim()
-}
+const getSelector = require('./getSelector')
 
 const recurseParse = mod => {
   const [parent, items] = mod

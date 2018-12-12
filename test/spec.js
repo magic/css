@@ -83,5 +83,9 @@ module.exports = [
     info: 'can minify',
   },
   { fn: write, expect: expectWritten, before: beforeWrite, info: 'can write file' },
-  { fn: tryCatch(css.write, 'div{color:green;}'), expect: is.error, info: 'write without opts errors' },
+  {
+    fn: tryCatch(css.write, 'div{color:green;}'),
+    expect: is.error,
+    info: 'write without opts errors',
+  },
 ]
