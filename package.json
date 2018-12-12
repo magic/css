@@ -12,7 +12,7 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "@magic/deep": "github:magic/deep",
+    "@magic/deep": "0.0.1",
     "@magic/types": "0.0.2"
   },
   "files": [
