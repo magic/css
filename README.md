@@ -1,5 +1,7 @@
 # @magic/css
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/magic/css.svg)](https://greenkeeper.io/)
+
 can parse/stringify/write css in js
 
 #### TODO:
