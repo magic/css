@@ -13,13 +13,13 @@
   "main": "src/index.js",
   "dependencies": {
     "@magic/deep": "github:magic/deep",
-    "@magic/types": "github:magic/types"
+    "@magic/types": "0.0.2"
   },
   "files": [
     "src"
   ],
   "devDependencies": {
-    "@magic/test": "github:magic/test"
+    "@magic/test": "0.0.2"
   },
   "scripts": {
     "start": "t -p",
