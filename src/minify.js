@@ -1,5 +1,4 @@
 const minify = style =>
-  console.log({ style }) ||
   style
     // replace newlines after commas to get multiple css classes onto one line
     .replace(/,\n/gim, ',')
