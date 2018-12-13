@@ -1,7 +1,5 @@
 # @magic/css
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/magic/css.svg)](https://greenkeeper.io/)
-
 can parse/stringify/write css in js
 
 #### TODO:
@@ -15,6 +13,7 @@ can parse/stringify/write css in js
 [![Linux Build Status][travis-image]][travis-url]
 [![Windows Build Status][appveyor-image]][appveyor-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
+[![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
 
 
 ##### installation:
@@ -134,3 +133,5 @@ styler.write(style)
 [appveyor-url]: https://ci.appveyor.com/project/jaeh/css/branch/master
 [coveralls-image]: https://coveralls.io/repos/github/magic/css/badge.svg
 [coveralls-url]: https://coveralls.io/github/magic/css
+[greenkeeper-image]: https://badges.greenkeeper.io/magic/css.svg
+[greenkeeper-url]: https://greenkeeper.io
