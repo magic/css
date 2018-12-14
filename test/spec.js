@@ -67,7 +67,7 @@ const expectWritten = () => fs.existsSync(outFile)
 
 module.exports = [
   { fn: css, expect: is.object, info: 'css returns an object' },
-  { fn: css({ div: { color: 'green' }}), expect: is.object, info: 'css returns an object' },
+  { fn: css({ div: { color: 'green' } }), expect: is.object, info: 'css returns an object' },
   { fn: () => css.parse, expect: is.fn, info: 'css.parse is a function' },
   { fn: () => css.stringify, expect: is.fn, info: 'css.stringify is a function' },
   { fn: parsed, expect: is.array, info: 'css.parse returns an array' },
