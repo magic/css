@@ -14,6 +14,8 @@ const minify = style =>
     .replace(/;\s/gim, ';')
     // remove semicolon before }
     .replace(/;}/gim, '}')
+    // // remove whitespace after }
+    .replace(/}\s+/gim, '}')
     // remove spaces after ,
     .replace(/,\s/gim, ',')
     .trim()
