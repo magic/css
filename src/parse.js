@@ -9,10 +9,14 @@ const recurseParse = mod => {
   let children = []
   const props = {}
 
+  if (parent.startsWith('@media')) {
+    return [parent, ...parse(items)]
+  }
+
   Object.entries(items).forEach(([name, item]) => {
     if (is.object(item)) {
       name = getSelector(parent, name)
-      children.push(recurseParse([name, item]))
+      children = deep.merge(children, recurseParse([name, item]))
     } else {
       props[name] = item
     }

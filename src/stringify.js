@@ -9,14 +9,16 @@ const stringifyProps = props =>
     .join(' ')
 
 const recurseStringify = mod => {
-  let res
+  let res = mod
 
   if (is.array(mod)) {
-    res = mod.map(recurseStringify).join(' ')
+    if (is.string(mod[0]) && mod[0].startsWith('@media')) {
+      res = `${mod[0]} { ${recurseStringify(mod[1])} }`
+    } else {
+      res = mod.map(recurseStringify).join(' ')
+    }
   } else if (is.object(mod)) {
     res = `{ ${stringifyProps(mod)} }\n`
-  } else {
-    return mod
   }
 
   return res
@@ -24,6 +26,7 @@ const recurseStringify = mod => {
 
 const stringify = (styles, opts = {}) => {
   const parsed = parse(styles, opts)
+
   return recurseStringify(parsed)
 }
 
