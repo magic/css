@@ -2,10 +2,6 @@
 
 can parse/stringify/write css in js
 
-#### TODO:
-* add autoprefixer/postcss
-* ???
-
 [![NPM version][npm-image]][npm-url]
 [![Linux Build Status][travis-image]][travis-url]
 [![Windows Build Status][appveyor-image]][appveyor-url]
@@ -23,108 +19,104 @@ can parse/stringify/write css in js
 ##### init
 ```javascript
 const css = require('@magic/css')
-const path = require('path')
-
-const locals = {
-  textColor: 'green',
-  OUT_DIR: path.join(__dirname, 'out.css')
-}
-const styler = css(opts)
 ```
 
 ##### styles
 ```javascript
-const style = opts => ({
+const style = {
   '.className': {
-    color: opts.textColor,
+    color: 'green',
   },
-})
-styler.stringify(style)
+}
+await css.stringify(style)
 // .className { color:green; }
 ```
 
 ##### hover/active etc
 ```javascript
-const style = opts => ({
+const style = {
   'div': {
     color: 'red',
     '&:hover': {
       color: 'green',
     },
   },
-})
-styler.stringify(style)
+}
+
+await css.stringify(style)
 // div { color: red; }
 // div:hover { color: green; }
 ```
 
 ##### nesting
 ```javascript
-const style = opts => ({
+const style = {
   'div': {
     'p, &:hover': {
       color: 'red',
     },
   },
-})
-styler.stringify(style)
+}
+await css.stringify(style)
 // div p, div:hover { color: red; }
 ```
 
 ##### parse
 ```javascript
-const style = opts => ({
+const style = {
   '.className': {
     '#id': {
-      color: opts.textColor,
+      color: 'orange',
     },
   },
-})
+}
 
-styler.parse(style)
+css.parse(style)
 // ast
 ```
 
 ##### stringify
 ```javascript
-const style = opts => ({
+const style = {
   '.className': {
     '#id': {
-      color: opts.textColor,
+      color: 'white',
     },
   },
-})
+}
 
-styler.stringify(style)
+await css.stringify(style)
 // minified string
-`.className #id{color:green;}`
+`.className #id{color:white;}`
 ```
 
 ##### write to filesystem
 ```javascript
-const style = opts => ({
+const style = {
   '.className': {
     '#id': {
       color: opts.textColor,
     },
   },
-})
+}
 
-styler.write(style)
-// writes styles to opts.OUTFILE or ./out.css
+css.write(style)
+// writes styles to ./out.css
+css.write(style, { OUTFILE: './outfile.css' })
+// writes styles to ./outfile.css
 ```
 
 ##### media queries
 ```javascript
-const style = opts => ({
+const style = {
   '@media screen and (min-width: 500px)': {
     '#id': {
       color: opts.textColor,
     },
   },
-})
+}
 
-styler.stringify(style)
+await css.stringify(style)
 // css string
 `
 @media screen and (min-width: 500px) {
@@ -141,6 +133,11 @@ styler.stringify(style)
 
 #### 0.2.0:
   * Added media queries
+
+#### 0.3.0:
+  * returns a promise! no longer sync.
+  * autoprefixer and postcss added
+
 
 [npm-image]: https://img.shields.io/npm/v/@magic/css.svg
 [npm-url]: https://www.npmjs.com/package/@magic/css

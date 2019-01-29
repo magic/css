@@ -1,5 +1,8 @@
 const is = require('@magic/types')
 
+const postcss = require('postcss')
+const autoprefixer = require('autoprefixer')
+
 const parse = require('./parse')
 const camel2kebab = require('./camel2kebab')
 
@@ -24,10 +27,16 @@ const recurseStringify = mod => {
   return res
 }
 
-const stringify = (styles, opts = {}) => {
+const stringify = async (styles, opts = {}) => {
   const parsed = parse(styles, opts)
 
-  return recurseStringify(parsed)
+  const stringified = recurseStringify(parsed)
+  const result = await postcss([autoprefixer]).process(stringified, { from: undefined })
+  result.warnings().forEach(warn => {
+    console.warn(warn.toString())
+  })
+
+  return result.css
 }
 
 module.exports = stringify

@@ -18,7 +18,9 @@
   "main": "src/index.js",
   "dependencies": {
     "@magic/deep": "0.0.1",
-    "@magic/types": "0.0.3"
+    "@magic/types": "0.0.3",
+    "autoprefixer": "9.4.7",
+    "postcss": "7.0.14"
   },
   "files": [
     "src"
