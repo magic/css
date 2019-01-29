@@ -3,8 +3,6 @@
 can parse/stringify/write css in js
 
 #### TODO:
-* watch
-* cli script
 * add autoprefixer/postcss
 * ???
 
@@ -32,7 +30,6 @@ const locals = {
   OUT_DIR: path.join(__dirname, 'out.css')
 }
 const styler = css(opts)
-
 ```
 
 ##### styles
@@ -76,7 +73,6 @@ styler.stringify(style)
 
 ##### parse
 ```javascript
-
 const style = opts => ({
   '.className': {
     '#id': {
@@ -87,12 +83,10 @@ const style = opts => ({
 
 styler.parse(style)
 // ast
-
 ```
 
 ##### stringify
 ```javascript
-
 const style = opts => ({
   '.className': {
     '#id': {
@@ -108,7 +102,6 @@ styler.stringify(style)
 
 ##### write to filesystem
 ```javascript
-
 const style = opts => ({
   '.className': {
     '#id': {
