@@ -36,7 +36,7 @@ const parse = (styles, opts = {}) => {
   const styleObject = is.function(styles) ? styles(opts) : styles
 
   return Object.entries(styleObject)
-    .sort(a => a[0].startsWith('@media') ? 1 : -1)
+    .sort(a => (a[0].startsWith('@media') ? 1 : -1))
     .map(recurseParse)
 }
 
