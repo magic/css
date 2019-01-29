@@ -142,6 +142,12 @@ styler.stringify(style)
 `
 ```
 
+### CHANGELOG:
+#### 0.1.0
+  * return classes and ids as well
+
+#### 0.2.0:
+  * Added media queries
 
 [npm-image]: https://img.shields.io/npm/v/@magic/css.svg
 [npm-url]: https://www.npmjs.com/package/@magic/css
