@@ -10,11 +10,15 @@
       "github": "jaeh"
     }
   ],
-  "keywords": ["css-in-js", "css", "magic"],
+  "keywords": [
+    "css-in-js",
+    "css",
+    "magic"
+  ],
   "main": "src/index.js",
   "dependencies": {
     "@magic/deep": "0.0.1",
-    "@magic/types": "0.0.2"
+    "@magic/types": "0.0.3"
   },
   "files": [
     "src"
