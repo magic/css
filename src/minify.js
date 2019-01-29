@@ -9,15 +9,15 @@ const minify = style =>
     // remove spaces around opening brackets {
     .replace(/\s{\s+/gim, '{')
     // remove spaces after :
-    .replace(/:\s/gim, ':')
+    .replace(/:\s+/gim, ':')
     // remove spaces after ;
-    .replace(/;\s/gim, ';')
+    .replace(/;\s+/gim, ';')
     // remove semicolon before }
     .replace(/;}/gim, '}')
     // // remove whitespace after }
     .replace(/}\s+/gim, '}')
     // remove spaces after ,
-    .replace(/,\s/gim, ',')
+    .replace(/,\s+/gim, ',')
     .trim()
 
 module.exports = minify
