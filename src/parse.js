@@ -10,7 +10,8 @@ const recurseParse = mod => {
   const props = {}
 
   if (parent.startsWith('@media')) {
-    return [parent, ...parse(items)]
+    const i = parse(items)
+    return [parent, i]
   }
 
   Object.entries(items).forEach(([name, item]) => {
@@ -34,7 +35,9 @@ const recurseParse = mod => {
 const parse = (styles, opts = {}) => {
   const styleObject = is.function(styles) ? styles(opts) : styles
 
-  return Object.entries(styleObject).map(recurseParse)
+  return Object.entries(styleObject)
+    .sort(a => a[0].startsWith('@media') ? 1 : -1)
+    .map(recurseParse)
 }
 
 module.exports = parse
