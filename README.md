@@ -3,7 +3,6 @@
 can parse/stringify/write css in js
 
 #### TODO:
-* media queries
 * watch
 * cli script
 * add autoprefixer/postcss
@@ -122,7 +121,26 @@ styler.write(style)
 // writes styles to opts.OUTFILE or ./out.css
 ```
 
+##### media queries
+```javascript
+const style = opts => ({
+  '@media screen and (min-width: 500px)': {
+    '#id': {
+      color: opts.textColor,
+    },
+  },
+})
 
+styler.stringify(style)
+// css string
+`
+@media screen and (min-width: 500px) {
+  #id {
+    color: green;
+  }
+}
+`
+```
 
 
 [npm-image]: https://img.shields.io/npm/v/@magic/css.svg
