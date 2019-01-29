@@ -24,7 +24,7 @@
     "src"
   ],
   "devDependencies": {
-    "@magic/test": "0.0.2"
+    "@magic/test": "0.0.3"
   },
   "scripts": {
     "start": "t -p",

@@ -57,7 +57,7 @@ const expectCanHandleExtensions = ['div:hover', { color: 'green' }]
 
 const parsed = css.parse(style)
 
-const beforeWrite = () => () => {
+const afterWrite = () => {
   fs.unlinkSync(outFile)
 }
 
@@ -83,7 +83,7 @@ module.exports = [
     expect: 'div{color:green}',
     info: 'can minify',
   },
-  { fn: write, expect: expectWritten, before: beforeWrite, info: 'can write file' },
+  { fn: write, expect: expectWritten, after: afterWrite, info: 'can write file' },
   {
     fn: tryCatch(css.write, 'div{color:green;}'),
     expect: is.error,
