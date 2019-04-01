@@ -127,6 +127,34 @@ await css.stringify(style)
 `
 ```
 
+##### webfonts
+```javascript
+const style = {
+  '@font-face': {
+    fontFamily: 'font-name',
+    fontDir: 'fonts',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+  },
+}
+
+await css.stringify(style)
+// css string
+`
+@font-face {
+  font-family: "font-name";
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/font-name.eot\');
+  src: url('/fonts/font-name.eot#iefix') format('embedded-opentype'),',
+  url('/fonts/font-name.ttf') format('truetype'),',
+  url('/fonts/font-name.woff') format('woff'),',
+  url('/fonts/font-name.woff2') format('woff2'),',
+  url('/fonts/font-name.svg#font-name') format('svg');',
+}
+`
+```
+
 ### CHANGELOG:
 #### 0.1.0
   * return classes and ids as well
@@ -137,6 +165,9 @@ await css.stringify(style)
 #### 0.3.0:
   * returns a promise! no longer sync.
   * autoprefixer and postcss added
+
+### 0.4.0:
+  * supports @font-face declarations
 
 
 [npm-image]: https://img.shields.io/npm/v/@magic/css.svg
