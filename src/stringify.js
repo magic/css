@@ -15,8 +15,25 @@ const recurseStringify = mod => {
   let res = mod
 
   if (is.array(mod)) {
-    if (is.string(mod[0]) && mod[0].startsWith('@media')) {
+    const isString = is.string(mod[0])
+    if (isString && mod[0].startsWith('@media')) {
       res = `${mod[0]} { ${recurseStringify(mod[1])} }`
+    } else if (isString && mod[0].startsWith('@font-face')) {
+      const { fontFamily, ...rest } = mod[1]
+      res = `${mod[0]} ${recurseStringify({ fontFamily: `"${fontFamily}"`, ...rest })}`
+
+      const eotString = `src: url('fonts/${fontFamily}.eot');`
+
+      const srcString = `${eotString} src: ${[
+        `url('fonts/${fontFamily}.eot#iefix') format('embedded-opentype')`,
+        `url('fonts/${fontFamily}.ttf') format('truetype')`,
+        `url('fonts/${fontFamily}.woff') format('woff')`,
+        `url('fonts/${fontFamily}.woff2') format('woff2')`,
+        `url('fonts/${fontFamily}.svg#${fontFamily}') format('svg');`
+      ].join(', ')}`
+
+      res = res.replace('}\n', `${srcString} }\n`)
+
     } else {
       res = mod.map(recurseStringify).join(' ')
     }
