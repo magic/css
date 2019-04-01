@@ -5,23 +5,25 @@ const fontFamily = {
     fontFamily: 'font-name',
     fontWeight: 'normal',
     fontStyle: 'normal',
+    fontDir: '/root/',
   },
 }
 
-const expect = ({ css }) => css === [
-  '@font-face {',
+const expect = ({ css }) => console.log(css)|| css === [
+  "@font-face {",
   'font-family: "font-name";',
-  'font-weight: normal;',
-  'font-style: normal;',
-  'src: url(\'fonts/font-name.eot\');',
-  'src: url(\'fonts/font-name.eot#iefix\') format(\'embedded-opentype\'),',
-  'url(\'fonts/font-name.ttf\') format(\'truetype\'),',
-  'url(\'fonts/font-name.woff\') format(\'woff\'),',
-  'url(\'fonts/font-name.woff2\') format(\'woff2\'),',
-  'url(\'fonts/font-name.svg#font-name\') format(\'svg\');',
-  '}\n',
+  "font-weight: normal;",
+  "font-style: normal;",
+  "src: url(\'/root/font-name.eot\');",
+  "src: url(\'/root/font-name.eot#iefix\') format(\'embedded-opentype\'),",
+  "url(\'/root/font-name.ttf\') format(\'truetype\'),",
+  "url(\'/root/font-name.woff\') format(\'woff\'),",
+  "url(\'/root/font-name.woff2\') format(\'woff2\'),",
+  "url(\'/root/font-name.svg#font-name\') format(\'svg\');",
+  "}\n",
 ].join(' ')
 
 module.exports = [
   { fn: async () => await css(fontFamily), expect, info: 'can handle web fonts' },
+  { fn: async () => await css(fontFamily), expect: ({ css }) => css.includes('/root/'), info: 'setting font-face root dir works' },
 ]
