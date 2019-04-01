@@ -132,7 +132,7 @@ await css.stringify(style)
 const style = {
   '@font-face': {
     fontFamily: 'font-name',
-    fontDir: 'fonts',
+    fontDir: '/fonts/',
     fontStyle: 'normal',
     fontWeight: 'normal',
   },
@@ -168,6 +168,9 @@ await css.stringify(style)
 
 ### 0.4.0:
   * supports @font-face declarations
+
+#### 0.4.1
+  * added fontDir option to font-face declarations
 
 
 [npm-image]: https://img.shields.io/npm/v/@magic/css.svg
