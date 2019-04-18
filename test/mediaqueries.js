@@ -1,5 +1,3 @@
-const { is } = require('@magic/test')
-
 const css = require('../src')
 
 module.exports = [
