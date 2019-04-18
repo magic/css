@@ -9,7 +9,7 @@ const fontFamily = {
   },
 }
 
-const expect = ({ css }) => console.log(css)|| css === [
+const expect = ({ css }) => css === [
   "@font-face {",
   'font-family: "font-name";',
   "font-weight: normal;",
