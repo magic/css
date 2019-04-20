@@ -1,6 +1,7 @@
 # @magic/css
 
 can parse/stringify/write css in js
+[docs](https://magic.github.io/css/)
 
 [![NPM version][npm-image]][npm-url]
 [![Linux Build Status][travis-image]][travis-url]
