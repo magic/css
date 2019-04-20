@@ -8,7 +8,7 @@ module.exports = () => div([
   Link({ to: 'https://travis-ci.org/magic/css' }, Img({ src: 'https://travis-ci.com/magic/css.svg?branch=master' })),
   Link({ to: 'https://ci.appveyor.com/project/jaeh/css/branch/master' }, Img({ src: 'https://ci.appveyor.com/api/projects/status/yk1hmw7ilwb74h5y/branch/master?svg=true' })),
   Link({ to: 'https://coveralls.io/github/magic/css' }, Img({ src: 'https://coveralls.io/repos/github/magic/css/badge.svg' })),
-  Link({ to: 'https://badges.greenkeeper.io/magic/css.svg' }, Img({ src: 'https://greenkeeper.io' })),
+  Link({ to: 'https://greenkeeper.io' }, Img({ src: 'https://badges.greenkeeper.io/magic/css.svg' })),
 
 
   h2('installation'),
@@ -191,7 +191,6 @@ await css.stringify(style)
       li('returns a promise! no longer sync'),
       li('autoprefixer and postcss added'),
     ]),
-
 
     h3('0.4.0'),
     ul([
