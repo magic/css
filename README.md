@@ -24,6 +24,42 @@ can parse/stringify/write css in js
 const css = require('@magic/css')
 ```
 
+
+##### all in one
+```javascript
+const css = require('css')
+
+const style = {
+  body: {
+    color: 'green',
+  },
+  '.class': {
+    color: 'orange',
+  },
+  '#id': {
+    color: 'purple'
+  },
+}
+
+css(style)
+
+// returns
+Object {
+  // nicely formatted css string
+  css: 'body {\n  color: green;\n}\n.class {\n  color: orange;\n}\n#id{\n  color: purple;\n}\n',
+  // minimal whitespace
+  minified: 'body{color:green}.class{color:orange}#id{color:purple}',
+  // array of used classes if any
+  classes: [],
+  // array of used ids if any
+  ids: [],
+  // array of used selectors
+  selectors: [],
+  //ast of this css object
+  parsed: [],
+}
+```
+
 ##### styles
 ```javascript
 const style = {
