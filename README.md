@@ -1,7 +1,6 @@
 # @magic/css
 
 can parse/stringify/write css in js
-
 [docs](https://magic.github.io/css/)
 
 [![NPM version][npm-image]][npm-url]
@@ -10,6 +9,7 @@ can parse/stringify/write css in js
 [![Coverage Status][coveralls-image]][coveralls-url]
 [![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
 
+(low coverage is due to this documentation not yet being covered by tests, actualy library coverage is at 99%)
 
 ##### installation:
 ```javascript

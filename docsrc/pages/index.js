@@ -6,6 +6,7 @@ module.exports = () => div([
   p('if there is absolute need for dynamic css, feel free to use the style property of the html tag / webcomponent you want to dynamically change, unfortunately, this library will not help you with that.'),
 
   Badges,
+  p('(low coverage is due to this documentation not yet being covered by tests, actualy library coverage is at 99%)')
 
   h2('installation'),
   Pre.View('npm install @magic/css'),
