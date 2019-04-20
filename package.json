@@ -10,6 +10,17 @@
       "github": "jaeh"
     }
   ],
+  "scripts": {
+    "start": "t -p",
+    "build": "NODE_ENV=production magic build",
+    "prod": "NODE_ENV=production magic build serve",
+    "clean": "magic clean",
+    "serve": "magic serve",
+    "dev": "magic dev",
+    "format": "f -w",
+    "test": "t",
+    "calls": "calls"
+  },
   "keywords": [
     "css-in-js",
     "css",
@@ -26,13 +37,8 @@
     "src"
   ],
   "devDependencies": {
-    "@magic/test": "0.0.7",
-    "@magic/core": "github:magic/core"
-  },
-  "scripts": {
-    "start": "t -p",
-    "test": "t",
-    "format": "f -w",
-    "calls": "calls"
+    "@magic-modules/pre": "github:magic-modules/pre",
+    "@magic/core": "github:magic/core",
+    "@magic/test": "0.0.7"
   }
 }
