@@ -16,7 +16,9 @@ const recurseStringify = mod => {
 
   if (is.array(mod)) {
     const isString = is.string(mod[0])
-    if (isString && mod[0].startsWith('@media')) {
+    if (isString && mod[0].startsWith('@keyframes')) {
+      res = `${mod[0]} { ${recurseStringify(mod[1])} }`
+    } else if (isString && mod[0].startsWith('@media')) {
       res = `${mod[0]} { ${recurseStringify(mod[1])} }`
     } else if (isString && mod[0].startsWith('@font-face')) {
       const { fontFamily, fontDir = '', fontRoot, ...rest } = mod[1]

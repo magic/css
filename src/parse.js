@@ -14,6 +14,11 @@ const recurseParse = mod => {
     return [parent, i]
   }
 
+  if (parent.startsWith('@keyframes')) {
+    const i = parse(items)
+    return [parent, i]
+  }
+
   Object.entries(items).forEach(([name, item]) => {
     if (is.object(item)) {
       name = getSelector(parent, name)
