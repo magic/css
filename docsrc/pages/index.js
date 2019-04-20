@@ -16,6 +16,40 @@ module.exports = () => div([
   h3('init'),
   Pre.View('const css = require(\'@magic/css\')'),
 
+  h3('all in one'),
+  Pre.View(`
+const css = require('css')
+
+const style = {
+  body: {
+    color: 'green',
+  },
+  '.class': {
+    color: 'orange',
+  },
+  '#id': {
+    color: 'purple'
+  },
+}
+
+css(style)
+
+// returns
+Object {
+  // nicely formatted css string
+  css: 'body {\\n  color: green;\\n}\\n.class {\\n  color: orange;\\n}\\n#id{\\n  color: purple;\\n}\\n',
+  // minimal whitespace
+  minified: 'body{color:green}.class{color:orange}#id{color:purple}',
+  // array of used classes if any
+  classes: [],
+  // array of used ids if any
+  ids: [],
+  // array of used selectors
+  selectors: [],
+  //ast of this css object
+  parsed: [],
+}`),
+
   h3('styles'),
   Pre.View(`
 const style = {
