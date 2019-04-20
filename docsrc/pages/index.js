@@ -3,7 +3,7 @@ module.exports = () => div([
 
   p('parse/stringify/write css in js'),
   p('NO dynamic css, css gets output as css file. whenever possible, use dynamic classes instead.'),
-  p('if there is absolute need for dynamic css, feel free to use the style property of the div you want to dynamically change.'),
+  p('if there is absolute need for dynamic css, feel free to use the style property of the html tag / webcomponent you want to dynamically change, unfortunately, this library will not help you with that.'),
 
   Badges,
 
