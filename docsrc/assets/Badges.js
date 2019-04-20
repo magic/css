@@ -9,7 +9,7 @@ const Badges = () => div({ class: 'Badges' }, [
 Badges.style = {
   '.Badges': {
     'a': {
-      margin: '0 0 0 .5em',
+      margin: '0 .5em 0 0',
     },
   },
 }
