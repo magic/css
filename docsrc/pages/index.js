@@ -2,7 +2,8 @@ module.exports = () => div([
   h2('@magic/css'),
 
   p('parse/stringify/write css in js'),
-  p('NO dynamic css, css gets output as css file'),
+  p('NO dynamic css, css gets output as css file. whenever possible, use dynamic classes instead.'),
+  p('if there is absolute need for dynamic css, feel free to use the style property of the div you want to dynamically change.'),
 
   Badges,
 
