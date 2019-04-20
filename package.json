@@ -26,7 +26,8 @@
     "src"
   ],
   "devDependencies": {
-    "@magic/test": "0.0.7"
+    "@magic/test": "0.0.7",
+    "@magic/core": "github:magic/core"
   },
   "scripts": {
     "start": "t -p",
