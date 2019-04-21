@@ -6,7 +6,7 @@ module.exports = () => div([
   p('if there is absolute need for dynamic css, feel free to use the style property of the html tag / webcomponent you want to dynamically change, unfortunately, this library will not help you with that.'),
 
   Badges,
-  p('(low coverage is due to this documentation not yet being covered by tests, actualy library coverage is at 99%)'),
+  p('(low coverage is due to this documentation not yet being covered by tests, actual library coverage is at 99%)'),
 
   h2('installation'),
   Pre.View('npm install @magic/css'),
@@ -15,6 +15,14 @@ module.exports = () => div([
 
   h3('init'),
   Pre.View('const css = require(\'@magic/css\')'),
+
+  h3('api'),
+  Pre.View(`
+const css = require('css')
+
+css(style) // return object
+css.stringify(style) // return string
+`),
 
   h3('all in one'),
   Pre.View(`
@@ -125,10 +133,10 @@ const style = {
   },
 }
 
-css.write(style)
 // writes styles to ./out.css
-css.write(style, { OUTFILE: './outfile.css' })
-// writes styles to ./outfile.css`),
+css.write(style)
+// writes styles to ./outfile.css
+css.write(style, { OUTFILE: './outfile.css' })`),
 
   h3('media queries'),
   Pre.View(`
