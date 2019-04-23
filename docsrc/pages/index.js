@@ -1,33 +1,32 @@
-module.exports = () => div([
-  h2('@magic/css'),
+module.exports = () =>
+  div([
+    h2('@magic/css'),
 
-  p('parse/stringify/write css in js'),
-  p('NO dynamic css, css gets output as css file. whenever possible, use dynamic classes instead.'),
-  p('if there is absolute need for dynamic css, feel free to use the style property of the html tag / webcomponent you want to dynamically change, unfortunately, this library will not help you with that.'),
+    p('parse/stringify/write css in js'),
+    p(
+      'NO dynamic css, css gets output as css file. whenever possible, use dynamic classes instead.',
+    ),
+    p(
+      'if there is absolute need for dynamic css, feel free to use the style property of the html tag / webcomponent you want to dynamically change, unfortunately, this library will not help you with that.',
+    ),
 
-  GitBadges({
-    project: 'magic/css',
-    appveyor: 'jaeh/css',
-  }),
+    GitBadges({
+      project: 'magic/css',
+      appveyor: 'jaeh/css',
+    }),
 
-  h2('installation'),
-  Pre.View('npm install @magic/css'),
+    h2({ id: 'installation' }, 'installation'),
+    Pre.View('npm install @magic/css'),
 
-  h2('usage'),
+    h2({ id: 'usage' }, 'usage'),
 
-  h3('init'),
-  Pre.View('const css = require(\'@magic/css\')'),
+    h3({ id: 'require' }, 'require'),
+    Pre.View("const css = require('@magic/css')"),
 
-  h3('api'),
-  Pre.View(`
-const css = require('css')
+    h2({ id: 'api' }, 'api'),
 
-css(style) // return object
-css.stringify(style) // return string
-`),
-
-  h3('all in one'),
-  Pre.View(`
+    h3({ id: 'api-css' }, 'css (full result)'),
+    Pre.View(`
 const css = require('css')
 
 const style = {
@@ -60,45 +59,8 @@ Object {
   parsed: [],
 }`),
 
-  h3('styles'),
-  Pre.View(`
-const style = {
-  '.className': {
-    color: 'green',
-  },
-}
-await css.stringify(style)
-// .className { color:green; }`),
-
-  h3('hover/active etc'),
-  Pre.View(`
-const style = {
-  'div': {
-    color: 'red',
-    '&:hover': {
-      color: 'green',
-    },
-  },
-}
-
-await css.stringify(style)
-// div { color: red; }
-// div:hover { color: green; }`),
-
-  h3('nesting'),
-  Pre.View(`
-const style = {
-  'div': {
-    'p, &:hover': {
-      color: 'red',
-    },
-  },
-}
-await css.stringify(style)
-// div p, div:hover { color: red; }`),
-
-  h3('parse'),
-  Pre.View(`
+    h3({ id: 'api-parse' }, 'parse'),
+    Pre.View(`
 const style = {
   '.className': {
     '#id': {
@@ -110,8 +72,8 @@ const style = {
 css.parse(style)
 // ast`),
 
-h3('stringify'),
-Pre.View(`
+    h3({ id: 'api-stringify' }, 'stringify'),
+    Pre.View(`
 const style = {
   '.className': {
     '#id': {
@@ -125,8 +87,8 @@ await css.stringify(style)
 \`.className #id{color:white;}\`
 `),
 
-  h3('write to filesystem'),
-  Pre.View(`
+    h3({ id: 'api-write' }, 'write to filesystem'),
+    Pre.View(`
 const style = {
   '.className': {
     '#id': {
@@ -140,8 +102,52 @@ css.write(style)
 // writes styles to ./outfile.css
 css.write(style, { OUTFILE: './outfile.css' })`),
 
-  h3('media queries'),
-  Pre.View(`
+    h2({ id: 'styles' }, 'styles'),
+    p([
+      'styles are a javascript object.',
+      ' the keys are selectors and the values are nested objects of css rules,',
+      ' where the keys of the objects are assumed to be selectors',
+      ' unless the value associated with the key is not an object',
+    ]),
+    Pre.View(`
+const style = {
+'.className': {
+  color: 'green',
+},
+}
+await css.stringify(style)
+// .className { color:green; }`),
+
+    h3({ id: 'pseudo classes: (:hover, :active)' }, 'pseudo classes: (:hover, :active)'),
+    p('css pseudo classes in nested css get found if their object key starts with a &'),
+    Pre.View(`
+const style = {
+'div': {
+  color: 'red',
+  '&:hover': {
+    color: 'green',
+  },
+},
+}
+
+await css.stringify(style)
+// div { color: red; }
+// div:hover { color: green; }`),
+
+    h3({ id: 'selector-nesting' }, 'selector nesting'),
+    Pre.View(`
+const style = {
+'div': {
+  'p, &:hover': {
+    color: 'red',
+  },
+},
+}
+await css.stringify(style)
+// div p, div:hover { color: red; }`),
+
+    h3({ id: 'media-queries' }, 'media queries'),
+    Pre.View(`
 const style = {
   '@media screen and (min-width: 500px)': {
     '#id': {
@@ -160,9 +166,8 @@ await css.stringify(style)
 }
 \``),
 
-
-  h3('keyframes'),
-  Pre.View(`
+    h3({ id: 'keyframes' }, 'keyframes for animations'),
+    Pre.View(`
 const style = {
 '@keyframes anim-name': {
   from {
@@ -187,8 +192,8 @@ await css.stringify(style)
 }
 \``),
 
-  h3('webfonts'),
-  Pre.View(`
+    h3({ id: 'webfonts' }, 'webfonts'),
+    Pre.View(`
 const style = {
   '@font-face': {
     fontFamily: 'font-name',
@@ -214,43 +219,28 @@ await css.stringify(style)
 }
 \``),
 
-  div({ class: 'changelog' }, [
-    h2('CHANGELOG'),
+    div({ id: 'changelog' }, [
+      h2('CHANGELOG'),
 
-    h3('0.1.0'),
-    ul([
-      li('return classes and ids as separate objects additionally to selectors'),
-    ]),
+      h4({ id: 'v-0.1.0' }, '0.1.0'),
+      ul([li('return classes and ids as separate objects additionally to selectors')]),
 
-    h3('0.2.0'),
-    ul([
-      li('Added media queries'),
-    ]),
+      h4({ id: 'v-0.2.0' }, '0.2.0'),
+      ul([li('Added media queries')]),
 
-    h3('0.3.0'),
-    ul([
-      li('returns a promise! no longer sync'),
-      li('autoprefixer and postcss added'),
-    ]),
+      h4({ id: 'v-0.3.0' }, '0.3.0'),
+      ul([li('returns a promise! no longer sync'), li('autoprefixer and postcss added')]),
 
-    h3('0.4.0'),
-    ul([
-      li('supports @font-face declarations'),
-    ]),
+      h4({ id: 'v-0.4.0' }, '0.4.0'),
+      ul([li('supports @font-face declarations')]),
 
-    h3('0.4.1'),
-    ul([
-      li('added fontDir option to font-face declarations'),
-    ]),
+      h4({ id: 'v-0.4.1' }, '0.4.1'),
+      ul([li('added fontDir option to font-face declarations')]),
 
-    h3('0.4.2'),
-    ul([
-      li('update deps to fix security issues'),
-    ]),
+      h4({ id: 'v-0.4.2' }, '0.4.2'),
+      ul([li('update deps to fix security issues')]),
 
-    h3('0.4.3'),
-    ul([
-      li('added @keyframes for animations'),
+      h4({ id: 'v-0.4.3' }, '0.4.3'),
+      ul([li('added @keyframes for animations')]),
     ]),
-  ]),
-])
+  ])
