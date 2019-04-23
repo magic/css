@@ -1,6 +1,7 @@
 module.exports = {
   ROOT: 'docsrc',
   WEB_ROOT: '/css/',
+  THEME: 'docs',
 
   PUBLIC: 'docs',
 
