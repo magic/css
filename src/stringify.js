@@ -31,11 +31,10 @@ const recurseStringify = mod => {
         `url('${fontDir}${fontFamily}.ttf') format('truetype')`,
         `url('${fontDir}${fontFamily}.woff') format('woff')`,
         `url('${fontDir}${fontFamily}.woff2') format('woff2')`,
-        `url('${fontDir}${fontFamily}.svg#${fontFamily}') format('svg');`
+        `url('${fontDir}${fontFamily}.svg#${fontFamily}') format('svg');`,
       ].join(', ')}`
 
       res = res.replace('}\n', `${srcString} }\n`)
-
     } else {
       res = mod.map(recurseStringify).join(' ')
     }
