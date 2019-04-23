@@ -17,7 +17,7 @@
     "clean": "magic clean",
     "serve": "magic serve",
     "dev": "magic dev",
-    "format": "f -w --exclude docs",
+    "format": "f --write --exclude docs/",
     "test": "t --exclude docs docsrc config.js",
     "calls": "calls"
   },
