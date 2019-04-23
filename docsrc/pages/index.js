@@ -5,7 +5,10 @@ module.exports = () => div([
   p('NO dynamic css, css gets output as css file. whenever possible, use dynamic classes instead.'),
   p('if there is absolute need for dynamic css, feel free to use the style property of the html tag / webcomponent you want to dynamically change, unfortunately, this library will not help you with that.'),
 
-  Badges,
+  GitBadges({
+    project: 'magic/css',
+    appveyor: 'jaeh/css',
+  }),
   p('(low coverage is due to this documentation not yet being covered by tests, actual library coverage is at 99%)'),
 
   h2('installation'),
