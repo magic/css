@@ -9,7 +9,6 @@ module.exports = () => div([
     project: 'magic/css',
     appveyor: 'jaeh/css',
   }),
-  p('(low coverage is due to this documentation not yet being covered by tests, actual library coverage is at 99%)'),
 
   h2('installation'),
   Pre.View('npm install @magic/css'),
