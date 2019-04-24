@@ -16,30 +16,30 @@ const recurseStringify = mod => {
 
   if (is.array(mod)) {
     const isString = is.string(mod[0])
-    if (isString && mod[0].startsWith('@keyframes')) {
-      res = `${mod[0]} { ${recurseStringify(mod[1])} }`
-    } else if (isString && mod[0].startsWith('@media')) {
-      res = `${mod[0]} { ${recurseStringify(mod[1])} }`
-    } else if (isString && mod[0].startsWith('@font-face')) {
-      const { fontFamily, fontDir = '', fontRoot, ...rest } = mod[1]
-      res = `${mod[0]} ${recurseStringify({ fontFamily: `"${fontFamily}"`, ...rest })}`
+    if (isString) {
+      if (mod[0].startsWith('@keyframes') || mod[0].startsWith('@media')) {
+        return `${mod[0]} { ${recurseStringify(mod[1])} }`
+      } else if (mod[0].startsWith('@font-face')) {
+        const { fontFamily, fontDir = '', fontRoot, ...rest } = mod[1]
+        res = `${mod[0]} ${recurseStringify({ fontFamily: `"${fontFamily}"`, ...rest })}`
 
-      const eotString = `src: url('${fontDir}${fontFamily}.eot');`
+        const eotString = `src: url('${fontDir}${fontFamily}.eot');`
 
-      const srcString = `${eotString} src: ${[
-        `url('${fontDir}${fontFamily}.eot#iefix') format('embedded-opentype')`,
-        `url('${fontDir}${fontFamily}.ttf') format('truetype')`,
-        `url('${fontDir}${fontFamily}.woff') format('woff')`,
-        `url('${fontDir}${fontFamily}.woff2') format('woff2')`,
-        `url('${fontDir}${fontFamily}.svg#${fontFamily}') format('svg');`,
-      ].join(', ')}`
+        const srcString = `${eotString} src: ${[
+          `url('${fontDir}${fontFamily}.eot#iefix') format('embedded-opentype')`,
+          `url('${fontDir}${fontFamily}.ttf') format('truetype')`,
+          `url('${fontDir}${fontFamily}.woff') format('woff')`,
+          `url('${fontDir}${fontFamily}.woff2') format('woff2')`,
+          `url('${fontDir}${fontFamily}.svg#${fontFamily}') format('svg');`,
+        ].join(', ')}`
 
-      res = res.replace('}\n', `${srcString} }\n`)
-    } else {
-      res = mod.map(recurseStringify).join(' ')
+        return res.replace('}\n', `${srcString} }\n`)
+      }
     }
+
+    return mod.map(recurseStringify).join(' ')
   } else if (is.object(mod)) {
-    res = `{ ${stringifyProps(mod)} }\n`
+    return `{ ${stringifyProps(mod)} }\n`
   }
 
   return res
