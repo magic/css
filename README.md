@@ -2,13 +2,27 @@
 
 can parse/stringify/write css in js
 
-[docs](https://magic.github.io/css/)
+[html docs](https://magic.github.io/css/)
 
 [![NPM version][npm-image]][npm-url]
 [![Linux Build Status][travis-image]][travis-url]
 [![Windows Build Status][appveyor-image]][appveyor-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 [![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+
+[npm-image]: https://img.shields.io/npm/v/@magic/css.svg
+[npm-url]: https://www.npmjs.com/package/@magic/css
+[travis-image]: https://api.travis-ci.org/magic/css.svg?branch=master
+[travis-url]: https://travis-ci.org/magic/css
+[appveyor-image]: https://img.shields.io/appveyor/ci/jaeh/css/master.svg
+[appveyor-url]: https://ci.appveyor.com/project/jaeh/css/branch/master
+[coveralls-image]: https://coveralls.io/repos/github/magic/css/badge.svg
+[coveralls-url]: https://coveralls.io/github/magic/css
+[greenkeeper-image]: https://badges.greenkeeper.io/magic/css.svg
+[greenkeeper-url]: https://badges.greenkeeper.io/magic/css.svg
+[snyk-image]: https://snyk.io/test/github/magic/css/badge.svg
+[snyk-url]: https://snyk.io/test/github/magic/css
 
 ##### installation:
 ```javascript
@@ -217,14 +231,3 @@ await css.stringify(style)
 
 #### 0.4.4
 * css.parse now converts deep arrays into one object before parsing
-
-[npm-image]: https://img.shields.io/npm/v/@magic/css.svg
-[npm-url]: https://www.npmjs.com/package/@magic/css
-[travis-image]: https://travis-ci.com/magic/css.svg?branch=master
-[travis-url]: https://travis-ci.org/magic/css
-[appveyor-image]: https://ci.appveyor.com/api/projects/status/yk1hmw7ilwb74h5y/branch/master?svg=true
-[appveyor-url]: https://ci.appveyor.com/project/jaeh/css/branch/master
-[coveralls-image]: https://coveralls.io/repos/github/magic/css/badge.svg
-[coveralls-url]: https://coveralls.io/github/magic/css
-[greenkeeper-image]: https://badges.greenkeeper.io/magic/css.svg
-[greenkeeper-url]: https://greenkeeper.io
