@@ -30,7 +30,7 @@
   "dependencies": {
     "@magic-themes/docs": "github:magic-themes/docs",
     "@magic/deep": "0.0.1",
-    "@magic/types": "0.0.3",
+    "@magic/types": "0.0.4",
     "autoprefixer": "9.5.1",
     "postcss": "7.0.14"
   },
