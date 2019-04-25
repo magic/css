@@ -194,21 +194,29 @@ await css.stringify(style)
 
 ### CHANGELOG:
 #### 0.1.0
-  * return classes and ids as well
+* return classes and ids as well
 
 #### 0.2.0:
-  * Added media queries
+* Added media queries
 
 #### 0.3.0:
-  * returns a promise! no longer sync.
-  * autoprefixer and postcss added
+* returns a promise! no longer sync.
+* autoprefixer and postcss added
 
 ### 0.4.0:
-  * supports @font-face declarations
+* supports @font-face declarations
 
 #### 0.4.1
-  * added fontDir option to font-face declarations
+* added fontDir option to font-face declarations
 
+#### 0.4.2
+* update deps to fix security issues
+
+#### 0.4.3
+* added @keyframes for animations
+
+#### 0.4.4
+* css.parse now converts deep arrays into one object before parsing
 
 [npm-image]: https://img.shields.io/npm/v/@magic/css.svg
 [npm-url]: https://www.npmjs.com/package/@magic/css

@@ -242,5 +242,8 @@ await css.stringify(style)
 
       h4({ id: 'v-0.4.3' }, '0.4.3'),
       ul([li('added @keyframes for animations')]),
+
+      h4({ id: 'v-0.4.4' }, '0.4.4'),
+      ul([li('css.parse now converts deep arrays into one object before parsing')]),
     ]),
   ])
