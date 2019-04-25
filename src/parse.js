@@ -37,12 +37,31 @@ const recurseParse = mod => {
   }
 }
 
-const parse = (styles, opts = {}) => {
-  const styleObject = is.function(styles) ? styles(opts) : styles
+const recurseStyle = styles => {
+  let styleObject = {}
+  styles.forEach(style => {
+    if (is.array(style)) {
+      style = recurseStyle(style)
+    }
+    styleObject = {
+      ...styleObject,
+      ...style,
+    }
+  })
+  return styleObject
+}
 
-  return Object.entries(styleObject)
-    .sort(a => (a[0].startsWith('@media') ? 1 : -1))
-    .map(recurseParse)
+const parse = (styles, opts = {}) => {
+  // first check if the user sent us a function that resolves to a css object
+  if (is.function(styles)) {
+    styles = styles(opts)
+  }
+  // this might trigger additionally to the is.function if statement above
+  if (is.array(styles)) {
+    styles = recurseStyle(styles)
+  }
+
+  return Object.entries(styles).map(recurseParse)
 }
 
 module.exports = parse
