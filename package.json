@@ -41,6 +41,6 @@
     "@magic-modules/gitbadges": "github:magic-modules/gitbadges",
     "@magic-modules/pre": "github:magic-modules/pre",
     "@magic/core": "github:magic/core",
-    "@magic/test": "0.0.10"
+    "@magic/test": "0.0.11"
   }
 }
