@@ -118,7 +118,7 @@ const style = {
 await css.stringify(style)
 // .className { color:green; }`),
 
-    h3({ id: 'pseudo classes: (:hover, :active)' }, 'pseudo classes: (:hover, :active)'),
+    h3({ id: 'styles-pseudo-classes' }, 'pseudo classes: (:hover, :active)'),
     p('css pseudo classes in nested css get found if their object key starts with a &'),
     Pre.View(`
 const style = {
@@ -134,7 +134,7 @@ await css.stringify(style)
 // div { color: red; }
 // div:hover { color: green; }`),
 
-    h3({ id: 'selector-nesting' }, 'selector nesting'),
+    h3({ id: 'styles-selector-nesting' }, 'selector nesting'),
     Pre.View(`
 const style = {
 'div': {
@@ -146,7 +146,7 @@ const style = {
 await css.stringify(style)
 // div p, div:hover { color: red; }`),
 
-    h3({ id: 'media-queries' }, 'media queries'),
+    h3({ id: 'styles-media-queries' }, 'media queries'),
     Pre.View(`
 const style = {
   '@media screen and (min-width: 500px)': {
@@ -166,7 +166,7 @@ await css.stringify(style)
 }
 \``),
 
-    h3({ id: 'keyframes' }, 'keyframes for animations'),
+    h3({ id: 'styles-keyframes' }, 'keyframes for animations'),
     Pre.View(`
 const style = {
 '@keyframes anim-name': {
@@ -192,7 +192,7 @@ await css.stringify(style)
 }
 \``),
 
-    h3({ id: 'webfonts' }, 'webfonts'),
+    h3({ id: 'styles-webfonts' }, 'webfonts'),
     Pre.View(`
 const style = {
   '@font-face': {
@@ -222,28 +222,28 @@ await css.stringify(style)
     div({ id: 'changelog' }, [
       h2('CHANGELOG'),
 
-      h4({ id: 'v-0.1.0' }, '0.1.0'),
+      h4({ id: 'changelog-v-0.1.0' }, '0.1.0'),
       ul([li('return classes and ids as separate objects additionally to selectors')]),
 
-      h4({ id: 'v-0.2.0' }, '0.2.0'),
+      h4({ id: 'changelog-v-0.2.0' }, '0.2.0'),
       ul([li('Added media queries')]),
 
-      h4({ id: 'v-0.3.0' }, '0.3.0'),
+      h4({ id: 'changelog-v-0.3.0' }, '0.3.0'),
       ul([li('returns a promise! no longer sync'), li('autoprefixer and postcss added')]),
 
-      h4({ id: 'v-0.4.0' }, '0.4.0'),
+      h4({ id: 'changelog-v-0.4.0' }, '0.4.0'),
       ul([li('supports @font-face declarations')]),
 
-      h4({ id: 'v-0.4.1' }, '0.4.1'),
+      h4({ id: 'changelog-v-0.4.1' }, '0.4.1'),
       ul([li('added fontDir option to font-face declarations')]),
 
-      h4({ id: 'v-0.4.2' }, '0.4.2'),
+      h4({ id: 'changelog-v-0.4.2' }, '0.4.2'),
       ul([li('update deps to fix security issues')]),
 
-      h4({ id: 'v-0.4.3' }, '0.4.3'),
+      h4({ id: 'changelog-v-0.4.3' }, '0.4.3'),
       ul([li('added @keyframes for animations')]),
 
-      h4({ id: 'v-0.4.4' }, '0.4.4'),
+      h4({ id: 'changelog-v-0.4.4' }, '0.4.4'),
       ul([li('css.parse now converts deep arrays into one object before parsing')]),
     ]),
   ])
