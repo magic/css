@@ -2,6 +2,8 @@ const is = require('@magic/types')
 const deep = require('@magic/deep')
 
 const getSelector = require('./getSelector')
+const recurseStyle = require('./style')
+const sort = require('./sort')
 
 const recurseParse = mod => {
   const [parent, items] = mod
@@ -37,20 +39,6 @@ const recurseParse = mod => {
   }
 }
 
-const recurseStyle = styles => {
-  let styleObject = {}
-  styles.forEach(style => {
-    if (is.array(style)) {
-      style = recurseStyle(style)
-    }
-    styleObject = {
-      ...styleObject,
-      ...style,
-    }
-  })
-  return styleObject
-}
-
 const parse = (styles, opts = {}) => {
   // first check if the user sent us a function that resolves to a css object
   if (is.function(styles)) {
@@ -61,7 +49,10 @@ const parse = (styles, opts = {}) => {
     styles = recurseStyle(styles)
   }
 
-  return Object.entries(styles).map(recurseParse)
+  const parsed = Object.entries(styles).map(recurseParse)
+  const sorted = sort(parsed)
+
+  return sorted
 }
 
 module.exports = parse

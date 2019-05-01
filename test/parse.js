@@ -17,7 +17,7 @@ const styleArray = [
       body: {
         color: 'green',
       },
-    }
+    },
   ],
 ]
 
