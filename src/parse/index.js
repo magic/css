@@ -3,7 +3,7 @@ const deep = require('@magic/deep')
 
 const getSelector = require('./getSelector')
 const recurseStyle = require('./style')
-const sort = require('./sort')
+// const sort = require('./sort')
 
 const recurseParse = mod => {
   const [parent, items] = mod
@@ -50,9 +50,8 @@ const parse = (styles, opts = {}) => {
   }
 
   const parsed = Object.entries(styles).map(recurseParse)
-  const sorted = sort(parsed)
 
-  return sorted
+  return parsed
 }
 
 module.exports = parse
