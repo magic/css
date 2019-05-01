@@ -13,7 +13,7 @@ const keyframes = {
 
 const expectCss = [
   '@-webkit-keyframes testAnim { from { opacity: 0; }\n to { opacity: 0; }\n }',
-  '@keyframes testAnim { from { opacity: 0; }\n to { opacity: 0; }\n }',
+  '@keyframes testAnim { from { opacity: 0; }\n to { opacity: 0; }\n }\n',
 ].join(' ')
 const expectMinified = [
   '@-webkit-keyframes testAnim{from{opacity:0}to{opacity:0}}',
