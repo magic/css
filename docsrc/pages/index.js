@@ -246,11 +246,15 @@ await css.stringify(style)
       h4({ id: 'changelog-v-0.4.4' }, '0.4.4'),
       ul([li('css.parse now converts deep arrays into one object before parsing')]),
 
-
       h4({ id: 'changelog-v-0.4.5' }, '0.4.5'),
       ul([
         li('css.stringify now makes a bit nicer mediaquery and keyframe links.'),
         li('css.parse should now order media queries to the end of the css.'),
+      ]),
+
+      h4({ id: 'changelog-v-0.4.6' }, '0.4.6'),
+      ul([
+	li('css.parse does a better job of keeping order of incoming objects intact'),
       ]),
     ]),
   ])

@@ -233,5 +233,8 @@ await css.stringify(style)
 * css.parse now converts deep arrays into one object before parsing
 
 #### 0.4.5
-* css.stringify now makes a bit nicer mediaquery and keyframe links.
+* css.stringify now makes a bit nicer mediaquery and keyframe lines.
 * css.parse should now order media queries to the end of the css
+
+#### 0.4.6
+css.parse does a better job of keeping order of incoming objects intact
