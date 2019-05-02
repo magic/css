@@ -252,4 +252,12 @@ await css.stringify(style)
     h4({ id: 'changelog-v-0.4.6' }, '0.4.6'),
     ul([li('css.parse does a better job of keeping order of incoming objects intact')]),
   ]),
+
+  h2({ id: 'source' }, 'source'),
+  p([
+    'the source for this page is in the ',
+    Link({ to: 'https://github.com/magic/css/tree/master/docsrc' }, 'docsrc directory'),
+    ' and gets built and published to github using ',
+    Link({ to: 'https://github.com/magic/core' }, '@magic/core'),
+  ]),
 ]
