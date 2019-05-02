@@ -49,7 +49,9 @@ const parse = (styles, opts = {}) => {
     styles = recurseStyle(styles)
   }
 
-  const parsed = Object.entries(styles).map(recurseParse)
+  const parsed = Object.entries(styles)
+    .sort(a => (a[0].startsWith('@') ? 1 : -1))
+    .map(recurseParse)
 
   return parsed
 }
