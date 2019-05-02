@@ -39,6 +39,7 @@ module.exports = {
           { to: '/#changelog-v-0.4.4', text: '0.4.4' },
         ],
       },
+      { to: '/#source', text: 'source' },
     ],
   },
 }
