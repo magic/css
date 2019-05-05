@@ -13,17 +13,17 @@ module.exports = () => [
   }),
 
   h2({ id: 'installation' }, 'installation'),
-  Pre.View('npm install @magic/css'),
+  Pre('npm install @magic/css'),
 
   h2({ id: 'usage' }, 'usage'),
 
   h3({ id: 'require' }, 'require'),
-  Pre.View("const css = require('@magic/css')"),
+  Pre("const css = require('@magic/css')"),
 
   h2({ id: 'api' }, 'api'),
 
   h3({ id: 'api-css' }, 'css (full result)'),
-  Pre.View(`
+  Pre(`
 const css = require('css')
 
 const style = {
@@ -57,7 +57,7 @@ Object {
 }`),
 
   h3({ id: 'api-parse' }, 'parse'),
-  Pre.View(`
+  Pre(`
 const style = {
   '.className': {
     '#id': {
@@ -70,7 +70,7 @@ css.parse(style)
 // ast`),
 
   h3({ id: 'api-stringify' }, 'stringify'),
-  Pre.View(`
+  Pre(`
 const style = {
   '.className': {
     '#id': {
@@ -85,7 +85,7 @@ await css.stringify(style)
 `),
 
   h3({ id: 'api-write' }, 'write to filesystem'),
-  Pre.View(`
+  Pre(`
 const style = {
   '.className': {
     '#id': {
@@ -106,7 +106,7 @@ css.write(style, { OUTFILE: './outfile.css' })`),
     ' where the keys of the objects are assumed to be selectors',
     ' unless the value associated with the key is not an object',
   ]),
-  Pre.View(`
+  Pre(`
 const style = {
 '.className': {
   color: 'green',
@@ -117,7 +117,7 @@ await css.stringify(style)
 
   h3({ id: 'styles-pseudo-classes' }, 'pseudo classes: (:hover, :active)'),
   p('css pseudo classes in nested css get found if their object key starts with a &'),
-  Pre.View(`
+  Pre(`
 const style = {
 'div': {
   color: 'red',
@@ -132,7 +132,7 @@ await css.stringify(style)
 // div:hover { color: green; }`),
 
   h3({ id: 'styles-selector-nesting' }, 'selector nesting'),
-  Pre.View(`
+  Pre(`
 const style = {
 'div': {
   'p, &:hover': {
@@ -144,7 +144,7 @@ await css.stringify(style)
 // div p, div:hover { color: red; }`),
 
   h3({ id: 'styles-media-queries' }, 'media queries'),
-  Pre.View(`
+  Pre(`
 const style = {
   '@media screen and (min-width: 500px)': {
     '#id': {
@@ -164,7 +164,7 @@ await css.stringify(style)
 \``),
 
   h3({ id: 'styles-keyframes' }, 'keyframes for animations'),
-  Pre.View(`
+  Pre(`
 const style = {
 '@keyframes anim-name': {
   from {
@@ -190,7 +190,7 @@ await css.stringify(style)
 \``),
 
   h3({ id: 'styles-webfonts' }, 'webfonts'),
-  Pre.View(`
+  Pre(`
 const style = {
   '@font-face': {
     fontFamily: 'font-name',
