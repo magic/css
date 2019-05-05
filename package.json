@@ -38,7 +38,7 @@
     "src"
   ],
   "devDependencies": {
-    "@magic-modules/gitbadges": "github:magic-modules/gitbadges",
+    "@magic-modules/git-badges": "github:magic-modules/git-badges",
     "@magic-modules/pre": "github:magic-modules/pre",
     "@magic/core": "github:magic/core",
     "@magic/test": "0.0.12"
