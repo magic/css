@@ -256,7 +256,7 @@ await css.stringify(style)
   h2({ id: 'source' }, 'source'),
   p([
     'the source for this page is in the ',
-    Link({ to: 'https://github.com/magic/css/tree/master/docsrc' }, 'docsrc directory'),
+    Link({ to: 'https://github.com/magic/css/tree/master/example' }, 'example directory'),
     ' and gets built and published to github using ',
     Link({ to: 'https://github.com/magic/core' }, '@magic/core'),
   ]),
