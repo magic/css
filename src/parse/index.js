@@ -3,7 +3,6 @@ const deep = require('@magic/deep')
 
 const getSelector = require('./getSelector')
 const recurseStyle = require('./style')
-// const sort = require('./sort')
 
 const recurseParse = mod => {
   const [parent, items] = mod
