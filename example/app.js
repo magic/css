@@ -20,6 +20,10 @@ module.exports = {
         items: [
           { to: '/#styles-pseudo-classes', text: ':pseudo classes' },
           { to: '/#styles-selector-nesting', text: 'selector nesting' },
+          { to: '/#styles-prefix-with-space', text: 'prefix w/ space' },
+          { to: '/#styles-prefix-all-with-space', text: 'prefix all w/ space' },
+          { to: '/#styles-prefix-without-space', text: 'prefix w/o space' },
+          { to: '/#styles-prefix-all-without-space', text: 'prefix all w/o space' },
           { to: '/#styles-media-queries', text: 'media queries' },
           { to: '/#styles-keyframes', text: 'keyframes' },
           { to: '/#styles-webfonts', text: 'webfonts' },
