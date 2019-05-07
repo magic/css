@@ -7,10 +7,7 @@ module.exports = () => [
     'if there is absolute need for dynamic css, feel free to use the style property of the html tag / webcomponent you want to dynamically change, unfortunately, this library will not help you with that.',
   ),
 
-  GitBadges({
-    project: 'magic/css',
-    appveyor: 'jaeh/css',
-  }),
+  GitBadges('magic/css'),
 
   h2({ id: 'installation' }, 'installation'),
   Pre('npm install @magic/css'),
