@@ -13,10 +13,10 @@
   "scripts": {
     "start": "t -p",
     "build": "NODE_ENV=production magic build",
-    "prod": "NODE_ENV=production magic build serve",
+    "prod": "NODE_ENV=production magic build serve --watch src",
     "clean": "magic clean",
     "serve": "magic serve",
-    "dev": "magic dev",
+    "dev": "magic dev --watch src",
     "format": "f -w --exclude docs",
     "test": "t --exclude docs example config.js",
     "calls": "calls"
