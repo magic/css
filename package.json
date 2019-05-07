@@ -18,7 +18,7 @@
     "serve": "magic serve",
     "dev": "magic dev",
     "format": "f -w --exclude docs",
-    "test": "t --exclude docs docsrc config.js",
+    "test": "t --exclude docs example config.js",
     "calls": "calls"
   },
   "keywords": [
