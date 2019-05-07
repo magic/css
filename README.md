@@ -49,7 +49,7 @@ const style = {
     color: 'orange',
   },
   '#id': {
-    color: 'purple'
+    color: 'purple',
   },
 }
 
@@ -62,13 +62,17 @@ Object {
   // minimal whitespace
   minified: 'body{color:green}.class{color:orange}#id{color:purple}',
   // array of used classes if any
-  classes: [],
+  classes: ['.class'],
   // array of used ids if any
-  ids: [],
+  ids: ['#id'],
   // array of used selectors
-  selectors: [],
+  selectors: ['body', '.class', '.id'],
   //ast of this css object
-  parsed: [],
+  parsed: [
+    ['body', { color: 'green' }],
+    ['.class': { color: 'orange' }],
+    ['#id': { color: 'purple' }],
+  ],
 }
 ```
 
@@ -80,13 +84,14 @@ const style = {
   },
 }
 await css.stringify(style)
+
 // .className { color:green; }
 ```
 
 ##### hover/active etc
 ```javascript
 const style = {
-  'div': {
+  div: {
     color: 'red',
     '&:hover': {
       color: 'green',
@@ -95,22 +100,115 @@ const style = {
 }
 
 await css.stringify(style)
+
 // div { color: red; }
 // div:hover { color: green; }
 ```
 
-##### nesting
+##### nesting / suffix
+to suffix some of the selectors, add a & to any of them except the first one
 ```javascript
 const style = {
-  'div': {
-    'p, &:hover': {
+  div: {
+    '.class1, &.class2': {
       color: 'red',
     },
   },
 }
+
 await css.stringify(style)
-// div p, div:hover { color: red; }
+
+// div .class1, div.class2 { color: red; }
 ```
+
+if you add the & at the start of the string,
+all of the selectors will have it applied
+```javascript
+const style = {
+  div: {
+    '&.class1, .class2': {
+      color: 'orange',
+    },
+  },
+}
+
+await css.stringify(style)
+
+// div.class1, div.class2 { color: orange; }
+```
+
+##### prefix without space
+
+to prefix the parent of the selector using the child selectors,
+add a & at the end of any selectors but the last one.
+```javascript
+const style = {
+  '.class': {
+    'p&, :hover': {
+      color: 'orange',
+    },
+  },
+}
+
+await css.stringify(style)
+
+// p.class, .class:hover { color: orange; }
+```
+
+
+##### prefix all without space
+if the & is at the end of a selector,
+the & will be applied to each of them.
+
+```javascript
+const style = {
+  '.class': {
+    'div, p&': {
+      color: 'orange';
+    },
+  },
+}
+
+await css.stringify(style)
+
+// div.class, p.class { color: orange; }
+```
+
+##### prefix with space
+to prefix the parent with a space, use a double && instead of a single &
+
+```javascript
+const style = {
+  '#id': {
+    '.class2&&, .class3': {
+      color: 'orange';
+    },
+  },
+}
+
+await css.stringify(style)
+
+// .class2 #id, #id.class3 { color: orange; }
+```
+
+##### prefix all with space
+if the && is at the end of a selector,
+the && will be applied to each of them.
+
+```javascript
+const style = {
+  '.class': {
+    'div, p&&': {
+      color: 'orange';
+    },
+  },
+}
+
+await css.stringify(style)
+
+// div .class, p .class { color: orange; }
+```
+
 
 ##### parse
 ```javascript
@@ -123,6 +221,7 @@ const style = {
 }
 
 css.parse(style)
+
 // ast
 ```
 
@@ -137,6 +236,7 @@ const style = {
 }
 
 await css.stringify(style)
+
 // minified string
 `.className #id{color:white;}`
 ```
@@ -152,8 +252,10 @@ const style = {
 }
 
 css.write(style)
+
 // writes styles to ./out.css
 css.write(style, { OUTFILE: './outfile.css' })
+
 // writes styles to ./outfile.css
 ```
 
@@ -168,6 +270,7 @@ const style = {
 }
 
 await css.stringify(style)
+
 // css string
 `
 @media screen and (min-width: 500px) {
@@ -190,6 +293,7 @@ const style = {
 }
 
 await css.stringify(style)
+
 // css string
 `
 @font-face {
@@ -238,3 +342,10 @@ await css.stringify(style)
 
 #### 0.4.6
 css.parse does a better job of keeping order of incoming objects intact
+
+#### 0.4.7
+* FIX: multiple parent selectors 'h1,h2,h3' that should get appended
+  with a &:hover etc now correctly append the suffix to every parent
+* FEATURE: & can be at the end of a selector,
+  in which case the selector gets prepended to it's parent.
+
