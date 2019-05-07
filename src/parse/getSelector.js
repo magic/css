@@ -10,23 +10,42 @@ const getSelector = (parent, name) => {
       .trim()
   }
 
+  // names that contain , have to be split and prefixed separately
+  if (name.includes(',')) {
+    return (
+      name
+        .split(',')
+        // .map(n => `${before}${n}${after}`)
+        .map((n, _, names) => {
+          // find out if we have to prefix or suffix the name
+          const first = names[0]
+          const last = names[names.length - 1]
+          if (first.startsWith('&') && !n.startsWith('&')) {
+            n = `&${n}`
+          } else if (last.endsWith('&&') && !n.endsWith('&&')) {
+            n = `${n}&&`
+          } else if (last.endsWith('&') && !n.endsWith('&')) {
+            n = `${n}&`
+          }
+
+          return getSelector(parent, n)
+        })
+        .join(', ')
+        .trim()
+    )
+  }
+
   // find out if we have to prefix, suffix, or assume that we want to designate a child class
   let before = ''
   let after = ''
   if (name.startsWith('&')) {
     before = '&'
   } else if (name.endsWith('&')) {
-    after = '&'
-  }
-
-  // names that contain , have to be split and prefixed separately
-  if (name.includes(',')) {
-    return name
-      .split(',')
-      .map(n => `${before}${n}${after}`)
-      .map(n => getSelector(parent, n))
-      .join(', ')
-      .trim()
+    if (name.endsWith('&&')) {
+      after = '&&'
+    } else {
+      after = '&'
+    }
   }
 
   // make sure our name does not contain any &'s after this line
@@ -38,7 +57,9 @@ const getSelector = (parent, name) => {
   // merge selector depending on the before and after variables defined above
   if (before) {
     parent += name
-  } else if (after) {
+  } else if (after === '&&') {
+    parent = `${name} ${parent}`
+  } else if (after === '&') {
     parent = name + parent
   } else {
     parent += ` ${name}`
