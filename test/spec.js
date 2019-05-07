@@ -87,6 +87,10 @@ module.exports = [
   {
     fn: tryCatch(css.write, 'div{color:green;}'),
     expect: is.error,
-    info: 'write without opts errors',
+    info: 'trying to write a file without opts errors',
+  },
+  {
+    fn: canHandleExtensions,
+    expect: expectCanHandleExtensions,
   },
 ]
