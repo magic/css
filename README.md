@@ -349,3 +349,6 @@ css.parse does a better job of keeping order of incoming objects intact
 * FEATURE: & can be at the end of a selector,
   in which case the selector gets prepended to it's parent.
 
+#### 0.5.0
+* FIX: css gets returned in almost the same order it got passed in.
+  turns out that javascript objects do not make this as easy as hoped.
