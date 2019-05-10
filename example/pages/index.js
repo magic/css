@@ -321,7 +321,7 @@ await css.stringify(style)
     h4({ id: 'changelog-v-0.4.7' }, '0.4.7'),
     ul([
       li([
-        'FIX: multiple parent selectors 'h1,h2,h3' that should get appended',
+        "FIX: multiple parent selectors 'h1,h2,h3' that should get appended",
         ' with a &:hover etc now correctly append the suffix to every parent',
       ]),
       li('* FEATURE: & can be at the end of a selector to prepend a parent'),
