@@ -28,7 +28,6 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "@magic-themes/docs": "github:magic-themes/docs",
     "@magic/deep": "0.0.1",
     "@magic/types": "0.0.5",
     "autoprefixer": "9.5.1",
@@ -40,6 +39,7 @@
   "devDependencies": {
     "@magic-modules/git-badges": "github:magic-modules/git-badges",
     "@magic-modules/pre": "github:magic-modules/pre",
+    "@magic-themes/docs": "github:magic-themes/docs",
     "@magic/core": "github:magic/core",
     "@magic/test": "0.0.12"
   }
