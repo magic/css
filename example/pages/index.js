@@ -140,12 +140,11 @@ const style = {
 await css.stringify(style)
 // div p, div:hover { color: red; }`),
 
-
-h3({ id: 'styles-prefix-without-space' }, 'prefix without space'),
-p([
-  'to prefix the parent of the selector using the child selectors,',
-  ' add a & at the end of any selectors but the last one.',
-]),
+  h3({ id: 'styles-prefix-without-space' }, 'prefix without space'),
+  p([
+    'to prefix the parent of the selector using the child selectors,',
+    ' add a & at the end of any selectors but the last one.',
+  ]),
   Pre(`
 const style = {
   '.class': {
@@ -160,13 +159,9 @@ await css.stringify(style)
 // p.class, .class:hover { color: orange; }
 `),
 
-
-h3({ id: 'styles-prefix-all-without-space'}, 'prefix all without space'),
-p([
-  'if the & is at the end of a selector,',
-  ' the & will be applied to each of them.',
-]),
-Pre(`
+  h3({ id: 'styles-prefix-all-without-space' }, 'prefix all without space'),
+  p(['if the & is at the end of a selector,', ' the & will be applied to each of them.']),
+  Pre(`
 const style = {
   '.class': {
     'div, p&': {
@@ -180,10 +175,10 @@ await css.stringify(style)
 // div.class, p.class { color: orange; }
 `),
 
-h3({ id: 'styles-prefix-with-space' }, 'prefix with space'),
-p('to prefix the parent with a space, use a double && instead of a single &'),
+  h3({ id: 'styles-prefix-with-space' }, 'prefix with space'),
+  p('to prefix the parent with a space, use a double && instead of a single &'),
 
-Pre(`
+  Pre(`
 const style = {
   '#id': {
     '.class2&&, .class3': {
@@ -197,13 +192,10 @@ await css.stringify(style)
 // .class2 #id, #id.class3 { color: orange; }
 `),
 
-h3({ id: 'styles-prefix-all-with-space' }, 'prefix all with space'),
-p([
-  'if the && is at the end of a selector,',
-  ' the && will be applied to each of them.',
-]),
+  h3({ id: 'styles-prefix-all-with-space' }, 'prefix all with space'),
+  p(['if the && is at the end of a selector,', ' the && will be applied to each of them.']),
 
-Pre(`
+  Pre(`
 const style = {
   '.class': {
     'div, p&&': {
@@ -216,9 +208,6 @@ await css.stringify(style)
 
 // div .class, p .class { color: orange; }
 `),
-
-
-
 
   h3({ id: 'styles-media-queries' }, 'media queries'),
   Pre(`
@@ -328,6 +317,23 @@ await css.stringify(style)
 
     h4({ id: 'changelog-v-0.4.6' }, '0.4.6'),
     ul([li('css.parse does a better job of keeping order of incoming objects intact')]),
+
+    h4({ id: 'changelog-v-0.4.7' }, '0.4.7'),
+    ul([
+      li([
+        'FIX: multiple parent selectors 'h1,h2,h3' that should get appended',
+        ' with a &:hover etc now correctly append the suffix to every parent',
+      ]),
+      li('* FEATURE: & can be at the end of a selector to prepend a parent'),
+    ]),
+  ]),
+
+  h4({ id: 'changelog-v-0.5.0' }, '0.5.0'),
+  ul([
+    li([
+      '* FIX: css gets returned in almost the same order it got passed in.',
+      ' turns out that javascript objects do not make this as easy as hoped.',
+    ]),
   ]),
 
   h2({ id: 'source' }, 'source'),

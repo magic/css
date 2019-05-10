@@ -10,10 +10,12 @@ const classes = style => selectors(style).filter(f => f.startsWith('.'))
 const ids = style => selectors(style).filter(f => f.startsWith('#'))
 
 const css = async (style, opts) => {
+  if (is.function(style)) {
+    style = style(opts)
+  }
+
   if (is.empty(style)) {
     return false
-  } else if (is.function(style)) {
-    style = style(opts)
   }
 
   const css = await stringify(style, opts)
