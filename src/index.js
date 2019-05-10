@@ -9,20 +9,22 @@ const selectors = require('./selectors')
 const classes = style => selectors(style).filter(f => f.startsWith('.'))
 const ids = style => selectors(style).filter(f => f.startsWith('#'))
 
-const css = async style => {
+const css = async (style, opts) => {
   if (is.empty(style)) {
     return false
+  } else if (is.function(style)) {
+    style = style(opts)
   }
 
-  const css = await stringify(style)
+  const css = await stringify(style, opts)
 
   return {
     css,
-    classes: classes(style),
-    ids: ids(style),
-    selectors: selectors(style),
-    parsed: parse(style),
-    minified: minify(css),
+    classes: classes(style, opts),
+    ids: ids(style, opts),
+    selectors: selectors(style, opts),
+    parsed: parse(style, opts),
+    minified: minify(css, opts),
   }
 }
 
