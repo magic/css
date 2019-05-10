@@ -85,7 +85,7 @@ const flatten = styles => {
 
 const flat = a => {
   if (isStyle(a)) {
-    const [k,v] = a
+    const [k, v] = a
     return [k, flat(v)]
   } else if (is.array(a)) {
     let flattened = []
@@ -129,13 +129,13 @@ const parse = (styles, opts = {}) => {
       if (oldVal) {
         v = deep.merge(oldVal, v)
       }
-      queryMap.set(k,v)
+      queryMap.set(k, v)
     } else {
       const oldVal = styleMap.get(k)
       if (oldVal) {
         v = deep.merge(oldVal, v)
       }
-      styleMap.set(k,v)
+      styleMap.set(k, v)
     }
   })
 
