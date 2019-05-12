@@ -3,9 +3,12 @@ module.exports = () => [
 
   p('parse/stringify/write css in js'),
   p('NO dynamic css, css gets output as css file. whenever possible, use dynamic classes instead.'),
-  p(
-    'if there is absolute need for dynamic css, feel free to use the style property of the html tag / webcomponent you want to dynamically change, unfortunately, this library will not help you with that.',
-  ),
+  p([
+    'if there is absolute need for dynamic css,',
+    ' feel free to use the style property of the',
+    ' html tag / webcomponent you want to dynamically change,',
+    ' unfortunately, this library will not help you with that.',
+  ]),
 
   GitBadges('magic/css'),
 
@@ -44,9 +47,9 @@ Object {
   // minimal whitespace
   minified: 'body{color:green}.class{color:orange}#id{color:purple}',
   // array of used classes if any
-  classes: [],
+  classes: ['.class'],
   // array of used ids if any
-  ids: [],
+  ids: ['#id'],
   // array of used selectors
   selectors: [],
   //ast of this css object
@@ -322,16 +325,16 @@ await css.stringify(style)
     ul([
       li([
         "FIX: multiple parent selectors 'h1,h2,h3' that should get appended",
-        ' with a &:hover etc now correctly append the suffix to every parent',
+        ' with a &:hover etc suffix now correctly append that suffix to every parent',
       ]),
-      li('* FEATURE: & can be at the end of a selector to prepend a parent'),
+      li('FEATURE: & can be at the end of a selector to prepend a parent'),
     ]),
   ]),
 
   h4({ id: 'changelog-v-0.5.0' }, '0.5.0'),
   ul([
     li([
-      '* FIX: css gets returned in almost the same order it got passed in.',
+      'FIX: css gets returned in almost the same order it got passed in.',
       ' turns out that javascript objects do not make this as easy as hoped.',
     ]),
   ]),
