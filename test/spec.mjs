@@ -1,8 +1,8 @@
-const { is, tryCatch } = require('@magic/test')
-const path = require('path')
-const fs = require('fs')
+import { is, tryCatch } from '@magic/test'
+import path from 'path'
+import fs from 'fs'
 
-const css = require('../src')
+import css from '../src/index.mjs'
 
 const style = opts => ({
   '.className': {
@@ -38,7 +38,7 @@ const style = opts => ({
   '.testing': true,
 })
 
-const outFile = path.join(__dirname, '..', 'src', 'out.css')
+const outFile = path.join('.', 'src', 'out.css')
 
 const opts = {
   id: 'green',
@@ -65,7 +65,7 @@ const write = () => css.write(style, opts)
 
 const expectWritten = () => fs.existsSync(outFile)
 
-module.exports = [
+export default [
   { fn: css, expect: is.object, info: 'css returns an object' },
   { fn: css({ div: { color: 'green' } }), expect: is.object, info: 'css returns an object' },
   { fn: () => css.parse, expect: is.fn, info: 'css.parse is a function' },

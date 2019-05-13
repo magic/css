@@ -68,4 +68,4 @@ const getSelector = (parent, name) => {
   return parent.trim()
 }
 
-module.exports = getSelector
+export default getSelector

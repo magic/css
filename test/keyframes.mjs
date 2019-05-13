@@ -1,4 +1,4 @@
-const css = require('../src')
+import css from '../src/index.mjs'
 
 const keyframes = {
   '@keyframes testAnim': {
@@ -20,7 +20,7 @@ const expectMinified = [
   '@keyframes testAnim{from{opacity:0}to{opacity:0}}',
 ].join('')
 
-module.exports = [
+export default [
   {
     fn: css(keyframes),
     expect: ({ css }) => css === expectCss,

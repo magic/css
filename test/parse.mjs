@@ -1,4 +1,4 @@
-const css = require('../src')
+import css from '../src/index.mjs'
 
 const styleObject = {
   body: {
@@ -21,7 +21,7 @@ const styleArray = [
   ],
 ]
 
-module.exports = [
+export default [
   { fn: css.parse(styleArray), expect: css.parse(styleObject) },
   { fn: css.stringify(styleArray), expect: css.stringify(styleObject) },
 ]

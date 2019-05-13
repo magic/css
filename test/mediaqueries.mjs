@@ -1,6 +1,6 @@
-const css = require('../src')
+import css from '../src/index.mjs'
 
-module.exports = [
+export default [
   {
     fn: () =>
       css({

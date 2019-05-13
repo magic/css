@@ -1,4 +1,4 @@
-// const css = require('../src/')
+// import css from '../src/.mjs'
 
 // let called = false
 
@@ -16,7 +16,7 @@
 //   }
 // }
 
-module.exports = [
+export default [
   { fn: true },
   // {
   //   fn: async () => await css({ body: { display: 'box' } }),

@@ -1,6 +1,6 @@
-const { is } = require('@magic/test')
+import { is } from '@magic/test'
 
-const css = require('../src')
+import css from '../src/index.mjs'
 
 const color = 'green'
 
@@ -21,7 +21,7 @@ const styleObject = {
 
 const parsed = css.ids(styleObject)
 
-module.exports = [
+export default [
   { fn: () => css.classes, expect: is.fn, info: 'css.classes is a function' },
   { fn: parsed, expect: t => !t.includes('div'), info: 'top level html tags exist' },
   { fn: parsed, expect: t => !t.includes('.topLvl'), info: 'top level css classes exist' },

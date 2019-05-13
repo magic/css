@@ -1,8 +1,8 @@
-const is = require('@magic/types')
-const deep = require('@magic/deep')
-const log = require('@magic/log')
+import is from '@magic/types'
+import deep from '@magic/deep'
+import log from '@magic/log'
 
-const getSelector = require('./getSelector')
+import getSelector from './getSelector.mjs'
 
 const recurseParse = (mod, opts) => {
   if (is.function(mod)) {
@@ -142,4 +142,4 @@ const parse = (styles, opts = {}) => {
   return Array.from([...styleMap, ...queryMap])
 }
 
-module.exports = parse
+export default parse

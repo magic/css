@@ -1,7 +1,7 @@
-const is = require('@magic/types')
-const deep = require('@magic/deep')
+import is from '@magic/types'
+import deep from '@magic/deep'
 
-const parse = require('./parse')
+import parse from './parse/index.mjs'
 
 const recurseSelectors = mod => {
   let res
@@ -20,4 +20,4 @@ const selectors = (styles, opts = {}) => {
   return recurseSelectors(parsed)
 }
 
-module.exports = selectors
+export default selectors

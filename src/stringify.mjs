@@ -1,10 +1,10 @@
-const is = require('@magic/types')
+import is from '@magic/types'
 
-const postcss = require('postcss')
-const autoprefixer = require('autoprefixer')
+import postcss from 'postcss'
+import autoprefixer from 'autoprefixer'
 
-const parse = require('./parse')
-const camel2kebab = require('./camel2kebab')
+import parse from './parse/index.mjs'
+import camel2kebab from './camel2kebab.mjs'
 
 const stringifyProps = props =>
   Object.entries(props)
@@ -56,4 +56,4 @@ const stringify = async (styles, opts = {}) => {
   return result.css
 }
 
-module.exports = stringify
+export default stringify

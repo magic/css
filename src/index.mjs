@@ -1,10 +1,10 @@
-const is = require('@magic/types')
+import is from '@magic/types'
 
-const parse = require('./parse')
-const stringify = require('./stringify')
-const write = require('./write')
-const minify = require('./minify')
-const selectors = require('./selectors')
+import parse from './parse/index.mjs'
+import stringify from './stringify.mjs'
+import write from './write.mjs'
+import minify from './minify.mjs'
+import selectors from './selectors.mjs'
 
 const classes = style => selectors(style).filter(f => f.startsWith('.'))
 const ids = style => selectors(style).filter(f => f.startsWith('#'))
@@ -38,4 +38,4 @@ css.classes = classes
 css.selectors = selectors
 css.ids = ids
 
-module.exports = css
+export default css

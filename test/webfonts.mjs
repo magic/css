@@ -1,4 +1,4 @@
-const css = require('../src')
+import css from '../src/index.mjs'
 
 const fontFamily = {
   '@font-face': {
@@ -25,7 +25,7 @@ const expect = ({ css }) =>
     '}\n',
   ].join(' ')
 
-module.exports = [
+export default [
   { fn: async () => await css(fontFamily), expect, info: 'can handle web fonts' },
   {
     fn: async () => await css(fontFamily),

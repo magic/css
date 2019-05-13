@@ -1,5 +1,5 @@
-const fs = require('fs')
-const stringify = require('./stringify')
+import fs from 'fs'
+import stringify from './stringify.mjs'
 
 const write = (style, opts = {}) => {
   if (!opts.OUTFILE) {
@@ -13,4 +13,4 @@ const write = (style, opts = {}) => {
   return true
 }
 
-module.exports = write
+export default write

@@ -1,6 +1,6 @@
-const { is } = require('@magic/test')
+import { is } from '@magic/test'
 
-const css = require('../src')
+import css from '../src/index.mjs'
 
 const color = 'green'
 
@@ -61,7 +61,7 @@ const prefixAllWithSpace = {
   },
 }
 
-module.exports = [
+export default [
   { fn: () => css.classes, expect: is.fn, info: 'css.classes is a function' },
   { fn: () => css.ids, expect: is.fn, info: 'css.selectors is a function' },
   { fn: () => css.selectors, expect: is.fn, info: 'css.ids is a function' },

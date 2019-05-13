@@ -20,4 +20,4 @@ const minify = style =>
     .replace(/,\s+/gim, ',')
     .trim()
 
-module.exports = minify
+export default minify
