@@ -29,7 +29,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@magic/deep": "0.0.1",
-    "@magic/types": "0.0.5",
+    "@magic/types": "0.1.0",
     "autoprefixer": "9.5.1",
     "postcss": "7.0.16"
   },
