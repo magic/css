@@ -352,3 +352,6 @@ css.parse does a better job of keeping order of incoming objects intact
 #### 0.5.0
 * FIX: css gets returned in almost the same order it got passed in.
   turns out that javascript objects do not make this as easy as hoped.
+
+#### 0.6.0
+* use esmodules
