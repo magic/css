@@ -33,13 +33,13 @@ can parse/stringify/write css in js
 
 ##### init
 ```javascript
-const css = require('@magic/css')
+import css from '@magic/css'
 ```
 
 
 ##### all in one
 ```javascript
-const css = require('css')
+import css from 'css'
 
 const style = {
   body: {
