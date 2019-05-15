@@ -355,3 +355,6 @@ css.parse does a better job of keeping order of incoming objects intact
 
 #### 0.6.0
 * use esmodules
+
+#### 0.7.0
+* update @magic/types to not break if es modules get passed into the styles
