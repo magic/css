@@ -27,6 +27,8 @@
     "url": "https://github.com/magic/test/issues"
   },
   "main": "src/index.mjs",
+  "module": "src/index.mjs",
+  "type": "module",
   "dependencies": {
     "@magic/deep": "0.0.1",
     "@magic/types": "0.1.1",
