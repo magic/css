@@ -30,7 +30,7 @@
   "module": "src/index.mjs",
   "type": "module",
   "dependencies": {
-    "@magic/deep": "0.0.1",
+    "@magic/deep": "0.1.0",
     "@magic/types": "0.1.2",
     "autoprefixer": "9.5.1",
     "postcss": "7.0.16"
