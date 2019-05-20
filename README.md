@@ -39,7 +39,7 @@ import css from '@magic/css'
 
 ##### all in one
 ```javascript
-import css from 'css'
+import css from '@magic/css'
 
 const style = {
   body: {

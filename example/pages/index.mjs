@@ -1,4 +1,4 @@
-module.exports = () => [
+export const View = () => [
   h2('@magic/css'),
 
   p('parse/stringify/write css in js'),
@@ -17,14 +17,14 @@ module.exports = () => [
 
   h2({ id: 'usage' }, 'usage'),
 
-  h3({ id: 'require' }, 'require'),
-  Pre("const css = require('@magic/css')"),
+  h3({ id: 'import' }, 'import'),
+  Pre("import css from '@magic/css'"),
 
   h2({ id: 'api' }, 'api'),
 
   h3({ id: 'api-css' }, 'css (full result)'),
   Pre(`
-const css = require('css')
+import css from 'css'
 
 const style = {
   body: {
@@ -338,6 +338,15 @@ await css.stringify(style)
       ' turns out that javascript objects do not make this as easy as hoped.',
     ]),
   ]),
+
+  h4({ id: 'changelog-v-0.5.0' }, '0.6.0'),
+  ul([li(['use esmodules'])]),
+
+  h4({ id: 'changelog-v-0.7.0' }, '0.7.0'),
+  p('update @magic/types to not break if es modules get passed into the styles'),
+
+  h4('0.7.1'),
+  p('update @magic/deep to use ecmascript module version'),
 
   h2({ id: 'source' }, 'source'),
   p([
