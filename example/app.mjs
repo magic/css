@@ -1,4 +1,7 @@
 export const state = {
+  title: '@magic/css',
+  description: 'parse/stringify/write css in js',
+
   logotext: '@magic/css',
   menu: [
     { to: '/#installation', text: 'installation' },

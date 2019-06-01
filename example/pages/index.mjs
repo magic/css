@@ -1,5 +1,5 @@
-export const View = () => [
-  h2('@magic/css'),
+export const View = state => [
+  h2(state.title),
 
   p('parse/stringify/write css in js'),
   p('NO dynamic css, css gets output as css file. whenever possible, use dynamic classes instead.'),
@@ -355,4 +355,6 @@ await css.stringify(style)
     ' and gets built and published to github using ',
     Link({ to: 'https://github.com/magic/core' }, '@magic/core'),
   ]),
+
+  LightSwitch(state),
 ]
