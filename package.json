@@ -32,7 +32,7 @@
   "dependencies": {
     "@magic/deep": "0.1.0",
     "@magic/types": "0.1.2",
-    "autoprefixer": "9.5.1",
+    "autoprefixer": "9.6.0",
     "postcss": "7.0.16"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "@magic-modules/pre": "github:magic-modules/pre",
     "@magic-themes/docs": "github:magic-themes/docs",
     "@magic/core": "github:magic/core",
-    "@magic/test": "0.1.9"
+    "@magic/test": "0.1.10"
   },
   "keywords": [
     "css-in-js",
