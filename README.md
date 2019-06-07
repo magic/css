@@ -361,3 +361,4 @@ css.parse does a better job of keeping order of incoming objects intact
 
 #### 0.7.1
 * update @magic/deep to use ecmascript module version
+* update postcss, autoprefixer
