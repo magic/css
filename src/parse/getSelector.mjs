@@ -17,14 +17,18 @@ const getSelector = (parent, name) => {
         .split(',')
         // .map(n => `${before}${n}${after}`)
         .map((n, _, names) => {
-          // find out if we have to prefix or suffix the name
+          // find out if we have to prefix or postfix the name
           const first = names[0]
           const last = names[names.length - 1]
+
+          // one & at the start, all subitems also get &'ed
           if (first.startsWith('&') && !n.startsWith('&')) {
             n = `&${n}`
           } else if (last.endsWith('&&') && !n.endsWith('&&')) {
+            // two && at the end, this values get appended with added space
             n = `${n}&&`
           } else if (last.endsWith('&') && !n.endsWith('&')) {
+            // one & at the end means postfixing, we concatenate without spaces
             n = `${n}&`
           }
 
@@ -35,7 +39,8 @@ const getSelector = (parent, name) => {
     )
   }
 
-  // find out if we have to prefix, suffix, or assume that we want to designate a child class
+  // find out if we have to prefix, postfix,
+  // or assume that we want to designate a child class
   let before = ''
   let after = ''
   if (name.startsWith('&')) {
@@ -55,7 +60,7 @@ const getSelector = (parent, name) => {
   parent = parent.replace(/&/g, '').trim()
 
   // merge selector depending on the before and after variables defined above
-  if (before) {
+  if (before === '&') {
     parent += name
   } else if (after === '&&') {
     parent = `${name} ${parent}`
