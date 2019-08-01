@@ -8,30 +8,30 @@ const recurseParse = (mod, opts) => {
   if (is.function(mod)) {
     mod = mod(opts)
   }
+
   if (!is.array(mod) && is.object(mod)) {
     return Object.entries(mod).map(s => recurseParse(s, opts))
   }
 
+
   const [parent, items] = mod
 
+  // if there is a parent object, there are no items.
   if (is.object(parent)) {
     return Object.entries(parent).map(s => recurseParse(s, opts))
   }
 
+  // items have to be an object
   if (!is.object(items)) {
-    log.error('Invalid style received', [parent, items])
+    log.error('Invalid style received', { parent, items })
     return
   }
 
   let children = []
   const props = {}
 
-  if (parent.startsWith('@media')) {
-    const i = parse(items)
-    return [parent, i]
-  }
-
-  if (parent.startsWith('@keyframes')) {
+  // media and keyframes are special, they provide a full body of css rules
+  if (parent.startsWith('@keyframes') || parent.startsWith('@media')) {
     const i = parse(items)
     return [parent, i]
   }
@@ -55,33 +55,6 @@ const recurseParse = (mod, opts) => {
 }
 
 const isStyle = style => style && style.length === 2 && is.string(style[0]) && is.object(style[1])
-
-const concatMaps = (map, ...iterables) => {
-  for (const iterable of iterables) {
-    for (const [key, val] of iterable) {
-      map.set(key, val)
-    }
-  }
-  return map
-}
-
-const flatten = styles => {
-  const styleMap = []
-  if (isStyle(styles)) {
-    styleMap.push(styles)
-  } else if (is.array(styles)) {
-    styles
-      .filter(a => a)
-      .forEach(style => {
-        const flattened = flatten(style)
-        styleMap.push(flattened)
-      })
-  } else {
-    return styles
-  }
-
-  return styleMap
-}
 
 const flat = a => {
   if (isStyle(a)) {
