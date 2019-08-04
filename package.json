@@ -21,10 +21,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/magic/test.git"
+    "url": "git+https://github.com/magic/css.git"
   },
   "bugs": {
-    "url": "https://github.com/magic/test/issues"
+    "url": "https://github.com/magic/css/issues"
   },
   "main": "src/index.mjs",
   "module": "src/index.mjs",
