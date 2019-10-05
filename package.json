@@ -32,7 +32,7 @@
   "dependencies": {
     "@magic/deep": "0.1.0",
     "@magic/types": "0.1.2",
-    "autoprefixer": "9.6.1",
+    "autoprefixer": "9.6.2",
     "postcss": "7.0.17"
   },
   "devDependencies": {
