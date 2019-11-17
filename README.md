@@ -251,12 +251,12 @@ const style = {
   },
 }
 
-css.write(style)
 
 // writes styles to ./out.css
-css.write(style, { OUTFILE: './outfile.css' })
+await css.write(style)
 
 // writes styles to ./outfile.css
+await css.write(style, { OUTFILE: './outfile.css' })
 ```
 
 ##### media queries
