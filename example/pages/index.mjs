@@ -349,6 +349,9 @@ await css.stringify(style)
   p('update @magic/deep to use ecmascript module version'),
   p('update postcss, autoprefixer'),
 
+  h4('0.7.2'),
+  p('update dependencies'),
+
   h2({ id: 'source' }, 'source'),
   p([
     'the source for this page is in the ',
