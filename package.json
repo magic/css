@@ -32,8 +32,8 @@
   "dependencies": {
     "@magic/deep": "0.1.0",
     "@magic/types": "0.1.2",
-    "autoprefixer": "9.6.1",
-    "postcss": "7.0.17"
+    "autoprefixer": "9.7.1",
+    "postcss": "7.0.21"
   },
   "devDependencies": {
     "@magic-modules/git-badges": "github:magic-modules/git-badges",
@@ -41,7 +41,7 @@
     "@magic-modules/pre": "github:magic-modules/pre",
     "@magic-themes/docs": "github:magic-themes/docs",
     "@magic/core": "github:magic/core",
-    "@magic/test": "0.1.14"
+    "@magic/test": "0.1.15"
   },
   "keywords": [
     "css-in-js",
