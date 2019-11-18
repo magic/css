@@ -365,3 +365,6 @@ css.parse does a better job of keeping order of incoming objects intact
 
 #### 0.7.2
 * update dependencies
+
+#### 0.7.3
+* update dependencies

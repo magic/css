@@ -352,6 +352,9 @@ await css.stringify(style)
   h4('0.7.2'),
   p('update dependencies'),
 
+  h4('0.7.3'),
+  p('update dependencies'),
+
   h2({ id: 'source' }, 'source'),
   p([
     'the source for this page is in the ',
