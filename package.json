@@ -16,6 +16,9 @@
     "test": "t --exclude docs example config.js",
     "calls": "calls"
   },
+  "engine": {
+    "node": ">=12.13.0"
+  },
   "files": [
     "src"
   ],
