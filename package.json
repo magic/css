@@ -44,7 +44,7 @@
     "@magic-modules/pre": "github:magic-modules/pre",
     "@magic-themes/docs": "github:magic-themes/docs",
     "@magic/core": "github:magic/core",
-    "@magic/test": "0.1.18"
+    "@magic/test": "0.1.19"
   },
   "keywords": [
     "css-in-js",
