@@ -368,3 +368,6 @@ css.parse does a better job of keeping order of incoming objects intact
 
 #### 0.7.3
 * update dependencies
+
+#### 0.7.4
+* add @magic/log to dependencies

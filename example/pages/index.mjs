@@ -355,6 +355,9 @@ await css.stringify(style)
   h4('0.7.3'),
   p('update dependencies'),
 
+  h4('0.7.4'),
+  p('add @magic/log to dependencies'),
+
   h2({ id: 'source' }, 'source'),
   p([
     'the source for this page is in the ',
