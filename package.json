@@ -35,8 +35,8 @@
   "dependencies": {
     "@magic/deep": "0.1.0",
     "@magic/types": "0.1.2",
-    "autoprefixer": "9.7.1",
-    "postcss": "7.0.21"
+    "autoprefixer": "9.7.2",
+    "postcss": "7.0.23"
   },
   "devDependencies": {
     "@magic-modules/git-badges": "github:magic-modules/git-badges",
