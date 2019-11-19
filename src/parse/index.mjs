@@ -13,7 +13,6 @@ const recurseParse = (mod, opts) => {
     return Object.entries(mod).map(s => recurseParse(s, opts))
   }
 
-
   const [parent, items] = mod
 
   // if there is a parent object, there are no items.
