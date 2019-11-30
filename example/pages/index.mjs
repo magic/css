@@ -358,6 +358,9 @@ await css.stringify(style)
   h4('0.7.4'),
   p('add @magic/log to dependencies'),
 
+  h4('0.7.5'),
+  p('update autoprefixer'),
+
   h2({ id: 'source' }, 'source'),
   p([
     'the source for this page is in the ',
