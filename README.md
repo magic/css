@@ -13,8 +13,8 @@ can parse/stringify/write css in js
 
 [npm-image]: https://img.shields.io/npm/v/@magic/css.svg
 [npm-url]: https://www.npmjs.com/package/@magic/css
-[travis-image]: https://api.travis-ci.org/magic/css.svg?branch=master
-[travis-url]: https://travis-ci.org/magic/css
+[travis-image]: https://api.travis-ci.com/magic/css.svg?branch=master
+[travis-url]: https://travis-ci.com/magic/css
 [appveyor-image]: https://img.shields.io/appveyor/ci/magic/css/master.svg
 [appveyor-url]: https://ci.appveyor.com/project/magic/css/branch/master
 [coveralls-image]: https://coveralls.io/repos/github/magic/css/badge.svg
