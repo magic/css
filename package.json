@@ -37,7 +37,7 @@
     "@magic/log": "^0.1.1",
     "@magic/types": "0.1.2",
     "autoprefixer": "9.7.3",
-    "postcss": "7.0.23"
+    "postcss": "7.0.24"
   },
   "devDependencies": {
     "@magic-modules/git-badges": "github:magic-modules/git-badges",
