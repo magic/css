@@ -361,6 +361,9 @@ await css.stringify(style)
   h4('0.7.5'),
   p('update autoprefixer'),
 
+  h4('0.7.6'),
+  p('update postcss'),
+
   h2({ id: 'source' }, 'source'),
   p([
     'the source for this page is in the ',

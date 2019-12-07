@@ -374,3 +374,6 @@ css.parse does a better job of keeping order of incoming objects intact
 
 #### 0.7.5
 * update autoprefixer
+
+#### 0.7.6
+* update postcss
