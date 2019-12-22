@@ -46,7 +46,7 @@
     "@magic-modules/pre": "0.0.2",
     "@magic-themes/docs": "0.0.2",
     "@magic/core": "0.0.4",
-    "@magic/test": "0.1.23"
+    "@magic/test": "0.1.24"
   },
   "keywords": [
     "css-in-js",
