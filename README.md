@@ -382,4 +382,5 @@ css.parse does a better job of keeping order of incoming objects intact
 * update postcss 
 
 #### 0.7.8 - unreleased
+* update @magic/deep
 ...
