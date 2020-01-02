@@ -1,1 +1,1630 @@
-"use strict";function b(a){return o(a)||c(a)||m()}function c(a){if(Symbol.iterator in Object(a)||"[object Arguments]"===Object.prototype.toString.call(a))return Array.from(a)}function d(a,b){if(null==a)return{};var c,d,f=e(a,b);if(Object.getOwnPropertySymbols){var g=Object.getOwnPropertySymbols(a);for(d=0;d<g.length;d++)c=g[d],!(0<=b.indexOf(c))&&Object.prototype.propertyIsEnumerable.call(a,c)&&(f[c]=a[c])}return f}function e(a,b){if(null==a)return{};var c,d,e={},f=Object.keys(a);for(d=0;d<f.length;d++)c=f[d],0<=b.indexOf(c)||(e[c]=a[c]);return e}function f(a,b){var c=Object.keys(a);if(Object.getOwnPropertySymbols){var d=Object.getOwnPropertySymbols(a);b&&(d=d.filter(function(b){return Object.getOwnPropertyDescriptor(a,b).enumerable})),c.push.apply(c,d)}return c}function j(a){for(var b,c=1;c<arguments.length;c++)b=null==arguments[c]?{}:arguments[c],c%2?f(Object(b),!0).forEach(function(c){k(a,c,b[c])}):Object.getOwnPropertyDescriptors?Object.defineProperties(a,Object.getOwnPropertyDescriptors(b)):f(Object(b)).forEach(function(c){Object.defineProperty(a,c,Object.getOwnPropertyDescriptor(b,c))});return a}function k(a,b,c){return b in a?Object.defineProperty(a,b,{value:c,enumerable:!0,configurable:!0,writable:!0}):a[b]=c,a}function l(a,b){return o(a)||n(a,b)||m()}function m(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}function n(a,b){if(Symbol.iterator in Object(a)||"[object Arguments]"===Object.prototype.toString.call(a)){var c=[],d=!0,e=!1,f=void 0;try{for(var g,h=a[Symbol.iterator]();!(d=(g=h.next()).done)&&(c.push(g.value),!(b&&c.length===b));d=!0);}catch(a){e=!0,f=a}finally{try{d||null==h["return"]||h["return"]()}finally{if(e)throw f}}return c}}function o(a){if(Array.isArray(a))return a}function q(a){return q="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&"function"==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a},q(a)}var r=function(){var a=2,b=3,c={},d=[],e=d.map,f=Array.isArray,g="undefined"==typeof requestAnimationFrame?setTimeout:requestAnimationFrame,h=function(a){var b="";if("string"==typeof a)return a;if(f(a)&&0<a.length)for(var c,d=0;d<a.length;d++)""!==(c=h(a[d]))&&(b+=(b&&" ")+c);else for(var d in a)a[d]&&(b+=(b&&" ")+d);return b},j=function(c,a){var b={};for(var d in c)b[d]=c[d];for(var d in a)b[d]=a[d];return b},k=function(a){return a.reduce(function(a,b){return a.concat(b&&!0!==b?"function"==typeof b[0]?[b]:k(b):0)},d)},l=function(c,a){return f(c)&&f(a)&&c[0]===a[0]&&"function"==typeof c[0]},m=function(c,a){if(c!==a)for(var b in j(c,a)){if(c[b]!==a[b]&&!l(c[b],a[b]))return!0;a[b]=c[b]}},n=function(a,b,c){for(var d,e,f=0,g=[];f<a.length||f<b.length;f++)d=a[f],e=b[f],g.push(e?!d||e[0]!==d[0]||m(e[1],d[1])?[e[0],e[1],e[0](c,e[1]),d&&d[2]()]:d:d&&d[2]());return g},o=function(a,b,c,d,e,f){if("key"===b);else if("style"===b)for(var g in j(c,d))c=null==d||null==d[g]?"":d[g],"-"===g[0]?a[b].setProperty(g,c):a[b][g]=c;else"o"===b[0]&&"n"===b[1]?((a.actions||(a.actions={}))[b=b.slice(2).toLowerCase()]=d)?!c&&a.addEventListener(b,e):a.removeEventListener(b,e):!f&&"list"!==b&&b in a?a[b]=null==d?"":d:null!=d&&!1!==d&&("class"!==b||(d=h(d)))?a.setAttribute(b,d):a.removeAttribute(b)},p=function(a,c,d){var e=a.props,f=a.type===b?document.createTextNode(a.name):(d=d||"svg"===a.name)?document.createElementNS("http://www.w3.org/2000/svg",a.name,{is:e.is}):document.createElement(a.name,{is:e.is});for(var g in e)o(f,g,null,e[g],c,d);for(var h=0,j=a.children.length;h<j;h++)f.appendChild(p(a.children[h]=v(a.children[h]),c,d));return a.node=f},r=function(a){return null==a?null:a.key},s=function(a,c,d,e,f,g){if(d===e);else if(null!=d&&d.type===b&&e.type===b)d.name!==e.name&&(c.nodeValue=e.name);else if(null==d||d.name!==e.name)c=a.insertBefore(p(e=v(e),f,g),c),null!=d&&a.removeChild(d.node);else{var h,k,l,m,n=d.props,q=e.props,t=d.children,u=e.children,w=0,x=0,y=t.length-1,z=u.length-1;for(var A in g=g||"svg"===e.name,j(n,q))("value"===A||"selected"===A||"checked"===A?c[A]:n[A])!==q[A]&&o(c,A,n[A],q[A],f,g);for(;x<=z&&w<=y&&null!=(l=r(t[w]))&&l===r(u[x]);)s(c,t[w].node,t[w],u[x]=v(u[x++],t[w++]),f,g);for(;x<=z&&w<=y&&null!=(l=r(t[y]))&&l===r(u[z]);)s(c,t[y].node,t[y],u[z]=v(u[z--],t[y--]),f,g);if(w>y)for(;x<=z;)c.insertBefore(p(u[x]=v(u[x++]),f,g),(k=t[w])&&k.node);else if(x>z)for(;w<=y;)c.removeChild(t[w++].node);else{for(var A=w,B={},C={};A<=y;A++)null!=(l=t[A].key)&&(B[l]=t[A]);for(;x<=z;){if(l=r(k=t[w]),m=r(u[x]=v(u[x],k)),C[l]||null!=m&&m===r(t[w+1])){null==l&&c.removeChild(k.node),w++;continue}null==m||1===d.type?(null==l&&(s(c,k&&k.node,k,u[x],f,g),x++),w++):(l===m?(s(c,k.node,k,u[x],f,g),C[m]=!0,w++):null==(h=B[m])?s(c,k&&k.node,null,u[x],f,g):(s(c,c.insertBefore(h.node,k&&k.node),h,u[x],f,g),C[m]=!0),x++)}for(;w<=y;)null==r(k=t[w++])&&c.removeChild(k.node);for(var A in B)null==C[A]&&c.removeChild(B[A].node)}}return e.node=c},t=function(c,a){for(var b in c)if(c[b]!==a[b])return!0;for(var b in a)if(c[b]!==a[b])return!0},u=function(a){return"object"===q(a)?a:x(a)},v=function(b,c){return b.type===a?((!c||c.type!==a||t(c.lazy,b.lazy))&&((c=u(b.lazy.view(b.lazy))).lazy=b.lazy),c):b},w=function(a,b,c,d,e,f){return{name:a,props:b,children:c,node:d,type:f,key:e}},x=function(a,e){return w(a,c,d,e,void 0,b)},y=function(a){return a.nodeType===b?x(a.nodeValue,a):w(a.nodeName.toLowerCase(),c,e.call(a.childNodes,y),a,void 0,1)};return{h:function h(a,b){for(var d,e=[],g=[],h=arguments.length;2<h--;)e.push(arguments[h]);for(;0<e.length;)if(f(d=e.pop()))for(var h=d.length;0<h--;)e.push(d[h]);else if(!1===d||!0===d||null==d);else g.push(u(d));return b=b||c,"function"==typeof a?a(b,g):w(a,b,g,void 0,b.key)},app:function app(a){var b={},c=!1,d=a.view,e=a.node,h=e&&y(e),i=a.subscriptions,j=[],l=function(a){o(this.actions[a.type],a)},m=function(a){return b!==a&&(b=a,i&&(j=n(j,k([i(b)]),o)),d&&!c&&g(p,c=!0)),b},o=(a.middleware||function(a){return a})(function(a,c){return"function"==typeof a?o(a(b,c)):f(a)?"function"==typeof a[0]||f(a[0])?o(a[0],"function"==typeof a[1]?a[1](c):a[1]):(k(a.slice(1)).map(function(a){a&&a[0](o,a[1])},m(a[0])),b):m(a)}),p=function(){c=!1,e=s(e.parentNode,e,h,h=u(d(b)),l)};o(a.init)}}}(),s=r.h,h=r.app,i=function(a){return function(){var b=0<arguments.length&&arguments[0]!==void 0?arguments[0]:{},d=!!(1<arguments.length&&arguments[1]!==void 0)&&arguments[1],e=function(a){for(var b=arguments.length,c=Array(1<b?b-1:0),d=1;d<b;d++)c[d-1]=arguments[d];return c.some(function(b){return b===q(a)})};if(!d)if(e(b,"string","number","function")||Array.isArray(b))d=b,b={};else if(e(b.View,"function"))d=b.View,b={};else if(b.props||b.c)return s(a,{},b);return s(a,b,d)}},t=i("a"),a=i("button"),u=i("circle"),v=i("code"),w=i("div"),x=i("footer"),y=i("g"),g=i("h2"),z=i("h3"),A=i("h4"),B=i("h5"),C=i("header"),D=i("img"),E=i("input"),F=i("label"),G=i("li"),H=i("link"),I=i("main"),J=i("meta"),K=i("nav"),L=i("p"),p=i("path"),M=i("pre"),N=i("script"),O=i("span"),P=i("svg"),Q=i("title"),R=i("ul"),S=i("view"),T={description:"parse/stringify/write css in js",gdpr:{allowed:[],show:!0},logotext:"@magic/css",menu:[{text:"installation",to:"/#installation"},{text:"import",to:"/#import"},{items:[{text:"css (full result)",to:"-css"},{text:"parse",to:"-parse"},{text:"stringify",to:"-stringify"},{text:"write to filesystem",to:"-write"}],text:"api",to:"/#api"},{items:[{text:":pseudo classes",to:"-pseudo-classes"},{text:"selector nesting",to:"-selector-nesting"},{text:"prefix w/ space",to:"-prefix-with-space"},{text:"prefix all w/ space",to:"-prefix-all-with-space"},{text:"prefix w/o space",to:"-prefix-without-space"},{text:"prefix all w/o space",to:"-prefix-all-without-space"},{text:"media queries",to:"-media-queries"},{text:"keyframes",to:"-keyframes"},{text:"webfonts",to:"-webfonts"}],text:"styles",to:"/#styles"},{items:[{text:"0.1.0",to:"-v-0.1.0"},{text:"0.2.0",to:"-v-0.2.0"},{text:"0.3.0",to:"-v-0.3.0"},{text:"0.4.0",to:"-v-0.4.0"},{text:"0.4.1",to:"-v-0.4.1"},{text:"0.4.2",to:"-v-0.4.2"},{text:"0.4.3",to:"-v-0.4.3"},{text:"0.4.4",to:"-v-0.4.4"},{text:"0.4.5",to:"-v-0.4.5"},{text:"0.4.6",to:"-v-0.4.6"},{text:"0.4.7",to:"-v-0.4.7"},{text:"0.5.0",to:"-v-0.5.0"}],text:"changelog",to:"/#changelog"},{text:"source",to:"/#source"}],pageClass:{},root:"/css/",theme:"dark",title:"@magic/css",url:"/css/"},U={listenPopState:function listenPopState(a,b){var c=function(c){return a(b,c)};return addEventListener("popstate",c),function(){return removeEventListener("popstate",c)}}},V=function(a){var b,c=a.blog,d=a.link,e=a.month,f=a.url,g=a.year,h=Object.entries(c[g][e]),i=[e];return d?b="".concat(d).concat(e,"/"):i.push(" - ",g),[z(b?ca({to:b},i):i),h.map(function(c){var d=l(c,2),e=d[0],f=d[1];return f.map(function(c){return W(j({},a,{},c.state,{name:c.name,link:b,day:e}))})})]},W=function(a){return w([A([a.day,"-",a.month,"-",a.year," - ",ca({to:a.name},a.title)]),L(a.description)])},X=function(a){var b,c=a.link,d=a.year,e=a.blog,f=a.url;return c?b="".concat(c).concat(d,"/"):f.endsWith("".concat(d,"/"))&&(b=f),w([g(c?ca({to:b},d):d),Object.entries(e[d]).map(function(c){var d=l(c,2),e=d[0],f=d[1];return V(j({},a,{month:e,days:f,link:b}))})])},Y=function(){var a=1<arguments.length&&arguments[1]!==void 0?arguments[1]:[];return x({class:"Footer"},[w({class:"Container"},[a,w({class:"Credits"},["made with a few bits of ",ca({to:"https://github.com/magic/core",target:"_blank",rel:"noopener"},"magic")])])])},Z=function(a){var b=a.gdpr,c=void 0===b?{}:b,d=a.cookies,e=void 0===d?[]:d,f=c.show,g=c.title,h=void 0===g?"Privacy Information":g,i=c.content,j=void 0===i?"This app neither saves, collects, nor shares any data about you.":i,k=c.noDataText,l=void 0===k?"Awesome.":k,m=c.allowTitle,n=void 0===m?"Allow:":m,o=c.allowAllText,q=void 0===o?"All":o,r=c.allowText,s=void 0===r?"Selected":r,t=c.denyText,v=void 0===t?"None":t;if(!f)return w({class:"Gdpr"},P({class:"ShowHide",onclick:[ja.gdpr.show,{show:!0}],viewBox:"0 0 512 512"},[y([p({d:"\nM507,208c-1-7-7-12-14-13c-7-1-13,3-16,9\nc-5,11-16,19-29,19c-14,0-26-10-30-23c-2-8-11-13-19-11\nC393,191,389,192,384,192c-35-0-64-29-64-64c0-5,1-9,2-14\nc2-8-3-16-11-19C297,90,288,78,288,64c-0-13,8-24,19-29\nc6-3,10-9,9-16c-1-7-6-12-13-14C288,2,272,0,256,0\nC115,0,0,115,0,256c0,141,115,256,256,256c141-0,256-115,256-256\nC512,239,510,224,507,209z M414,414C374,455,318,480,256,480s-118-25-158-66\nC57,374,32,318,32,256S57,138,98,98C138,57,194,32,256,32c3,0,6,0,9,0\nC259,42,256,52,256,64c0,24,13,44,33,55C288,122,288,125,288,128\nc0,53,43,96,96,96c3,0,6-0,8-0C403,242,424,256,448,256\nc11-0,22-3,32-8c0,3,0,6,0,9C480,318,455,374,414,414z\n"}),u({cx:"192",cy:"128",r:"32"}),u({cx:"128",cy:"256",r:"32"}),u({cx:"288",cy:"384",r:"32"}),u({cx:"272",cy:"272",r:"16"}),u({cx:"400",cy:"336",r:"16"}),u({cx:"176",cy:"368",r:"16"})])]));var x=!!e.length;return w({class:"Gdpr"},[E({type:"checkbox",name:"show-hide",id:"show-hide",checked:!f}),w({class:"Container"},[h&&z(h),j&&L(j),x&&[R(e.map(function(a){var b=a.name,d=a.title,e=a.content,f=a.allowed;return G({class:"Cookie"},[E({type:"checkbox",title:"allow ".concat(b," data"),id:b,checked:c.allowed.includes(b),onchange:[ja.gdpr.toggleAllow,{name:b}]}),(d||e)&&F({for:b},[d&&A(d),e&&L(e)])])}))],x?[B(n),F({class:"button allow all",for:"show-hide",onclick:ja.gdpr.allow},q),F({class:"button allow",for:"show-hide",onclick:ja.gdpr.close},s),F({class:"button allow none",for:"show-hide",onclick:ja.gdpr.deny},v)]:F({class:"button",for:"show-hide",onclick:ja.gdpr.close},l)])])},$=function(a){if("string"==typeof a)a={project:a};else if(!a.project)return;var b=a,c=b.project,d=void 0!==c&&c,e=b.branch,f=void 0===e?"master":e,g=b.host,h=void 0===g?"github":g,i=[["npm",function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:d;return a&&{to:"https://www.npmjs.com/package/@".concat(a),src:"https://img.shields.io/npm/v/@".concat(a,".svg")}}],["travis",function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:d;return a&&{to:"https://travis-ci.com/".concat(a),src:"https://img.shields.io/travis/com/".concat(a,"/").concat(f)}}],["appveyor",function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:d;if(a){var b=a.split("/"),c=l(b,2),e=c[0],g=c[1];return e=e.replace(/-/g,""),{to:"https://ci.appveyor.com/project/".concat(e,"/").concat(g,"/branch/").concat(f),src:"https://img.shields.io/appveyor/ci/".concat(e,"/").concat(g,"/").concat(f,".svg")}}}],["coveralls",function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:d;return{to:"https://coveralls.io/".concat(h,"/").concat(a),src:"https://img.shields.io/coveralls/".concat(h,"/").concat(a,"/").concat(f,".svg")}}],["greenkeeper",function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:d;return a&&{to:"https://greenkeeper.io",src:"https://badges.greenkeeper.io/".concat(a,".svg")}}],["snyk",function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:d;return a&&{to:"https://snyk.io/test/".concat(h,"/").concat(a),src:"https://img.shields.io/snyk/vulnerabilities/github/".concat(a,".svg")}}]].map(function(b){var c=l(b,2),d=c[0],e=c[1];return e(a[d])}).filter(function(b){return b.to&&b.src});return i.length?R({class:"GitBadges"},i.map(function(a){var b=a.to,c=a.src;return G([ca({to:b},aa({src:c}))])})):void 0},_=function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:{},b=1<arguments.length&&arguments[1]!==void 0?arguments[1]:[],c=a.logo,e=a.menu,f=a.logotext,g=d(a,["logo","menu","logotext"]);return c||e||f?C({class:"Header"},[(c||f)&&ca({to:g.root,class:"Logo"},[c&&aa(c),f&&O(f)]),e&&da({state:g,items:e}),b]):void 0},aa=function(a){if("string"==typeof a&&(a={src:a}),!!a.src)return a.alt||(a.title?a.alt=a.title:(a.role="presentation",a.alt="")),D(a)},ba=function(){0<arguments.length&&arguments[0]!==void 0?arguments[0]:{};return a({class:"LightSwitch",onclick:ja.changeTheme})},ca=function(a,b){var c=a.to,e=d(a,["to"]),f=e.href,g=e.text,h=e.nofollow,i=e.noreferrer,j=d(e,["href","text","nofollow","noreferrer"]);c=c||f||"",j.href=c;var k="/"===c[0]||"#"===c[0];return k?j.onclick=[ja.go,ia.preventDefault]:(j.target="_blank",j.rel="noopener",h&&(j.rel+=" nofollow"),i&&(j.rel+=" noreferrer")),t(j,[g,b])},da=function(){var a=0<arguments.length&&void 0!==arguments[0]?arguments[0]:{},b=a["class"],c=void 0===b?"Menu":b,d=a.collapse,e=a.items,f=a.state,g=f.url,h=f.hash,i=f.root;return h&&!g.endsWith(h)&&(g+="#".concat(h)),K({className:c},R(e.map(function(a){return ea(j({},a,{url:g,root:i,collapse:void 0===d||d}))})))},ea=function(a){var b=a.text,c=a.items,e=void 0===c?[]:c,f=a.url,g=a.root,h=a.parentTo,i=void 0===h?void 0:h,k=a.collapse,l=d(a,["text","items","url","root","parentTo","collapse"]),m={class:{}},n=l.to;n.startsWith("/#")&&(n=n.substr(1));var o=l.to[0],p="/"===o||"-"===o||"#"===o;if(i&&p)if("-"===o||"#"===o)n=i+n;else{var t=n.split("/")[1];if(t){var u=i.endsWith("/".concat(t,"/"));!u&&p&&(n=i+n)}}var q=n.startsWith(g);g&&p&&!q&&(n=g+n),l.to=n.replace(/\/\//g,"/"),l.to===f&&(m["class"].active=!0);var r=[],s=f.startsWith(l.to)||!k;return s&&(r=R(e.map(function(a){return ea(j({parentTo:l.to,url:f,root:g,collapse:k},a))}))),G(m,[l.to?ca(l,b):O(l,b),r])},fa=function(a,b){var c=a.page,d=a.state;c=c?c(d):"404 - not found";var e={id:"Magic",class:d.pageClass};return I(e,w({class:{Wrapper:!0}},[ha({state:d,page:c}),b]))},ga=function(b,c){"string"==typeof b?b={content:b}:c&&(b=j({content:c},b));var d=b,f=d.content,g=d.lines;return w({class:{Pre:!0,lines:!(void 0!==g)||g}},[w({class:"menu"},[a({onclick:[ja.pre.clip,function(a){return{e:a,content:f}}]},"copy")]),M(ia.pre.format(f))])},ha=function(a){var b=a.page,c=a.state;return[_(c),w({class:"Page",id:"page"},b),Y(c)]},ia={db:function(){return{set:function set(a,b){var c=b.action,d=b.key,e=b.value,f=ia.db.init(),g=ia.json.stringify(e);return"Error"==typeof g?void a(c,new Error("db:write ".concat(d))):void(f[d]=g,a(c,{key:d,value:e}))},get:function get(a,b){var c=b.action,d=b.key,e=ia.db.init(),f=void 0;return d&&e[d]&&(f=ia.json.parse(e[d]),"Error"==typeof res)?void a(c,new Error("db:read ".concat(d))):void a(c,{key:d,value:f})},del:function del(a,b){var c=b.action,d=b.key,e=ia.db.init();d&&e[d]&&e.removeItem(d),a(c,{key:d,value:void 0})},init:function init(){return"undefined"!=typeof window&&window.localStorage||{}}}}(),json:function(){var a=function(a){return function(){try{return a.apply(void 0,arguments)}catch(a){return a}}},b=a(JSON.parse),c=a(JSON.stringify);return{parse:b,stringify:c}}(),pre:function(){var a="\nlet this long package float\ngoto private class if short\nwhile protected with debugger case\ncontinue volatile interface\n\ninstanceof super synchronized throw\nextends final throws\ntry import double enum\n\nboolean abstract function\nimplements typeof transient break\ndefault do static void\n\nint new async native switch\nelse delete null public var\nawait byte finally catch\nin return for get const char\nmodule exports require\n".trim().split(/\b/g).map(function(a){return a.trim()}),c="\nArray Object String Number RegExp Null Symbol\nSet WeakSet Map WeakMap\nsetInterval setTimeout\nPromise\nJSON\nInt8Array Uint8Array Uint8ClampedArray\nInt16Array Uint16Array\nInt32Array Uint32Array\nFloat32Array Float64Array\n".trim().split(/\b/g).map(function(a){return a.trim()}),d=["true","false"],e=function(b){if("string"!=typeof b)return b;var e=b.split(/\b/);return b=e.map(function(b,f){if(""!==b){var g="";return"state"===b?g="state":"actions"===b?g="actions":e[f+1]&&e[f+1].includes(":")?g="colon":a.includes(b)?g="keyword":c.includes(b)?g="builtin":d.includes(b)?g="boolean":"."===e[f-1]?g="property":"."===e[f+1]&&(g="object"),g&&(b=O({class:g},b)),b}}),b},f=/([a-zA-Z0-9:+._-]+@[a-zA-Z0-9._-]+)/g,g=function(a){return a.split(f).map(function(a){if(f.test(a)){var b=a.startsWith("mailto:")?a:"mailto:".concat(a),c=a.replace("mailto:","");return ca({class:"email",to:b},c)}return e(a)})},h=function(a,b){return[m(a.substring(0,b)),m(a.substring(b))]},i=function(a){return a.split(/(?= )/).map(function(a){if(!a.includes("://"))return m(a);var b=a.split("://"),c=l(b,2),d=c[0],e=c[1];return d.match(/[a-z]/g)?a:ca({to:a},a)})},j=function(a){return a.includes("://")&&!a.includes("@")?i(a):g(a)},k=function(a){var c=a.replace(/"/g,"'"),d=c.split("'"),f=b(d),g=f[0],h=f[1],i=f.slice(2),k=i;1===k.length?k=m(k[0]):1<k.length&&(k=m(k.join("'")));var l=[];return l="undefined"==typeof h?e(a):[e(g),O({class:"string"},["'",j(h),"'"]),k],l},m=function(a){var b=a.indexOf("//"),c=a.trim();if(c.startsWith("//")){for(var d=a.search(/\S|$/),e="",f=0;f<d;f++)e+=" ";return c.startsWith("// ")||(a="".concat(e,"// ").concat(c.substr(2))),O({class:"comment"},[e,"// ",m(c.substring(3))])}return-1<b&&":"!==a[b-1]?h(a,b):2<a.indexOf("://")?i(a):a.indexOf("@")&&a.includes(".")&&!a.trim().includes(" ")?g(a):k(a)},n=function(a){return v({class:"line"},m(a))};return{format:function format(a){return a.trim().split("\n").map(n)}}}(),preventDefault:function(){return function preventDefault(a){return a.preventDefault(),a}}()},ja={changeTheme:function changeTheme(a){return j({},a,{pageClass:j({},a.pageClass,{light:"dark"===a.theme}),theme:"dark"===a.theme?"light":"dark"})},gdpr:{allow:function allow(a){return[j({},a,{gdpr:j({},a.gdpr,{allowed:a.cookies.map(function(a){return a.name}),show:!1})}),[ia.db.set,{key:"magic-gdpr",value:{allowed:a.cookies.map(function(a){return a.name}),show:!1},action:[ja.gdpr.show,{show:!1}]}]]},close:function close(a){return[j({},a,{gdpr:j({},a.gdpr,{show:!1})}),[ia.db.set,{key:"magic-gdpr",value:{allowed:a.gdpr.allowed,show:!1},action:[ja.gdpr.show,{show:!1}]}]]},deny:function deny(a){return[j({},a,{gdpr:j({},a.gdpr,{allowed:[]})}),[ia.db.set,{key:"magic-gdpr",value:{allowed:[],show:!1},action:[ja.gdpr.show,{show:!1}]}]]},show:function(a,b){var c=b.show;return b.value&&(c=b.value.show),"boolean"==typeof c?(a.gdpr.show=c,j({},a)):a},toggleAllow:function toggleAllow(a,b){var d=b.name,e=a.gdpr,f=e.allowed.includes(d);return f?e.allowed=e.allowed.filter(function(a){return a!==d}):e.allowed.push(d),j({},a,{gdpr:e})}},go:function go(a,b){var c=b.currentTarget.href.replace(window.location.origin,""),d=c.split("#"),e=l(d,2),f=e[0],g=e[1],h=void 0===g?"":g;return f===a.url&&h===a.hash?a:(window.history.pushState({url:f,hash:h},"",c),h?window.location.hash=h:window.scroll(0,0),j({},a,{url:f,hash:h,prev:a.url}))},pop:function pop(a,b){var c=window.location,d=c.pathname,e=c.hash;return e=e.substring(1),b.state&&(d=b.state.url,e=b.state.hash),e?window.location.hash=e:window.scroll(0,0),j({},a,{url:d,hash:e})},pre:{clip:function clip(a,b){var c=b.content;if("undefined"!=typeof document&&"function"==typeof document.execCommand){var d=document.createElement("textarea");d.id="copy",d.innerHTML=c,document.body.appendChild(d);var e=document.getElementById("copy");e.select(),document.execCommand("copy"),document.body.removeChild(e)}return a}}},ka={"/css/":function css(a){return[g(a.title),L("parse/stringify/write css in js"),L("NO dynamic css, css gets output as css file. whenever possible, use dynamic classes instead."),L(["if there is absolute need for dynamic css,"," feel free to use the style property of the"," html tag / webcomponent you want to dynamically change,"," unfortunately, this library will not help you with that."]),$("magic/css"),g({id:"installation"},"installation"),ga("npm install @magic/css"),g({id:"usage"},"usage"),z({id:"import"},"import"),ga("import css from '@magic/css'"),g({id:"api"},"api"),z({id:"api-css"},"css (full result)"),ga("\nimport css from 'css'\n\nconst style = {\n  body: {\n    color: 'green',\n  },\n  '.class': {\n    color: 'orange',\n  },\n  '#id': {\n    color: 'purple'\n  },\n}\n\ncss(style)\n\n// returns\nObject {\n  // nicely formatted css string\n  css: 'body {\\n  color: green;\\n}\\n.class {\\n  color: orange;\\n}\\n#id{\\n  color: purple;\\n}\\n',\n  // minimal whitespace\n  minified: 'body{color:green}.class{color:orange}#id{color:purple}',\n  // array of used classes if any\n  classes: ['.class'],\n  // array of used ids if any\n  ids: ['#id'],\n  // array of used selectors\n  selectors: [],\n  //ast of this css object\n  parsed: [],\n}"),z({id:"api-parse"},"parse"),ga("\nconst style = {\n  '.className': {\n    '#id': {\n      color: 'orange',\n    },\n  },\n}\n\ncss.parse(style)\n// ast"),z({id:"api-stringify"},"stringify"),ga("\nconst style = {\n  '.className': {\n    '#id': {\n      color: 'white',\n    },\n  },\n}\n\nawait css.stringify(style)\n// minified string\n`.className #id{color:white;}`\n"),z({id:"api-write"},"write to filesystem"),ga("\nconst style = {\n  '.className': {\n    '#id': {\n      color: opts.textColor,\n    },\n  },\n}\n\n// writes styles to ./out.css\ncss.write(style)\n// writes styles to ./outfile.css\ncss.write(style, { OUTFILE: './outfile.css' })"),g({id:"styles"},"styles"),L(["styles are a javascript object."," the keys are selectors and the values are nested objects of css rules,"," where the keys of the objects are assumed to be selectors"," unless the value associated with the key is not an object"]),ga("\nconst style = {\n'.className': {\n  color: 'green',\n},\n}\nawait css.stringify(style)\n// .className { color:green; }"),z({id:"styles-pseudo-classes"},"pseudo classes: (:hover, :active)"),L("css pseudo classes in nested css get found if their object key starts with a &"),ga("\nconst style = {\n'div': {\n  color: 'red',\n  '&:hover': {\n    color: 'green',\n  },\n},\n}\n\nawait css.stringify(style)\n// div { color: red; }\n// div:hover { color: green; }"),z({id:"styles-selector-nesting"},"selector nesting"),ga("\nconst style = {\n'div': {\n  'p, &:hover': {\n    color: 'red',\n  },\n},\n}\nawait css.stringify(style)\n// div p, div:hover { color: red; }"),z({id:"styles-prefix-without-space"},"prefix without space"),L(["to prefix the parent of the selector using the child selectors,"," add a & at the end of any selectors but the last one."]),ga("\nconst style = {\n  '.class': {\n    'p&, :hover': {\n      color: 'orange',\n    },\n  },\n}\n\nawait css.stringify(style)\n\n// p.class, .class:hover { color: orange; }\n"),z({id:"styles-prefix-all-without-space"},"prefix all without space"),L(["if the & is at the end of a selector,"," the & will be applied to each of them."]),ga("\nconst style = {\n  '.class': {\n    'div, p&': {\n      color: 'orange';\n    },\n  },\n}\n\nawait css.stringify(style)\n\n// div.class, p.class { color: orange; }\n"),z({id:"styles-prefix-with-space"},"prefix with space"),L("to prefix the parent with a space, use a double && instead of a single &"),ga("\nconst style = {\n  '#id': {\n    '.class2&&, .class3': {\n      color: 'orange';\n    },\n  },\n}\n\nawait css.stringify(style)\n\n// .class2 #id, #id.class3 { color: orange; }\n"),z({id:"styles-prefix-all-with-space"},"prefix all with space"),L(["if the && is at the end of a selector,"," the && will be applied to each of them."]),ga("\nconst style = {\n  '.class': {\n    'div, p&&': {\n      color: 'orange';\n    },\n  },\n}\n\nawait css.stringify(style)\n\n// div .class, p .class { color: orange; }\n"),z({id:"styles-media-queries"},"media queries"),ga("\nconst style = {\n  '@media screen and (min-width: 500px)': {\n    '#id': {\n      color: opts.textColor,\n    },\n  },\n}\n\nawait css.stringify(style)\n// css string\n`\n@media screen and (min-width: 500px) {\n  #id {\n    color: green;\n  }\n}\n`"),z({id:"styles-keyframes"},"keyframes for animations"),ga("\nconst style = {\n'@keyframes anim-name': {\n  from {\n    opacity: 0,\n  },\n  to {\n    opacity: 1,\n  }\n}\n\nawait css.stringify(style)\n\n// css string\n`\n@keyframes anim-name {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n`"),z({id:"styles-webfonts"},"webfonts"),ga("\nconst style = {\n  '@font-face': {\n    fontFamily: 'font-name',\n    fontDir: '/fonts/',\n    fontStyle: 'normal',\n    fontWeight: 'normal',\n  },\n}\n\nawait css.stringify(style)\n// css string\n`\n@font-face {\n  font-family: \"font-name\";\n  font-style: normal;\n  font-weight: normal;\n  src: url('/fonts/font-name.eot');\n  src: url('/fonts/font-name.eot#iefix') format('embedded-opentype'),',\n  url('/fonts/font-name.ttf') format('truetype'),',\n  url('/fonts/font-name.woff') format('woff'),',\n  url('/fonts/font-name.woff2') format('woff2'),',\n  url('/fonts/font-name.svg#font-name') format('svg');',\n}\n`"),w({id:"changelog"},[g("CHANGELOG"),A({id:"changelog-v-0.1.0"},"0.1.0"),R([G("return classes and ids as separate objects additionally to selectors")]),A({id:"changelog-v-0.2.0"},"0.2.0"),R([G("Added media queries")]),A({id:"changelog-v-0.3.0"},"0.3.0"),R([G("returns a promise! no longer sync"),G("autoprefixer and postcss added")]),A({id:"changelog-v-0.4.0"},"0.4.0"),R([G("supports @font-face declarations")]),A({id:"changelog-v-0.4.1"},"0.4.1"),R([G("added fontDir option to font-face declarations")]),A({id:"changelog-v-0.4.2"},"0.4.2"),R([G("update deps to fix security issues")]),A({id:"changelog-v-0.4.3"},"0.4.3"),R([G("added @keyframes for animations")]),A({id:"changelog-v-0.4.4"},"0.4.4"),R([G("css.parse now converts deep arrays into one object before parsing")]),A({id:"changelog-v-0.4.5"},"0.4.5"),R([G("css.stringify now makes a bit nicer mediaquery and keyframe links."),G("css.parse should now order media queries to the end of the css.")]),A({id:"changelog-v-0.4.6"},"0.4.6"),R([G("css.parse does a better job of keeping order of incoming objects intact")]),A({id:"changelog-v-0.4.7"},"0.4.7"),R([G(["FIX: multiple parent selectors 'h1,h2,h3' that should get appended"," with a &:hover etc suffix now correctly append that suffix to every parent"]),G("FEATURE: & can be at the end of a selector to prepend a parent")])]),A({id:"changelog-v-0.5.0"},"0.5.0"),R([G(["FIX: css gets returned in almost the same order it got passed in."," turns out that javascript objects do not make this as easy as hoped."])]),A({id:"changelog-v-0.5.0"},"0.6.0"),R([G(["use esmodules"])]),A({id:"changelog-v-0.7.0"},"0.7.0"),L("update @magic/types to not break if es modules get passed into the styles"),A("0.7.1"),L("update @magic/deep to use ecmascript module version"),L("update postcss, autoprefixer"),A("0.7.2"),L("update dependencies"),A("0.7.3"),L("update dependencies"),A("0.7.4"),L("add @magic/log to dependencies"),A("0.7.5"),L("update autoprefixer"),A("0.7.6"),L("update postcss"),g({id:"source"},"source"),L(["the source for this page is in the ",ca({to:"https://github.com/magic/css/tree/master/example"},"example directory")," and gets built and published to github using ",ca({to:"https://github.com/magic/core"},"@magic/core")])]},"/css/404/":function css404(){return w("404 - not found")}};h({init:[j({},T,{url:window.location.pathname,hash:window.location.hash.substr(1)}),[[ia.db.get,{key:"magic-gdpr",action:ja.gdpr.show}]]],subscriptions:function subscriptions(){return[[U.listenPopState,ja.pop]]},view:function(a){var b=ka[a.url]?a.url:"/404/",c=ka[b],d=a.pages&&a.pages[b];return d&&Object.keys(d).forEach(function(b){a[b]=d[b]}),fa({page:c,state:a},[Z(a),ba(a)])},node:document.getElementById("Magic")});
+"use strict";
+
+function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest(); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var _ref = function () {
+  var RECYCLED_NODE = 1;
+  var LAZY_NODE = 2;
+  var TEXT_NODE = 3;
+  var EMPTY_OBJ = {};
+  var EMPTY_ARR = [];
+  var map = EMPTY_ARR.map;
+  var isArray = Array.isArray;
+  var defer = typeof requestAnimationFrame !== "undefined" ? requestAnimationFrame : setTimeout;
+
+  var createClass = function createClass(obj) {
+    var out = "";
+    if (typeof obj === "string") return obj;
+
+    if (isArray(obj) && obj.length > 0) {
+      for (var k = 0, tmp; k < obj.length; k++) {
+        if ((tmp = createClass(obj[k])) !== "") {
+          out += (out && " ") + tmp;
+        }
+      }
+    } else {
+      for (var k in obj) {
+        if (obj[k]) {
+          out += (out && " ") + k;
+        }
+      }
+    }
+
+    return out;
+  };
+
+  var merge = function merge(a, b) {
+    var out = {};
+
+    for (var k in a) {
+      out[k] = a[k];
+    }
+
+    for (var k in b) {
+      out[k] = b[k];
+    }
+
+    return out;
+  };
+
+  var batch = function batch(list) {
+    return list.reduce(function (out, item) {
+      return out.concat(!item || item === true ? 0 : typeof item[0] === "function" ? [item] : batch(item));
+    }, EMPTY_ARR);
+  };
+
+  var isSameAction = function isSameAction(a, b) {
+    return isArray(a) && isArray(b) && a[0] === b[0] && typeof a[0] === "function";
+  };
+
+  var shouldRestart = function shouldRestart(a, b) {
+    if (a !== b) {
+      for (var k in merge(a, b)) {
+        if (a[k] !== b[k] && !isSameAction(a[k], b[k])) return true;
+        b[k] = a[k];
+      }
+    }
+  };
+
+  var patchSubs = function patchSubs(oldSubs, newSubs, dispatch) {
+    for (var i = 0, oldSub, newSub, subs = []; i < oldSubs.length || i < newSubs.length; i++) {
+      oldSub = oldSubs[i];
+      newSub = newSubs[i];
+      subs.push(newSub ? !oldSub || newSub[0] !== oldSub[0] || shouldRestart(newSub[1], oldSub[1]) ? [newSub[0], newSub[1], newSub[0](dispatch, newSub[1]), oldSub && oldSub[2]()] : oldSub : oldSub && oldSub[2]());
+    }
+
+    return subs;
+  };
+
+  var patchProperty = function patchProperty(node, key, oldValue, newValue, listener, isSvg) {
+    if (key === "key") {} else if (key === "style") {
+      for (var k in merge(oldValue, newValue)) {
+        oldValue = newValue == null || newValue[k] == null ? "" : newValue[k];
+
+        if (k[0] === "-") {
+          node[key].setProperty(k, oldValue);
+        } else {
+          node[key][k] = oldValue;
+        }
+      }
+    } else if (key[0] === "o" && key[1] === "n") {
+      if (!((node.actions || (node.actions = {}))[key = key.slice(2).toLowerCase()] = newValue)) {
+        node.removeEventListener(key, listener);
+      } else if (!oldValue) {
+        node.addEventListener(key, listener);
+      }
+    } else if (!isSvg && key !== "list" && key in node) {
+      node[key] = newValue == null ? "" : newValue;
+    } else if (newValue == null || newValue === false || key === "class" && !(newValue = createClass(newValue))) {
+      node.removeAttribute(key);
+    } else {
+      node.setAttribute(key, newValue);
+    }
+  };
+
+  var createNode = function createNode(vdom, listener, isSvg) {
+    var ns = "http://www.w3.org/2000/svg";
+    var props = vdom.props;
+    var node = vdom.type === TEXT_NODE ? document.createTextNode(vdom.name) : (isSvg = isSvg || vdom.name === "svg") ? document.createElementNS(ns, vdom.name, {
+      is: props.is
+    }) : document.createElement(vdom.name, {
+      is: props.is
+    });
+
+    for (var k in props) {
+      patchProperty(node, k, null, props[k], listener, isSvg);
+    }
+
+    for (var i = 0, len = vdom.children.length; i < len; i++) {
+      node.appendChild(createNode(vdom.children[i] = getVNode(vdom.children[i]), listener, isSvg));
+    }
+
+    return vdom.node = node;
+  };
+
+  var getKey = function getKey(vdom) {
+    return vdom == null ? null : vdom.key;
+  };
+
+  var patch = function patch(parent, node, oldVNode, newVNode, listener, isSvg) {
+    if (oldVNode === newVNode) {} else if (oldVNode != null && oldVNode.type === TEXT_NODE && newVNode.type === TEXT_NODE) {
+      if (oldVNode.name !== newVNode.name) node.nodeValue = newVNode.name;
+    } else if (oldVNode == null || oldVNode.name !== newVNode.name) {
+      node = parent.insertBefore(createNode(newVNode = getVNode(newVNode), listener, isSvg), node);
+
+      if (oldVNode != null) {
+        parent.removeChild(oldVNode.node);
+      }
+    } else {
+      var tmpVKid;
+      var oldVKid;
+      var oldKey;
+      var newKey;
+      var oldVProps = oldVNode.props;
+      var newVProps = newVNode.props;
+      var oldVKids = oldVNode.children;
+      var newVKids = newVNode.children;
+      var oldHead = 0;
+      var newHead = 0;
+      var oldTail = oldVKids.length - 1;
+      var newTail = newVKids.length - 1;
+      isSvg = isSvg || newVNode.name === "svg";
+
+      for (var i in merge(oldVProps, newVProps)) {
+        if ((i === "value" || i === "selected" || i === "checked" ? node[i] : oldVProps[i]) !== newVProps[i]) {
+          patchProperty(node, i, oldVProps[i], newVProps[i], listener, isSvg);
+        }
+      }
+
+      while (newHead <= newTail && oldHead <= oldTail) {
+        if ((oldKey = getKey(oldVKids[oldHead])) == null || oldKey !== getKey(newVKids[newHead])) {
+          break;
+        }
+
+        patch(node, oldVKids[oldHead].node, oldVKids[oldHead], newVKids[newHead] = getVNode(newVKids[newHead++], oldVKids[oldHead++]), listener, isSvg);
+      }
+
+      while (newHead <= newTail && oldHead <= oldTail) {
+        if ((oldKey = getKey(oldVKids[oldTail])) == null || oldKey !== getKey(newVKids[newTail])) {
+          break;
+        }
+
+        patch(node, oldVKids[oldTail].node, oldVKids[oldTail], newVKids[newTail] = getVNode(newVKids[newTail--], oldVKids[oldTail--]), listener, isSvg);
+      }
+
+      if (oldHead > oldTail) {
+        while (newHead <= newTail) {
+          node.insertBefore(createNode(newVKids[newHead] = getVNode(newVKids[newHead++]), listener, isSvg), (oldVKid = oldVKids[oldHead]) && oldVKid.node);
+        }
+      } else if (newHead > newTail) {
+        while (oldHead <= oldTail) {
+          node.removeChild(oldVKids[oldHead++].node);
+        }
+      } else {
+        for (var i = oldHead, keyed = {}, newKeyed = {}; i <= oldTail; i++) {
+          if ((oldKey = oldVKids[i].key) != null) {
+            keyed[oldKey] = oldVKids[i];
+          }
+        }
+
+        while (newHead <= newTail) {
+          oldKey = getKey(oldVKid = oldVKids[oldHead]);
+          newKey = getKey(newVKids[newHead] = getVNode(newVKids[newHead], oldVKid));
+
+          if (newKeyed[oldKey] || newKey != null && newKey === getKey(oldVKids[oldHead + 1])) {
+            if (oldKey == null) {
+              node.removeChild(oldVKid.node);
+            }
+
+            oldHead++;
+            continue;
+          }
+
+          if (newKey == null || oldVNode.type === RECYCLED_NODE) {
+            if (oldKey == null) {
+              patch(node, oldVKid && oldVKid.node, oldVKid, newVKids[newHead], listener, isSvg);
+              newHead++;
+            }
+
+            oldHead++;
+          } else {
+            if (oldKey === newKey) {
+              patch(node, oldVKid.node, oldVKid, newVKids[newHead], listener, isSvg);
+              newKeyed[newKey] = true;
+              oldHead++;
+            } else {
+              if ((tmpVKid = keyed[newKey]) != null) {
+                patch(node, node.insertBefore(tmpVKid.node, oldVKid && oldVKid.node), tmpVKid, newVKids[newHead], listener, isSvg);
+                newKeyed[newKey] = true;
+              } else {
+                patch(node, oldVKid && oldVKid.node, null, newVKids[newHead], listener, isSvg);
+              }
+            }
+
+            newHead++;
+          }
+        }
+
+        while (oldHead <= oldTail) {
+          if (getKey(oldVKid = oldVKids[oldHead++]) == null) {
+            node.removeChild(oldVKid.node);
+          }
+        }
+
+        for (var i in keyed) {
+          if (newKeyed[i] == null) {
+            node.removeChild(keyed[i].node);
+          }
+        }
+      }
+    }
+
+    return newVNode.node = node;
+  };
+
+  var propsChanged = function propsChanged(a, b) {
+    for (var k in a) {
+      if (a[k] !== b[k]) return true;
+    }
+
+    for (var k in b) {
+      if (a[k] !== b[k]) return true;
+    }
+  };
+
+  var getTextVNode = function getTextVNode(node) {
+    return _typeof(node) === "object" ? node : createTextVNode(node);
+  };
+
+  var getVNode = function getVNode(newVNode, oldVNode) {
+    return newVNode.type === LAZY_NODE ? ((!oldVNode || oldVNode.type !== LAZY_NODE || propsChanged(oldVNode.lazy, newVNode.lazy)) && ((oldVNode = getTextVNode(newVNode.lazy.view(newVNode.lazy))).lazy = newVNode.lazy), oldVNode) : newVNode;
+  };
+
+  var createVNode = function createVNode(name, props, children, node, key, type) {
+    return {
+      name: name,
+      props: props,
+      children: children,
+      node: node,
+      type: type,
+      key: key
+    };
+  };
+
+  var createTextVNode = function createTextVNode(value, node) {
+    return createVNode(value, EMPTY_OBJ, EMPTY_ARR, node, undefined, TEXT_NODE);
+  };
+
+  var recycleNode = function recycleNode(node) {
+    return node.nodeType === TEXT_NODE ? createTextVNode(node.nodeValue, node) : createVNode(node.nodeName.toLowerCase(), EMPTY_OBJ, map.call(node.childNodes, recycleNode), node, undefined, RECYCLED_NODE);
+  };
+
+  var Lazy = function Lazy(props) {
+    return {
+      lazy: props,
+      type: LAZY_NODE
+    };
+  };
+
+  var h = function h(name, props) {
+    for (var vdom, rest = [], children = [], i = arguments.length; i-- > 2;) {
+      rest.push(arguments[i]);
+    }
+
+    while (rest.length > 0) {
+      if (isArray(vdom = rest.pop())) {
+        for (var i = vdom.length; i-- > 0;) {
+          rest.push(vdom[i]);
+        }
+      } else if (vdom === false || vdom === true || vdom == null) {} else {
+        children.push(getTextVNode(vdom));
+      }
+    }
+
+    props = props || EMPTY_OBJ;
+    return typeof name === "function" ? name(props, children) : createVNode(name, props, children, undefined, props.key);
+  };
+
+  var app = function app(props) {
+    var state = {};
+    var lock = false;
+    var view = props.view;
+    var node = props.node;
+    var vdom = node && recycleNode(node);
+    var subscriptions = props.subscriptions;
+    var subs = [];
+
+    var listener = function listener(event) {
+      dispatch(this.actions[event.type], event);
+    };
+
+    var setState = function setState(newState) {
+      if (state !== newState) {
+        state = newState;
+
+        if (subscriptions) {
+          subs = patchSubs(subs, batch([subscriptions(state)]), dispatch);
+        }
+
+        if (view && !lock) defer(render, lock = true);
+      }
+
+      return state;
+    };
+
+    var dispatch = (props.middleware || function (obj) {
+      return obj;
+    })(function (action, props) {
+      return typeof action === "function" ? dispatch(action(state, props)) : isArray(action) ? typeof action[0] === "function" || isArray(action[0]) ? dispatch(action[0], typeof action[1] === "function" ? action[1](props) : action[1]) : (batch(action.slice(1)).map(function (fx) {
+        fx && fx[0](dispatch, fx[1]);
+      }, setState(action[0])), state) : setState(action);
+    });
+
+    var render = function render() {
+      lock = false;
+      node = patch(node.parentNode, node, vdom, vdom = getTextVNode(view(state)), listener);
+    };
+
+    dispatch(props.init);
+  };
+
+  return {
+    h: h,
+    app: app
+  };
+}(),
+    h = _ref.h,
+    app = _ref.app;
+
+var C = function C(n) {
+  return function () {
+    var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var c = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+    var is = function is(ele) {
+      for (var _len = arguments.length, types = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        types[_key - 1] = arguments[_key];
+      }
+
+      return types.some(function (type) {
+        return type === _typeof(ele);
+      });
+    };
+
+    if (!c) {
+      if (is(props, 'string', 'number', 'function') || Array.isArray(props)) {
+        c = props;
+        props = {};
+      } else if (is(props.View, 'function')) {
+        c = props.View;
+        props = {};
+      } else if (props.props || props.c) {
+        return h(n, {}, props);
+      }
+    }
+
+    return h(n, props, c);
+  };
+};
+
+var a = C('a');
+var button = C('button');
+var circle = C('circle');
+var code = C('code');
+var div = C('div');
+var footer = C('footer');
+var g = C('g');
+var h2 = C('h2');
+var h3 = C('h3');
+var h4 = C('h4');
+var h5 = C('h5');
+var header = C('header');
+var img = C('img');
+var input = C('input');
+var label = C('label');
+var li = C('li');
+var link = C('link');
+var main = C('main');
+var meta = C('meta');
+var nav = C('nav');
+var p = C('p');
+var path = C('path');
+var pre = C('pre');
+var script = C('script');
+var span = C('span');
+var svg = C('svg');
+var title = C('title');
+var ul = C('ul');
+var view = C('view');
+var initialState = {
+  'description': 'parse/stringify/write css in js',
+  'gdpr': {
+    'allowed': [],
+    'show': true
+  },
+  'logotext': '@magic/css',
+  'menu': [{
+    'text': 'installation',
+    'to': '/#installation'
+  }, {
+    'text': 'import',
+    'to': '/#import'
+  }, {
+    'items': [{
+      'text': 'css (full result)',
+      'to': '-css'
+    }, {
+      'text': 'parse',
+      'to': '-parse'
+    }, {
+      'text': 'stringify',
+      'to': '-stringify'
+    }, {
+      'text': 'write to filesystem',
+      'to': '-write'
+    }],
+    'text': 'api',
+    'to': '/#api'
+  }, {
+    'items': [{
+      'text': ':pseudo classes',
+      'to': '-pseudo-classes'
+    }, {
+      'text': 'selector nesting',
+      'to': '-selector-nesting'
+    }, {
+      'text': 'prefix w/ space',
+      'to': '-prefix-with-space'
+    }, {
+      'text': 'prefix all w/ space',
+      'to': '-prefix-all-with-space'
+    }, {
+      'text': 'prefix w/o space',
+      'to': '-prefix-without-space'
+    }, {
+      'text': 'prefix all w/o space',
+      'to': '-prefix-all-without-space'
+    }, {
+      'text': 'media queries',
+      'to': '-media-queries'
+    }, {
+      'text': 'keyframes',
+      'to': '-keyframes'
+    }, {
+      'text': 'webfonts',
+      'to': '-webfonts'
+    }],
+    'text': 'styles',
+    'to': '/#styles'
+  }, {
+    'items': [{
+      'text': '0.1.0',
+      'to': '-v-0.1.0'
+    }, {
+      'text': '0.2.0',
+      'to': '-v-0.2.0'
+    }, {
+      'text': '0.3.0',
+      'to': '-v-0.3.0'
+    }, {
+      'text': '0.4.0',
+      'to': '-v-0.4.0'
+    }, {
+      'text': '0.4.1',
+      'to': '-v-0.4.1'
+    }, {
+      'text': '0.4.2',
+      'to': '-v-0.4.2'
+    }, {
+      'text': '0.4.3',
+      'to': '-v-0.4.3'
+    }, {
+      'text': '0.4.4',
+      'to': '-v-0.4.4'
+    }, {
+      'text': '0.4.5',
+      'to': '-v-0.4.5'
+    }, {
+      'text': '0.4.6',
+      'to': '-v-0.4.6'
+    }, {
+      'text': '0.4.7',
+      'to': '-v-0.4.7'
+    }, {
+      'text': '0.5.0',
+      'to': '-v-0.5.0'
+    }],
+    'text': 'changelog',
+    'to': '/#changelog'
+  }, {
+    'text': 'source',
+    'to': '/#source'
+  }],
+  'pageClass': {},
+  'root': '/css/',
+  'theme': 'dark',
+  'title': '@magic/css',
+  'url': '/css/'
+};
+var helpers = {
+  'listenPopState': function listenPopState(dispatch, action) {
+    var listener = function listener(e) {
+      return dispatch(action, e);
+    };
+
+    addEventListener('popstate', listener);
+    return function () {
+      return removeEventListener('popstate', listener);
+    };
+  }
+};
+
+var BlogMonth = function BlogMonth(state) {
+  var blog = state.blog,
+      link = state.link,
+      month = state.month,
+      url = state.url,
+      year = state.year;
+  var months = Object.entries(blog[year][month]);
+  var to;
+  var title = [month];
+
+  if (link) {
+    to = "".concat(link).concat(month, "/");
+  } else {
+    title.push(' - ', year);
+  }
+
+  return [h3(to ? Link({
+    to: to
+  }, title) : title), months.map(function (_ref4) {
+    var _ref5 = _slicedToArray(_ref4, 2),
+        day = _ref5[0],
+        posts = _ref5[1];
+
+    return posts.map(function (post) {
+      return BlogTeaser(_objectSpread({}, state, {}, post.state, {
+        name: post.name,
+        link: to,
+        day: day
+      }));
+    });
+  })];
+};
+
+var BlogTeaser = function BlogTeaser(state) {
+  return div([h4([state.day, '-', state.month, '-', state.year, ' - ', Link({
+    to: state.name
+  }, state.title)]), p(state.description)]);
+};
+
+var BlogYear = function BlogYear(state) {
+  var link = state.link,
+      year = state.year,
+      blog = state.blog,
+      url = state.url;
+  var to;
+
+  if (link) {
+    to = "".concat(link).concat(year, "/");
+  } else if (url.endsWith("".concat(year, "/"))) {
+    to = url;
+  }
+
+  return div([h2(link ? Link({
+    to: to
+  }, year) : year), Object.entries(blog[year]).map(function (_ref6) {
+    var _ref7 = _slicedToArray(_ref6, 2),
+        month = _ref7[0],
+        days = _ref7[1];
+
+    return BlogMonth(_objectSpread({}, state, {
+      month: month,
+      days: days,
+      link: to
+    }));
+  })]);
+};
+
+var Footer = function Footer(state) {
+  var children = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+  return footer({
+    "class": 'Footer'
+  }, [div({
+    "class": 'Container'
+  }, [children, div({
+    "class": 'Credits'
+  }, ['made with a few bits of ', Link({
+    to: 'https://github.com/magic/core',
+    target: '_blank',
+    rel: 'noopener'
+  }, 'magic')])])]);
+};
+
+var Gdpr = function Gdpr(_ref8) {
+  var _ref8$gdpr = _ref8.gdpr,
+      gdpr = _ref8$gdpr === void 0 ? {} : _ref8$gdpr,
+      _ref8$cookies = _ref8.cookies,
+      cookies = _ref8$cookies === void 0 ? [] : _ref8$cookies;
+  var show = gdpr.show,
+      _gdpr$title = gdpr.title,
+      title = _gdpr$title === void 0 ? 'Privacy Information' : _gdpr$title,
+      _gdpr$content = gdpr.content,
+      content = _gdpr$content === void 0 ? 'This app neither saves, collects, nor shares any data about you.' : _gdpr$content,
+      _gdpr$noDataText = gdpr.noDataText,
+      noDataText = _gdpr$noDataText === void 0 ? 'Awesome.' : _gdpr$noDataText,
+      _gdpr$allowTitle = gdpr.allowTitle,
+      allowTitle = _gdpr$allowTitle === void 0 ? 'Allow:' : _gdpr$allowTitle,
+      _gdpr$allowAllText = gdpr.allowAllText,
+      allowAllText = _gdpr$allowAllText === void 0 ? 'All' : _gdpr$allowAllText,
+      _gdpr$allowText = gdpr.allowText,
+      allowText = _gdpr$allowText === void 0 ? 'Selected' : _gdpr$allowText,
+      _gdpr$denyText = gdpr.denyText,
+      denyText = _gdpr$denyText === void 0 ? 'None' : _gdpr$denyText;
+
+  if (!show) {
+    return div({
+      "class": 'Gdpr'
+    }, svg({
+      "class": 'ShowHide',
+      onclick: [actions.gdpr.show, {
+        show: true
+      }],
+      viewBox: '0 0 512 512'
+    }, [g([path({
+      d: "\nM507,208c-1-7-7-12-14-13c-7-1-13,3-16,9\nc-5,11-16,19-29,19c-14,0-26-10-30-23c-2-8-11-13-19-11\nC393,191,389,192,384,192c-35-0-64-29-64-64c0-5,1-9,2-14\nc2-8-3-16-11-19C297,90,288,78,288,64c-0-13,8-24,19-29\nc6-3,10-9,9-16c-1-7-6-12-13-14C288,2,272,0,256,0\nC115,0,0,115,0,256c0,141,115,256,256,256c141-0,256-115,256-256\nC512,239,510,224,507,209z M414,414C374,455,318,480,256,480s-118-25-158-66\nC57,374,32,318,32,256S57,138,98,98C138,57,194,32,256,32c3,0,6,0,9,0\nC259,42,256,52,256,64c0,24,13,44,33,55C288,122,288,125,288,128\nc0,53,43,96,96,96c3,0,6-0,8-0C403,242,424,256,448,256\nc11-0,22-3,32-8c0,3,0,6,0,9C480,318,455,374,414,414z\n"
+    }), circle({
+      cx: '192',
+      cy: '128',
+      r: '32'
+    }), circle({
+      cx: '128',
+      cy: '256',
+      r: '32'
+    }), circle({
+      cx: '288',
+      cy: '384',
+      r: '32'
+    }), circle({
+      cx: '272',
+      cy: '272',
+      r: '16'
+    }), circle({
+      cx: '400',
+      cy: '336',
+      r: '16'
+    }), circle({
+      cx: '176',
+      cy: '368',
+      r: '16'
+    })])]));
+  }
+
+  var hasCookies = !!cookies.length;
+  return div({
+    "class": 'Gdpr'
+  }, [input({
+    type: 'checkbox',
+    name: 'show-hide',
+    id: 'show-hide',
+    checked: !show
+  }), div({
+    "class": 'Container'
+  }, [title && h3(title), content && p(content), hasCookies && [ul(cookies.map(function (_ref9) {
+    var name = _ref9.name,
+        title = _ref9.title,
+        content = _ref9.content,
+        _ref9$allowed = _ref9.allowed,
+        allowed = _ref9$allowed === void 0 ? false : _ref9$allowed;
+    return li({
+      "class": 'Cookie'
+    }, [input({
+      type: 'checkbox',
+      title: "allow ".concat(name, " data"),
+      id: name,
+      checked: gdpr.allowed.includes(name),
+      onchange: [actions.gdpr.toggleAllow, {
+        name: name
+      }]
+    }), (title || content) && label({
+      "for": name
+    }, [title && h4(title), content && p(content)])]);
+  }))], hasCookies ? [h5(allowTitle), label({
+    "class": 'button allow all',
+    "for": 'show-hide',
+    onclick: actions.gdpr.allow
+  }, allowAllText), label({
+    "class": 'button allow',
+    "for": 'show-hide',
+    onclick: actions.gdpr.close
+  }, allowText), label({
+    "class": 'button allow none',
+    "for": 'show-hide',
+    onclick: actions.gdpr.deny
+  }, denyText)] : label({
+    "class": 'button',
+    "for": 'show-hide',
+    onclick: actions.gdpr.close
+  }, noDataText)])]);
+};
+
+var GitBadges = function GitBadges(props) {
+  if (typeof props === 'string') {
+    props = {
+      project: props
+    };
+  } else if (!props.project) {
+    return;
+  }
+
+  var _props = props,
+      _props$project = _props.project,
+      project = _props$project === void 0 ? false : _props$project,
+      _props$branch = _props.branch,
+      branch = _props$branch === void 0 ? 'master' : _props$branch,
+      _props$host = _props.host,
+      host = _props$host === void 0 ? 'github' : _props$host;
+  var urls = [['npm', function () {
+    var v = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : project;
+    return v && {
+      to: "https://www.npmjs.com/package/@".concat(v),
+      src: "https://img.shields.io/npm/v/@".concat(v, ".svg")
+    };
+  }], ['travis', function () {
+    var v = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : project;
+    return v && {
+      to: "https://travis-ci.com/".concat(v),
+      src: "https://img.shields.io/travis/com/".concat(v, "/").concat(branch)
+    };
+  }], ['appveyor', function () {
+    var v = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : project;
+
+    if (v) {
+      var _v$split = v.split('/'),
+          _v$split2 = _slicedToArray(_v$split, 2),
+          org = _v$split2[0],
+          repo = _v$split2[1];
+
+      org = org.replace(/-/g, '');
+      return {
+        to: "https://ci.appveyor.com/project/".concat(org, "/").concat(repo, "/branch/").concat(branch),
+        src: "https://img.shields.io/appveyor/ci/".concat(org, "/").concat(repo, "/").concat(branch, ".svg")
+      };
+    }
+  }], ['coveralls', function () {
+    var v = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : project;
+    return {
+      to: "https://coveralls.io/".concat(host, "/").concat(v),
+      src: "https://img.shields.io/coveralls/".concat(host, "/").concat(v, "/").concat(branch, ".svg")
+    };
+  }], ['greenkeeper', function () {
+    var v = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : project;
+    return v && {
+      to: "https://greenkeeper.io",
+      src: "https://badges.greenkeeper.io/".concat(v, ".svg")
+    };
+  }], ['snyk', function () {
+    var v = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : project;
+    return v && {
+      to: "https://snyk.io/test/".concat(host, "/").concat(v),
+      src: "https://img.shields.io/snyk/vulnerabilities/github/".concat(v, ".svg")
+    };
+  }]].map(function (_ref10) {
+    var _ref11 = _slicedToArray(_ref10, 2),
+        name = _ref11[0],
+        fn = _ref11[1];
+
+    return fn(props[name]);
+  }).filter(function (a) {
+    return a.to && a.src;
+  });
+
+  if (!urls.length) {
+    return;
+  }
+
+  return ul({
+    "class": 'GitBadges'
+  }, urls.map(function (_ref12) {
+    var to = _ref12.to,
+        src = _ref12.src;
+    return li([Link({
+      to: to
+    }, Img({
+      src: src
+    }))]);
+  }));
+};
+
+var Header = function Header() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var children = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+
+  var logo = props.logo,
+      menu = props.menu,
+      logotext = props.logotext,
+      state = _objectWithoutProperties(props, ["logo", "menu", "logotext"]);
+
+  if (!logo && !menu && !logotext) {
+    return;
+  }
+
+  return header({
+    "class": 'Header'
+  }, [(logo || logotext) && Link({
+    to: state.root,
+    "class": 'Logo'
+  }, [logo && Img(logo), logotext && span(logotext)]), menu && Menu({
+    state: state,
+    items: menu
+  }), children]);
+};
+
+var Img = function Img(props) {
+  if (typeof props === 'string') {
+    props = {
+      src: props
+    };
+  }
+
+  if (!props.src) {
+    return;
+  }
+
+  if (!props.alt) {
+    if (props.title) {
+      props.alt = props.title;
+    } else {
+      props.role = 'presentation';
+      props.alt = '';
+    }
+  }
+
+  return img(props);
+};
+
+var LightSwitch = function LightSwitch() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return button({
+    "class": 'LightSwitch',
+    onclick: actions.changeTheme
+  });
+};
+
+var Link = function Link(_ref13, children) {
+  var to = _ref13.to,
+      p = _objectWithoutProperties(_ref13, ["to"]);
+
+  var href = p.href,
+      text = p.text,
+      nofollow = p.nofollow,
+      noreferrer = p.noreferrer,
+      props = _objectWithoutProperties(p, ["href", "text", "nofollow", "noreferrer"]);
+
+  to = to || href || '';
+  props.href = to;
+  var isLocal = to[0] === '/' || to[0] === '#';
+
+  if (isLocal) {
+    props.onclick = [actions.go, lib.preventDefault];
+  } else {
+    props.target = '_blank';
+    props.rel = 'noopener';
+
+    if (nofollow) {
+      props.rel += ' nofollow';
+    }
+
+    if (noreferrer) {
+      props.rel += ' noreferrer';
+    }
+  }
+
+  return a(props, [text, children]);
+};
+
+var Menu = function Menu() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var _props$class = props["class"],
+      className = _props$class === void 0 ? 'Menu' : _props$class,
+      _props$collapse = props.collapse,
+      collapse = _props$collapse === void 0 ? true : _props$collapse,
+      items = props.items,
+      state = props.state;
+  var url = state.url,
+      hash = state.hash,
+      root = state.root;
+
+  if (hash && !url.endsWith(hash)) {
+    url += "#".concat(hash);
+  }
+
+  return nav({
+    className: className
+  }, ul(items.map(function (item) {
+    return MenuItem(_objectSpread({}, item, {
+      url: url,
+      root: root,
+      collapse: collapse
+    }));
+  })));
+};
+
+var MenuItem = function MenuItem(props) {
+  var text = props.text,
+      _props$items = props.items,
+      items = _props$items === void 0 ? [] : _props$items,
+      url = props.url,
+      root = props.root,
+      _props$parentTo = props.parentTo,
+      parentTo = _props$parentTo === void 0 ? undefined : _props$parentTo,
+      collapse = props.collapse,
+      item = _objectWithoutProperties(props, ["text", "items", "url", "root", "parentTo", "collapse"]);
+
+  var p = {
+    "class": {}
+  };
+  var to = item.to;
+
+  if (to.startsWith('/#')) {
+    to = to.substr(1);
+  }
+
+  var first = item.to[0];
+  var isLocal = first === '/' || first === '-' || first === '#';
+
+  if (parentTo && isLocal) {
+    if (first === '-' || first === '#') {
+      to = parentTo + to;
+    } else {
+      var start = to.split('/')[1];
+
+      if (start) {
+        var startsLikeParentEnds = parentTo.endsWith("/".concat(start, "/"));
+
+        if (!startsLikeParentEnds && isLocal) {
+          to = parentTo + to;
+        }
+      }
+    }
+  }
+
+  var isRooted = to.startsWith(root);
+
+  if (root && isLocal && !isRooted) {
+    to = root + to;
+  }
+
+  item.to = to.replace(/\/\//g, '/');
+
+  if (item.to === url) {
+    p["class"].active = true;
+  }
+
+  var children = [];
+  var active = url.startsWith(item.to) || !collapse;
+
+  if (active) {
+    children = ul(items.map(function (i) {
+      return MenuItem(_objectSpread({
+        parentTo: item.to,
+        url: url,
+        root: root,
+        collapse: collapse
+      }, i));
+    }));
+  }
+
+  return li(p, [item.to ? Link(item, text) : span(item, text), children]);
+};
+
+var Page = function Page(_ref14, children) {
+  var page = _ref14.page,
+      state = _ref14.state;
+  page = page ? page(state) : '404 - not found';
+  var magicProps = {
+    id: 'Magic',
+    "class": state.pageClass
+  };
+  var wrapperProps = {
+    "class": {
+      Wrapper: true
+    }
+  };
+  return main(magicProps, div(wrapperProps, [Route({
+    state: state,
+    page: page
+  }), children]));
+};
+
+var Pre = function Pre(props, str) {
+  if (typeof props === 'string') {
+    props = {
+      content: props
+    };
+  } else if (str) {
+    props = _objectSpread({
+      content: str
+    }, props);
+  }
+
+  var _props2 = props,
+      content = _props2.content,
+      _props2$lines = _props2.lines,
+      lines = _props2$lines === void 0 ? true : _props2$lines;
+  var classes = {
+    Pre: true,
+    lines: lines
+  };
+  return div({
+    "class": classes
+  }, [div({
+    "class": 'menu'
+  }, [button({
+    onclick: [actions.pre.clip, function (e) {
+      return {
+        e: e,
+        content: content
+      };
+    }]
+  }, 'copy')]), pre(lib.pre.format(content))]);
+};
+
+var Route = function Route(_ref15) {
+  var page = _ref15.page,
+      state = _ref15.state;
+  return [Header(state), div({
+    "class": 'Page',
+    id: 'page'
+  }, page), Footer(state)];
+};
+
+var lib = {
+  db: function () {
+    var init = function init() {
+      return typeof window !== 'undefined' && window.localStorage || {};
+    };
+
+    var set = function set(dispatch, _ref16) {
+      var action = _ref16.action,
+          key = _ref16.key,
+          value = _ref16.value;
+      var store = lib.db.init();
+      var res = lib.json.stringify(value);
+
+      if (typeof res === 'Error') {
+        dispatch(action, new Error("db:write ".concat(key)));
+        return;
+      }
+
+      store[key] = res;
+      dispatch(action, {
+        key: key,
+        value: value
+      });
+    };
+
+    var get = function get(dispatch, _ref17) {
+      var action = _ref17.action,
+          key = _ref17.key;
+      var store = lib.db.init();
+      var value = undefined;
+
+      if (key && store[key]) {
+        value = lib.json.parse(store[key]);
+
+        if (typeof res === 'Error') {
+          dispatch(action, new Error("db:read ".concat(key)));
+          return;
+        }
+      }
+
+      dispatch(action, {
+        key: key,
+        value: value
+      });
+    };
+
+    var del = function del(dispatch, _ref18) {
+      var action = _ref18.action,
+          key = _ref18.key;
+      var store = lib.db.init();
+
+      if (key && store[key]) {
+        store.removeItem(key);
+      }
+
+      dispatch(action, {
+        key: key,
+        value: undefined
+      });
+    };
+
+    return {
+      set: set,
+      get: get,
+      del: del,
+      init: init
+    };
+  }(),
+  json: function () {
+    var tryCatch = function tryCatch(fn) {
+      return function () {
+        try {
+          return fn.apply(void 0, arguments);
+        } catch (e) {
+          return e;
+        }
+      };
+    };
+
+    var parse = tryCatch(JSON.parse);
+    var stringify = tryCatch(JSON.stringify);
+    return {
+      parse: parse,
+      stringify: stringify
+    };
+  }(),
+  pre: function () {
+    var keywords = "\nlet this long package float\ngoto private class if short\nwhile protected with debugger case\ncontinue volatile interface\n\ninstanceof super synchronized throw\nextends final throws\ntry import double enum\n\nboolean abstract function\nimplements typeof transient break\ndefault do static void\n\nint new async native switch\nelse delete null public var\nawait byte finally catch\nin return for get const char\nmodule exports require\n".trim().split(/\b/g).map(function (w) {
+      return w.trim();
+    });
+    var builtins = "\nArray Object String Number RegExp Null Symbol\nSet WeakSet Map WeakMap\nsetInterval setTimeout\nPromise\nJSON\nInt8Array Uint8Array Uint8ClampedArray\nInt16Array Uint16Array\nInt32Array Uint32Array\nFloat32Array Float64Array\n".trim().split(/\b/g).map(function (w) {
+      return w.trim();
+    });
+    var booleans = ['true', 'false'];
+
+    var wrapWords = function wrapWords(string) {
+      if (typeof string !== 'string') {
+        return string;
+      }
+
+      var matched = string.split(/\b/);
+      string = matched.map(function (word, i) {
+        if (word === '') {
+          return;
+        }
+
+        var cl = '';
+
+        if (word === 'state') {
+          cl = 'state';
+        } else if (word === 'actions') {
+          cl = 'actions';
+        } else if (matched[i + 1] && matched[i + 1].includes(':')) {
+          cl = 'colon';
+        } else if (keywords.includes(word)) {
+          cl = 'keyword';
+        } else if (builtins.includes(word)) {
+          cl = 'builtin';
+        } else if (booleans.includes(word)) {
+          cl = 'boolean';
+        } else if (matched[i - 1] === '.') {
+          cl = 'property';
+        } else if (matched[i + 1] === '.') {
+          cl = 'object';
+        }
+
+        if (cl) {
+          word = span({
+            "class": cl
+          }, word);
+        }
+
+        return word;
+      });
+      return string;
+    };
+
+    var mailRegex = /([a-zA-Z0-9:+._-]+@[a-zA-Z0-9._-]+)/g;
+
+    var wrapEmails = function wrapEmails(line) {
+      return line.split(mailRegex).map(function (part) {
+        if (mailRegex.test(part)) {
+          var to = part.startsWith('mailto:') ? part : "mailto:".concat(part);
+
+          var _text = part.replace('mailto:', '');
+
+          return Link({
+            "class": 'email',
+            to: to
+          }, _text);
+        }
+
+        return wrapWords(part);
+      });
+    };
+
+    var wrapComments = function wrapComments(line, i) {
+      return [wordsByLine(line.substring(0, i)), wordsByLine(line.substring(i))];
+    };
+
+    var wrapLinks = function wrapLinks(line) {
+      return line.split(/(?= )/).map(function (word) {
+        if (!word.includes('://')) {
+          return wordsByLine(word);
+        }
+
+        var _word$split = word.split('://'),
+            _word$split2 = _slicedToArray(_word$split, 2),
+            protocol = _word$split2[0],
+            url = _word$split2[1];
+
+        if (protocol.match(/[a-z]/g)) {
+          return word;
+        }
+
+        return Link({
+          to: word
+        }, word);
+      });
+    };
+
+    var wrapUrls = function wrapUrls(line) {
+      if (line.includes('://') && !line.includes('@')) {
+        return wrapLinks(line);
+      } else {
+        return wrapEmails(line);
+      }
+    };
+
+    var wrapStrings = function wrapStrings(line) {
+      var cleaned = line.replace(/"/g, "'");
+
+      var _cleaned$split = cleaned.split("'"),
+          _cleaned$split2 = _toArray(_cleaned$split),
+          start = _cleaned$split2[0],
+          str = _cleaned$split2[1],
+          rest = _cleaned$split2.slice(2);
+
+      var end = rest;
+
+      if (end.length === 1) {
+        end = wordsByLine(end[0]);
+      } else if (end.length > 1) {
+        end = wordsByLine(end.join("'"));
+      }
+
+      var words = [];
+
+      if (typeof str !== 'undefined') {
+        words = [wrapWords(start), span({
+          "class": 'string'
+        }, ["'", wrapUrls(str), "'"]), end];
+      } else {
+        words = wrapWords(line);
+      }
+
+      return words;
+    };
+
+    var wordsByLine = function wordsByLine(line) {
+      var idx = line.indexOf('//');
+      var trimmed = line.trim();
+
+      if (trimmed.startsWith('//')) {
+        var indentIdx = line.search(/\S|$/);
+        var indent = '';
+
+        for (var _i2 = 0; _i2 < indentIdx; _i2++) {
+          indent += ' ';
+        }
+
+        if (!trimmed.startsWith('// ')) {
+          line = "".concat(indent, "// ").concat(trimmed.substr(2));
+        }
+
+        return span({
+          "class": 'comment'
+        }, [indent, '// ', wordsByLine(trimmed.substring(3))]);
+      } else if (idx > -1 && line[idx - 1] !== ':') {
+        return wrapComments(line, idx);
+      } else if (line.indexOf('://') > 2) {
+        return wrapLinks(line);
+      } else if (line.indexOf('@') && line.includes('.') && !line.trim().includes(' ')) {
+        return wrapEmails(line);
+      }
+
+      return wrapStrings(line);
+    };
+
+    var wrapLine = function wrapLine(line) {
+      return code({
+        "class": 'line'
+      }, wordsByLine(line));
+    };
+
+    var format = function format(content) {
+      return content.trim().split('\n').map(wrapLine);
+    };
+
+    return {
+      format: format
+    };
+  }(),
+  preventDefault: function () {
+    var preventDefault = function preventDefault(e) {
+      e.preventDefault();
+      return e;
+    };
+
+    return preventDefault;
+  }()
+};
+var actions = {
+  'changeTheme': function changeTheme(state) {
+    return _objectSpread({}, state, {
+      pageClass: _objectSpread({}, state.pageClass, {
+        light: state.theme === 'dark'
+      }),
+      theme: state.theme === 'dark' ? 'light' : 'dark'
+    });
+  },
+  'gdpr': {
+    'allow': function allow(state) {
+      return [_objectSpread({}, state, {
+        gdpr: _objectSpread({}, state.gdpr, {
+          allowed: state.cookies.map(function (c) {
+            return c.name;
+          }),
+          show: false
+        })
+      }), [lib.db.set, {
+        key: 'magic-gdpr',
+        value: {
+          allowed: state.cookies.map(function (c) {
+            return c.name;
+          }),
+          show: false
+        },
+        action: [actions.gdpr.show, {
+          show: false
+        }]
+      }]];
+    },
+    'close': function close(state) {
+      return [_objectSpread({}, state, {
+        gdpr: _objectSpread({}, state.gdpr, {
+          show: false
+        })
+      }), [lib.db.set, {
+        key: 'magic-gdpr',
+        value: {
+          allowed: state.gdpr.allowed,
+          show: false
+        },
+        action: [actions.gdpr.show, {
+          show: false
+        }]
+      }]];
+    },
+    'deny': function deny(state) {
+      return [_objectSpread({}, state, {
+        gdpr: _objectSpread({}, state.gdpr, {
+          allowed: []
+        })
+      }), [lib.db.set, {
+        key: 'magic-gdpr',
+        value: {
+          allowed: [],
+          show: false
+        },
+        action: [actions.gdpr.show, {
+          show: false
+        }]
+      }]];
+    },
+    'show': function show(state, props) {
+      var show = props.show;
+
+      if (props.value) {
+        show = props.value.show;
+      }
+
+      if (typeof show === 'boolean') {
+        state.gdpr.show = show;
+        return _objectSpread({}, state);
+      }
+
+      return state;
+    },
+    'toggleAllow': function toggleAllow(state, _ref19) {
+      var name = _ref19.name;
+      var gdpr = state.gdpr;
+      var active = gdpr.allowed.includes(name);
+
+      if (!active) {
+        gdpr.allowed.push(name);
+      } else {
+        gdpr.allowed = gdpr.allowed.filter(function (c) {
+          return c !== name;
+        });
+      }
+
+      return _objectSpread({}, state, {
+        gdpr: gdpr
+      });
+    }
+  },
+  'go': function go(state, e) {
+    var to = e.currentTarget.href.replace(window.location.origin, '');
+
+    var _to$split = to.split('#'),
+        _to$split2 = _slicedToArray(_to$split, 2),
+        url = _to$split2[0],
+        _to$split2$ = _to$split2[1],
+        hash = _to$split2$ === void 0 ? '' : _to$split2$;
+
+    if (url === state.url && hash === state.hash) {
+      return state;
+    }
+
+    window.history.pushState({
+      url: url,
+      hash: hash
+    }, '', to);
+
+    if (!hash) {
+      window.scroll(0, 0);
+    } else {
+      window.location.hash = hash;
+    }
+
+    return _objectSpread({}, state, {
+      url: url,
+      hash: hash,
+      prev: state.url
+    });
+  },
+  'pop': function pop(state, e) {
+    var _window$location = window.location,
+        url = _window$location.pathname,
+        hash = _window$location.hash;
+    hash = hash.substring(1);
+
+    if (e.state) {
+      url = e.state.url;
+      hash = e.state.hash;
+    }
+
+    if (hash) {
+      window.location.hash = hash;
+    } else {
+      window.scroll(0, 0);
+    }
+
+    return _objectSpread({}, state, {
+      url: url,
+      hash: hash
+    });
+  },
+  'pre': {
+    'clip': function clip(state, _ref20) {
+      var content = _ref20.content;
+
+      if (typeof document !== 'undefined' && typeof document.execCommand === 'function') {
+        var copy = document.createElement('textarea');
+        copy.id = 'copy';
+        copy.innerHTML = content;
+        document.body.appendChild(copy);
+        var child = document.getElementById('copy');
+        child.select();
+        document.execCommand('copy');
+        document.body.removeChild(child);
+      }
+
+      return state;
+    }
+  }
+};
+var pages = {
+  '/css/': function css(state) {
+    return [h2(state.title), p('parse/stringify/write css in js'), p('NO dynamic css, css gets output as css file. whenever possible, use dynamic classes instead.'), p(['if there is absolute need for dynamic css,', ' feel free to use the style property of the', ' html tag / webcomponent you want to dynamically change,', ' unfortunately, this library will not help you with that.']), GitBadges('magic/css'), h2({
+      id: 'installation'
+    }, 'installation'), Pre('npm install @magic/css'), h2({
+      id: 'usage'
+    }, 'usage'), h3({
+      id: 'import'
+    }, 'import'), Pre("import css from '@magic/css'"), h2({
+      id: 'api'
+    }, 'api'), h3({
+      id: 'api-css'
+    }, 'css (full result)'), Pre("\nimport css from 'css'\n\nconst style = {\n  body: {\n    color: 'green',\n  },\n  '.class': {\n    color: 'orange',\n  },\n  '#id': {\n    color: 'purple'\n  },\n}\n\ncss(style)\n\n// returns\nObject {\n  // nicely formatted css string\n  css: 'body {\\n  color: green;\\n}\\n.class {\\n  color: orange;\\n}\\n#id{\\n  color: purple;\\n}\\n',\n  // minimal whitespace\n  minified: 'body{color:green}.class{color:orange}#id{color:purple}',\n  // array of used classes if any\n  classes: ['.class'],\n  // array of used ids if any\n  ids: ['#id'],\n  // array of used selectors\n  selectors: [],\n  //ast of this css object\n  parsed: [],\n}"), h3({
+      id: 'api-parse'
+    }, 'parse'), Pre("\nconst style = {\n  '.className': {\n    '#id': {\n      color: 'orange',\n    },\n  },\n}\n\ncss.parse(style)\n// ast"), h3({
+      id: 'api-stringify'
+    }, 'stringify'), Pre("\nconst style = {\n  '.className': {\n    '#id': {\n      color: 'white',\n    },\n  },\n}\n\nawait css.stringify(style)\n// minified string\n`.className #id{color:white;}`\n"), h3({
+      id: 'api-write'
+    }, 'write to filesystem'), Pre("\nconst style = {\n  '.className': {\n    '#id': {\n      color: opts.textColor,\n    },\n  },\n}\n\n// writes styles to ./out.css\ncss.write(style)\n// writes styles to ./outfile.css\ncss.write(style, { OUTFILE: './outfile.css' })"), h2({
+      id: 'styles'
+    }, 'styles'), p(['styles are a javascript object.', ' the keys are selectors and the values are nested objects of css rules,', ' where the keys of the objects are assumed to be selectors', ' unless the value associated with the key is not an object']), Pre("\nconst style = {\n'.className': {\n  color: 'green',\n},\n}\nawait css.stringify(style)\n// .className { color:green; }"), h3({
+      id: 'styles-pseudo-classes'
+    }, 'pseudo classes: (:hover, :active)'), p('css pseudo classes in nested css get found if their object key starts with a &'), Pre("\nconst style = {\n'div': {\n  color: 'red',\n  '&:hover': {\n    color: 'green',\n  },\n},\n}\n\nawait css.stringify(style)\n// div { color: red; }\n// div:hover { color: green; }"), h3({
+      id: 'styles-selector-nesting'
+    }, 'selector nesting'), Pre("\nconst style = {\n'div': {\n  'p, &:hover': {\n    color: 'red',\n  },\n},\n}\nawait css.stringify(style)\n// div p, div:hover { color: red; }"), h3({
+      id: 'styles-prefix-without-space'
+    }, 'prefix without space'), p(['to prefix the parent of the selector using the child selectors,', ' add a & at the end of any selectors but the last one.']), Pre("\nconst style = {\n  '.class': {\n    'p&, :hover': {\n      color: 'orange',\n    },\n  },\n}\n\nawait css.stringify(style)\n\n// p.class, .class:hover { color: orange; }\n"), h3({
+      id: 'styles-prefix-all-without-space'
+    }, 'prefix all without space'), p(['if the & is at the end of a selector,', ' the & will be applied to each of them.']), Pre("\nconst style = {\n  '.class': {\n    'div, p&': {\n      color: 'orange';\n    },\n  },\n}\n\nawait css.stringify(style)\n\n// div.class, p.class { color: orange; }\n"), h3({
+      id: 'styles-prefix-with-space'
+    }, 'prefix with space'), p('to prefix the parent with a space, use a double && instead of a single &'), Pre("\nconst style = {\n  '#id': {\n    '.class2&&, .class3': {\n      color: 'orange';\n    },\n  },\n}\n\nawait css.stringify(style)\n\n// .class2 #id, #id.class3 { color: orange; }\n"), h3({
+      id: 'styles-prefix-all-with-space'
+    }, 'prefix all with space'), p(['if the && is at the end of a selector,', ' the && will be applied to each of them.']), Pre("\nconst style = {\n  '.class': {\n    'div, p&&': {\n      color: 'orange';\n    },\n  },\n}\n\nawait css.stringify(style)\n\n// div .class, p .class { color: orange; }\n"), h3({
+      id: 'styles-media-queries'
+    }, 'media queries'), Pre("\nconst style = {\n  '@media screen and (min-width: 500px)': {\n    '#id': {\n      color: opts.textColor,\n    },\n  },\n}\n\nawait css.stringify(style)\n// css string\n`\n@media screen and (min-width: 500px) {\n  #id {\n    color: green;\n  }\n}\n`"), h3({
+      id: 'styles-keyframes'
+    }, 'keyframes for animations'), Pre("\nconst style = {\n'@keyframes anim-name': {\n  from {\n    opacity: 0,\n  },\n  to {\n    opacity: 1,\n  }\n}\n\nawait css.stringify(style)\n\n// css string\n`\n@keyframes anim-name {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n`"), h3({
+      id: 'styles-webfonts'
+    }, 'webfonts'), Pre("\nconst style = {\n  '@font-face': {\n    fontFamily: 'font-name',\n    fontDir: '/fonts/',\n    fontStyle: 'normal',\n    fontWeight: 'normal',\n  },\n}\n\nawait css.stringify(style)\n// css string\n`\n@font-face {\n  font-family: \"font-name\";\n  font-style: normal;\n  font-weight: normal;\n  src: url('/fonts/font-name.eot');\n  src: url('/fonts/font-name.eot#iefix') format('embedded-opentype'),',\n  url('/fonts/font-name.ttf') format('truetype'),',\n  url('/fonts/font-name.woff') format('woff'),',\n  url('/fonts/font-name.woff2') format('woff2'),',\n  url('/fonts/font-name.svg#font-name') format('svg');',\n}\n`"), div({
+      id: 'changelog'
+    }, [h2('CHANGELOG'), h4({
+      id: 'changelog-v-0.1.0'
+    }, '0.1.0'), ul([li('return classes and ids as separate objects additionally to selectors')]), h4({
+      id: 'changelog-v-0.2.0'
+    }, '0.2.0'), ul([li('Added media queries')]), h4({
+      id: 'changelog-v-0.3.0'
+    }, '0.3.0'), ul([li('returns a promise! no longer sync'), li('autoprefixer and postcss added')]), h4({
+      id: 'changelog-v-0.4.0'
+    }, '0.4.0'), ul([li('supports @font-face declarations')]), h4({
+      id: 'changelog-v-0.4.1'
+    }, '0.4.1'), ul([li('added fontDir option to font-face declarations')]), h4({
+      id: 'changelog-v-0.4.2'
+    }, '0.4.2'), ul([li('update deps to fix security issues')]), h4({
+      id: 'changelog-v-0.4.3'
+    }, '0.4.3'), ul([li('added @keyframes for animations')]), h4({
+      id: 'changelog-v-0.4.4'
+    }, '0.4.4'), ul([li('css.parse now converts deep arrays into one object before parsing')]), h4({
+      id: 'changelog-v-0.4.5'
+    }, '0.4.5'), ul([li('css.stringify now makes a bit nicer mediaquery and keyframe links.'), li('css.parse should now order media queries to the end of the css.')]), h4({
+      id: 'changelog-v-0.4.6'
+    }, '0.4.6'), ul([li('css.parse does a better job of keeping order of incoming objects intact')]), h4({
+      id: 'changelog-v-0.4.7'
+    }, '0.4.7'), ul([li(["FIX: multiple parent selectors 'h1,h2,h3' that should get appended", ' with a &:hover etc suffix now correctly append that suffix to every parent']), li('FEATURE: & can be at the end of a selector to prepend a parent')])]), h4({
+      id: 'changelog-v-0.5.0'
+    }, '0.5.0'), ul([li(['FIX: css gets returned in almost the same order it got passed in.', ' turns out that javascript objects do not make this as easy as hoped.'])]), h4({
+      id: 'changelog-v-0.5.0'
+    }, '0.6.0'), ul([li(['use esmodules'])]), h4({
+      id: 'changelog-v-0.7.0'
+    }, '0.7.0'), p('update @magic/types to not break if es modules get passed into the styles'), h4('0.7.1'), p('update @magic/deep to use ecmascript module version'), p('update postcss, autoprefixer'), h4('0.7.2'), p('update dependencies'), h4('0.7.3'), p('update dependencies'), h4('0.7.4'), p('add @magic/log to dependencies'), h4('0.7.5'), p('update autoprefixer'), h4('0.7.6'), p('update postcss'), h2({
+      id: 'source'
+    }, 'source'), p(['the source for this page is in the ', Link({
+      to: 'https://github.com/magic/css/tree/master/example'
+    }, 'example directory'), ' and gets built and published to github using ', Link({
+      to: 'https://github.com/magic/core'
+    }, '@magic/core')])];
+  },
+  '/css/404/': function css404() {
+    return div('404 - not found');
+  }
+};
+app({
+  init: [_objectSpread({}, initialState, {
+    url: window.location.pathname,
+    hash: window.location.hash.substr(1)
+  }), [[lib.db.get, {
+    key: 'magic-gdpr',
+    action: actions.gdpr.show
+  }]]],
+  subscriptions: function subscriptions(state) {
+    return [[helpers.listenPopState, actions.pop]];
+  },
+  view: function view(state) {
+    var url = pages[state.url] ? state.url : '/404/';
+    var page = pages[url];
+    var s = state.pages && state.pages[url];
+
+    if (s) {
+      Object.keys(s).forEach(function (key) {
+        state[key] = s[key];
+      });
+    }
+
+    return Page({
+      page: page,
+      state: state
+    }, [Gdpr(state), LightSwitch(state)]);
+  },
+  node: document.getElementById('Magic')
+});
