@@ -1,6 +1,6 @@
 # @magic/css
 
-can parse/stringify/write css in js
+parse/stringify/write css in js
 
 [html docs](https://magic.github.io/css/)
 
@@ -26,7 +26,7 @@ can parse/stringify/write css in js
 
 ##### installation:
 ```javascript
-  npm install @magic/css
+  npm install --save-exact @magic/css
 ```
 
 #### usage:
