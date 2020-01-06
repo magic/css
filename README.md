@@ -312,29 +312,29 @@ await css.stringify(style)
 
 ### CHANGELOG:
 #### 0.1.0
-* return classes and ids as well
+return classes and ids as well
 
 #### 0.2.0:
-* Added media queries
+Added media queries
 
 #### 0.3.0:
 * returns a promise! no longer sync.
 * autoprefixer and postcss added
 
 ### 0.4.0:
-* supports @font-face declarations
+supports @font-face declarations
 
 #### 0.4.1
-* added fontDir option to font-face declarations
+added fontDir option to font-face declarations
 
 #### 0.4.2
-* update deps to fix security issues
+update deps to fix security issues
 
 #### 0.4.3
-* added @keyframes for animations
+added @keyframes for animations
 
 #### 0.4.4
-* css.parse now converts deep arrays into one object before parsing
+css.parse now converts deep arrays into one object before parsing
 
 #### 0.4.5
 * css.stringify now makes a bit nicer mediaquery and keyframe lines.
@@ -350,39 +350,42 @@ css.parse does a better job of keeping order of incoming objects intact
   in which case the selector gets prepended to it's parent.
 
 #### 0.5.0
-* FIX: css gets returned in almost the same order it got passed in.
-  turns out that javascript objects do not make this as easy as hoped.
+FIX: css gets returned in almost the same order it got passed in.
+turns out that javascript objects do not make this as easy as hoped.
 
 #### 0.6.0
-* use esmodules
+use esmodules
 
 #### 0.7.0
-* update @magic/types to not break if es modules get passed into the styles
+update @magic/types to not break if es modules get passed into the styles
 
 #### 0.7.1
 * update @magic/deep to use ecmascript module version
 * update postcss, autoprefixer
 
 #### 0.7.2
-* update dependencies
+update dependencies
 
 #### 0.7.3
-* update dependencies
+update dependencies
 
 #### 0.7.4
-* add @magic/log to dependencies
+add @magic/log to dependencies
 
 #### 0.7.5
-* update autoprefixer
+update autoprefixer
 
 #### 0.7.6
-* update postcss
+update postcss
 
 #### 0.7.7
-* update postcss 
+update postcss
 
 #### 0.7.8
-* update @magic/deep
+update @magic/deep
 
-#### 0.7.9 - unreleased
+#### 0.7.9
+require node >= 13.5.0
+
+#### 0.7.10 - unreleased
 ...
