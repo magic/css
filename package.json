@@ -33,7 +33,7 @@
   "module": "src/index.mjs",
   "type": "module",
   "dependencies": {
-    "@magic/deep": "0.1.1",
+    "@magic/deep": "0.1.2",
     "@magic/log": "0.1.2",
     "@magic/types": "0.1.4",
     "autoprefixer": "9.7.3",
