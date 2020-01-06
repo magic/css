@@ -32,9 +32,9 @@
   },
   "main": "src/index.mjs",
   "dependencies": {
-    "@magic/deep": "0.1.1",
-    "@magic/log": "0.1.2",
-    "@magic/types": "0.1.4",
+    "@magic/deep": "0.1.2",
+    "@magic/log": "0.1.3",
+    "@magic/types": "0.1.7",
     "autoprefixer": "9.7.3",
     "postcss": "7.0.26"
   },
@@ -45,7 +45,7 @@
     "@magic-modules/pre": "0.0.2",
     "@magic-themes/docs": "0.0.3",
     "@magic/core": "0.0.18",
-    "@magic/format": "0.0.1",
+    "@magic/format": "0.0.2",
     "@magic/test": "0.1.27"
   },
   "keywords": [
