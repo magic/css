@@ -35,7 +35,7 @@
   "dependencies": {
     "@magic/deep": "0.1.1",
     "@magic/log": "0.1.2",
-    "@magic/types": "0.1.4",
+    "@magic/types": "0.1.7",
     "autoprefixer": "9.7.3",
     "postcss": "7.0.26"
   },
