@@ -11,7 +11,7 @@ os:
 
 env:
   matrix:
-    - NODE_VERSION="12"
+    - NODE_VERSION="13"
 
 matrix:
   fast_finish: true
