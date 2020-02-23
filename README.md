@@ -387,5 +387,8 @@ update @magic/deep
 #### 0.7.9
 require node >= 13.5.0
 
-#### 0.7.10 - unreleased
+#### 0.7.10
+update postcss
+
+##### 0.7.11 - unreleased
 ...
