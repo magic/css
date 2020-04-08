@@ -390,5 +390,8 @@ require node >= 13.5.0
 #### 0.7.10
 update postcss
 
-##### 0.7.11 - unreleased
+##### 0.7.11
+update autoprefixer
+
+##### 0.7.12 - unreleased
 ...
