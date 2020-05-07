@@ -1,15 +1,15 @@
-import fs from 'fs'
+import fs from '@magic/fs'
 import stringify from './stringify.mjs'
 
-const write = (style, opts = {}) => {
+const write = async (style, opts = {}) => {
   if (!opts.OUTFILE) {
     throw new Error(
       `Can not write css without opts.OUTFILE ${JSON.stringify(opts.OUTFILE, null, 2)}`,
     )
   }
 
-  const bundle = stringify(style, opts)
-  fs.writeFileSync(opts.OUTFILE, bundle)
+  const bundle = await stringify(style, opts)
+  await fs.writeFile(opts.OUTFILE, bundle)
   return true
 }
 
