@@ -400,6 +400,8 @@ update postcss
 * bump required node version to 14.2.0
 * write is async now
 
-##### 0.7.14 - unreleased
-* update autoprefixer
+##### 0.7.14
+* update autoprefixer, dependencies
+
+##### 0.7.15 - unreleased
 ...
