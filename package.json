@@ -37,7 +37,7 @@
     "@magic/log": "0.1.5",
     "@magic/types": "0.1.12",
     "autoprefixer": "9.8.0",
-    "postcss": "7.0.30"
+    "postcss": "7.0.31"
   },
   "devDependencies": {
     "@magic-modules/gdpr": "0.0.16",
