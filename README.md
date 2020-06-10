@@ -404,4 +404,5 @@ update postcss
 * update autoprefixer, dependencies
 
 ##### 0.7.15 - unreleased
+* uddate dependencies
 ...
