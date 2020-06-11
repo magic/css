@@ -396,13 +396,15 @@ update autoprefixer
 ##### 0.7.12
 update postcss
 
-##### 0.7.13 
+##### 0.7.13
 * bump required node version to 14.2.0
 * write is async now
 
 ##### 0.7.14
 * update autoprefixer, dependencies
 
-##### 0.7.15 - unreleased
-* uddate dependencies
+##### 0.7.15
+* update dependencies
+
+##### 0.7.16 - unreleased
 ...
