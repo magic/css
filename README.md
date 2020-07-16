@@ -413,7 +413,8 @@ update autoprefixer
 update autoprefixer
 
 ##### 0.7.18
-move no-spy to devdeps
+* move no-spy to devdeps
+* update dependencies
 
 ##### 0.7.19 - unreleased
 ...
