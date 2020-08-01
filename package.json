@@ -36,7 +36,7 @@
     "@magic/fs": "0.0.6",
     "@magic/log": "0.1.5",
     "@magic/types": "0.1.13",
-    "autoprefixer": "9.8.5",
+    "autoprefixer": "9.8.6",
     "postcss": "7.0.32"
   },
   "devDependencies": {
