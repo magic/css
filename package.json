@@ -36,8 +36,8 @@
     "@magic/fs": "0.0.7",
     "@magic/log": "0.1.5",
     "@magic/types": "0.1.13",
-    "autoprefixer": "9.8.6",
-    "postcss": "7.0.32"
+    "autoprefixer": "10.0.1",
+    "postcss": "8.1.1"
   },
   "devDependencies": {
     "@magic-modules/git-badges": "0.0.10",
@@ -45,7 +45,7 @@
     "@magic-modules/no-spy": "0.0.5",
     "@magic-modules/pre": "0.0.9",
     "@magic-themes/docs": "0.0.10",
-    "@magic/core": "0.0.88",
+    "@magic/core": "0.0.89",
     "@magic/format": "0.0.14",
     "@magic/test": "0.1.53"
   },
