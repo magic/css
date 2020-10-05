@@ -419,5 +419,8 @@ update autoprefixer
 ##### 0.7.19 
 update autoprefixer
 
-##### 0.7.20 - unreleased
+##### 0.7.20
+update dependencies
+
+##### 0.7.21 - unreleased
 ...
