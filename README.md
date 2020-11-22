@@ -431,5 +431,8 @@ update dependencies
 ##### 0.7.23
 update dependencies
 
-##### 0.7.24 - unreleased
+##### 0.7.24
+update dependencies
+
+##### 0.7.25 - unreleased
 ...
