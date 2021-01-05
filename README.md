@@ -1,3 +1,4 @@
+
 # @magic/css
 
 parse/stringify/write css in js
@@ -438,4 +439,5 @@ update dependencies
 update dependencies
 
 ##### 0.7.26 - unreleased
+update dependencies
 ...
