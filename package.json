@@ -32,10 +32,10 @@
   },
   "main": "src/index.mjs",
   "dependencies": {
-    "@magic/deep": "0.1.4",
-    "@magic/fs": "0.0.9",
-    "@magic/log": "0.1.7",
-    "@magic/types": "0.1.13",
+    "@magic/deep": "0.1.5",
+    "@magic/fs": "0.0.10",
+    "@magic/log": "0.1.8",
+    "@magic/types": "0.1.14",
     "autoprefixer": "10.2.1",
     "postcss": "8.2.4"
   },
