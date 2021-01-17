@@ -442,5 +442,9 @@ update dependencies
 ##### 0.7.26
 update dependencies
 
-##### 0.7.27 - unreleased
+##### 0.7.27
+update dependencies
+simplify font-face handling
+
+##### 0.7.28 - unreleased
 ...
