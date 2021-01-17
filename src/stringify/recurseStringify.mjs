@@ -5,6 +5,7 @@ import stringifyProps from './props.mjs'
 export const fontFaces = ({ res, name, items }) => {
   if (is.array(items)) {
     const fontStrings = []
+
     items.forEach(font => {
       let { family, url, types, weights, styles, ...rest } = font
       if (!url.endsWith('/')) {
@@ -32,7 +33,7 @@ export const fontFaces = ({ res, name, items }) => {
             ttf: url => `url('${url}.ttf') format('truetype')`,
             woff: url => `url('${url}.woff') format('woff')`,
             woff2: url => `url('${url}.woff2') format('woff2')`,
-            svg: url => `url('${url}.svg#${fontFamily}') format('svg')`,
+            svg: url => `url('${url}.svg#${family}') format('svg')`,
           }
 
           let fontFileString = 'src:'
