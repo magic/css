@@ -11,6 +11,16 @@ export const fontFaces = ({ res, name, items }) => {
         url += '/'
       }
 
+      if (is.string(weights)) {
+        weights = [weights]
+      }
+      if (is.string(styles)) {
+        styles = [styles]
+      }
+      if (is.string(types)) {
+        types = [types]
+      }
+
       weights.forEach(fontWeight => {
         styles.forEach(fontStyle => {
           const weightStyleUrl = `${url}${family}-${fontWeight}-${fontStyle}`
