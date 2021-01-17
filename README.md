@@ -446,5 +446,9 @@ update dependencies
 update dependencies
 simplify font-face handling
 
-##### 0.7.28 - unreleased
+##### 0.7.28
+* bump required node version to 14.15.4
+* update dependencies
+
+##### 0.7.29 - unreleased
 ...
