@@ -26,10 +26,16 @@ export const fontFaces = ({ res, name, items }) => {
         styles.forEach(fontStyle => {
           const weightStyleUrl = `${url}${family}-${fontWeight}-${fontStyle}`
 
-          let fontString = `${name} ${recurseStringify({ fontFamily: `"${family}"`, fontStyle, fontWeight, ...rest })}`
+          let fontString = `${name} ${recurseStringify({
+            fontFamily: `"${family}"`,
+            fontStyle,
+            fontWeight,
+            ...rest,
+          })}`
 
           const fontFileTypes = {
-            eot: url => `src: url('${url}.eot'); src: url('${url}.eot#iefix') format('embedded-opentype')`,
+            eot: url =>
+              `src: url('${url}.eot'); src: url('${url}.eot#iefix') format('embedded-opentype')`,
             ttf: url => `url('${url}.ttf') format('truetype')`,
             woff: url => `url('${url}.woff') format('woff')`,
             woff2: url => `url('${url}.woff2') format('woff2')`,
@@ -75,7 +81,6 @@ export const fontFaces = ({ res, name, items }) => {
     return res.replace('}\n', `${srcString} }\n`)
   }
 }
-
 
 export const recurseStringify = mod => {
   let res = mod
