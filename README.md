@@ -285,10 +285,10 @@ await css.stringify(style)
 ```javascript
 const style = {
   '@font-face': {
-    fontFamily: 'font-name',
-    fontDir: '/fonts/',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
+    family: 'font-name',
+    url: '/fonts/',
+    styles: ['normal', 'italic'],
+    weights: [400, 600],
   },
 }
 
@@ -300,14 +300,16 @@ await css.stringify(style)
   font-family: "font-name";
   font-style: normal;
   font-weight: normal;
-  src: url('/fonts/font-name.eot\');
-  src: url('/fonts/font-name.eot#iefix') format('embedded-opentype'),',
-  url('/fonts/font-name.ttf') format('truetype'),',
-  url('/fonts/font-name.woff') format('woff'),',
-  url('/fonts/font-name.woff2') format('woff2'),',
-  url('/fonts/font-name.svg#font-name') format('svg');',
+  src: url('/fonts/font-name-400-normal.eot\');
+  src: url('/fonts/font-name-400-normal.eot#iefix') format('embedded-opentype'),',
+  url('/fonts/font-name-400-normal.ttf') format('truetype'),',
+  url('/fonts/font-name-400-normal.woff') format('woff'),',
+  url('/fonts/font-name-400-normal.woff2') format('woff2'),',
+  url('/fonts/font-name-400-normal.svg#font-name') format('svg');',
 }
 `
+// ... repeated for all styles and weights that were defined
+
 ```
 
 ### CHANGELOG:
