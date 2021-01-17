@@ -35,6 +35,18 @@ const recurseParse = (mod, opts) => {
     return [parent, i]
   }
 
+  // handle font face declarations that are expected to expand
+  if (parent.startsWith('@font-face')) {
+    let i = items
+    if (is.string(items.url)) {
+      i = [items]
+    }
+
+    if (is.array(i)) {
+      return [parent, i]
+    }
+  }
+
   Object.entries(items).forEach(([name, item]) => {
     if (is.object(item)) {
       name = getSelector(parent, name)

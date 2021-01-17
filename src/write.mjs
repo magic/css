@@ -1,5 +1,5 @@
 import fs from '@magic/fs'
-import stringify from './stringify.mjs'
+import stringify from './stringify/index.mjs'
 
 const write = async (style, opts = {}) => {
   if (!opts.OUTFILE) {

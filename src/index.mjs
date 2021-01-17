@@ -1,7 +1,7 @@
 import is from '@magic/types'
 
 import parse from './parse/index.mjs'
-import stringify from './stringify.mjs'
+import stringify from './stringify/index.mjs'
 import write from './write.mjs'
 import minify from './minify.mjs'
 import selectors from './selectors.mjs'
