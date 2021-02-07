@@ -7,18 +7,18 @@ export const fontFaces = ({ res, name, items }) => {
     const fontStrings = []
 
     items.forEach(font => {
-      let { family, url, types = ['woff', 'woff2'], weights, styles, ...rest } = font
+      let { family, url, types = 'woff2', weights = 400, styles = 'normal', ...rest } = font
+
       if (!url.endsWith('/')) {
         url += '/'
       }
-
-      if (is.string(weights) || is.number(weights)) {
+      if (!is.array(weights)) {
         weights = [weights]
       }
-      if (is.string(styles)) {
+      if (!is.array(styles)) {
         styles = [styles]
       }
-      if (is.string(types)) {
+      if (!is.array(types)) {
         types = [types]
       }
 
