@@ -451,4 +451,9 @@ simplify font-face handling
 * update dependencies
 
 ##### 0.7.29 - unreleased
+* font-face generation handles numeric weights
+* font-face generation uses woff and woff2 as default font types
+
+##### 0.7.30 - unreleased
 ...
+
