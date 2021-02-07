@@ -7,12 +7,12 @@ export const fontFaces = ({ res, name, items }) => {
     const fontStrings = []
 
     items.forEach(font => {
-      let { family, url, types, weights, styles, ...rest } = font
+      let { family, url, types = ['woff', 'woff2'], weights, styles, ...rest } = font
       if (!url.endsWith('/')) {
         url += '/'
       }
 
-      if (is.string(weights)) {
+      if (is.string(weights) || is.number(weights)) {
         weights = [weights]
       }
       if (is.string(styles)) {
