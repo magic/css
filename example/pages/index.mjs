@@ -10,7 +10,7 @@ export const View = state => [
     ' unfortunately, this library will not help you with that.',
   ]),
 
-  GitBadges('magic/css'),
+  GitBadges('@magic/css'),
 
   h2({ id: 'installation' }, 'installation'),
   Pre('npm install @magic/css'),
