@@ -450,11 +450,14 @@ simplify font-face handling
 * bump required node version to 14.15.4
 * update dependencies
 
-##### 0.7.29 - unreleased
+##### 0.7.29
 * font-face handles non-array weights, types and styles
 * font-face uses woff and woff2 as default font types
 * font-face uses weight 400 and styles 'normal' as defaults
 
-##### 0.7.30 - unreleased
+##### 0.7.30
+update dependencies
+
+##### 0.7.31 - unreleased
 ...
 
