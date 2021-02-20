@@ -33,7 +33,7 @@
   "main": "src/index.mjs",
   "dependencies": {
     "@magic/deep": "0.1.5",
-    "@magic/fs": "0.0.10",
+    "@magic/fs": "0.0.11",
     "@magic/log": "0.1.8",
     "@magic/types": "0.1.14",
     "autoprefixer": "10.2.4",
@@ -45,9 +45,9 @@
     "@magic-modules/no-spy": "0.0.6",
     "@magic-modules/pre": "0.0.10",
     "@magic-themes/docs": "0.0.13",
-    "@magic/core": "0.0.105",
+    "@magic/core": "0.0.106",
     "@magic/format": "0.0.21",
-    "@magic/test": "0.1.62"
+    "@magic/test": "0.1.63"
   },
   "keywords": [
     "css-in-js",
