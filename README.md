@@ -458,6 +458,9 @@ simplify font-face handling
 ##### 0.7.30
 update dependencies
 
-##### 0.7.31 - unreleased
+##### 0.7.31
+update dependencies (@magic/fs)
+
+##### 0.7.32 - unreleased
 ...
 
