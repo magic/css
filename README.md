@@ -418,7 +418,7 @@ update autoprefixer
 * move no-spy to devdeps
 * update dependencies
 
-##### 0.7.19 
+##### 0.7.19
 update autoprefixer
 
 ##### 0.7.20
@@ -427,7 +427,7 @@ update dependencies
 ##### 0.7.21
 update dependencies
 
-##### 0.7.22 
+##### 0.7.22
 update dependencies
 
 ##### 0.7.23
@@ -436,7 +436,7 @@ update dependencies
 ##### 0.7.24
 update dependencies
 
-##### 0.7.25 
+##### 0.7.25
 update dependencies
 
 ##### 0.7.26
@@ -461,8 +461,9 @@ update dependencies
 ##### 0.7.31
 update dependencies (@magic/fs)
 
-##### 0.7.32 
-update dependencies
+##### 0.7.32
+* update dependencies
+* css.selectors returns arrays instead of strings
 
 ##### 0.7.33 - unreleased
 ...
