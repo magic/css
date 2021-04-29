@@ -47,13 +47,13 @@ const opts = {
 }
 
 const nesting = css.parse({ div: { p: { '.active': { color: 'green' } } } })
-const expectNesting = ['div p .active', { color: 'green' }]
+const expectNesting = [['div p .active', { color: 'green' }]]
 
 const multiClass = css.parse({ div: { '.foo,&.bar': { color: 'green' } } })
-const expectMultiClass = ['div .foo, div.bar', { color: 'green' }]
+const expectMultiClass = [['div .foo, div.bar', { color: 'green' }]]
 
 const canHandleExtensions = css.parse({ div: { '&:hover': { color: 'green' } } })
-const expectCanHandleExtensions = ['div:hover', { color: 'green' }]
+const expectCanHandleExtensions = [['div:hover', { color: 'green' }]]
 
 const parsed = css.parse(style)
 
