@@ -5,6 +5,7 @@
   "description": "css in js",
   "license": "AGPL-3.0",
   "homepage": "https://magic.github.io/core",
+  "type": "module",
   "scripts": {
     "start": "t -p",
     "build": "NODE_ENV=production magic build",
