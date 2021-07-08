@@ -465,6 +465,9 @@ update dependencies (@magic/fs)
 * update dependencies
 * css.selectors returns arrays instead of strings
 
-##### 0.7.33 - unreleased
+##### 0.7.33 
+update dependencies
+
+##### 0.7.34 - unreleased
 ...
 
