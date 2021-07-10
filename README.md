@@ -468,6 +468,9 @@ update dependencies (@magic/fs)
 ##### 0.7.33 
 update dependencies
 
-##### 0.7.34 - unreleased
+##### 0.7.34 
+update dependency autoprefixer
+
+##### 0.7.35 - unreleased
 ...
 
