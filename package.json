@@ -33,6 +33,7 @@
   },
   "main": "src/index.mjs",
   "dependencies": {
+    "@magic/cases": "0.0.4",
     "@magic/deep": "0.1.6",
     "@magic/fs": "0.0.14",
     "@magic/log": "0.1.9",
