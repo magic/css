@@ -67,7 +67,7 @@ Object {
   ids: ['#id'],
   // array of used selectors
   selectors: ['body', '.class', '.id'],
-  //ast of this css object
+  // ast of this css object
   parsed: [
     ['body', { color: 'green' }],
     ['.class': { color: 'orange' }],
@@ -465,12 +465,15 @@ update dependencies (@magic/fs)
 * update dependencies
 * css.selectors returns arrays instead of strings
 
-##### 0.7.33 
+##### 0.7.33
 update dependencies
 
-##### 0.7.34 
+##### 0.7.34
 update dependency autoprefixer
 
-##### 0.7.35 - unreleased
+##### 0.7.35
+update dependency @magic/fs
+
+##### 0.7.36 - unreleased
 ...
 
