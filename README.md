@@ -474,6 +474,9 @@ update dependency autoprefixer
 ##### 0.7.35
 update dependency @magic/fs
 
-##### 0.7.36 - unreleased
+##### 0.7.36
+remove local implementation of camel2kebab, use @magic/cases instead
+
+#### 0.7.37 - unreleased
 ...
 
