@@ -1,8 +1,8 @@
-import camel2kebab from '../camel2kebab.mjs'
+import cases from '@magic/cases'
 
 export const stringifyProps = props =>
   Object.entries(props)
-    .map(([k, v]) => `${camel2kebab(k)}: ${v};`)
+    .map(([k, v]) => `${cases.kebab(k)}: ${v};`)
     .join(' ')
 
 export default stringifyProps
