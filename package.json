@@ -34,7 +34,7 @@
   "main": "src/index.mjs",
   "dependencies": {
     "@magic/deep": "0.1.6",
-    "@magic/fs": "0.0.13",
+    "@magic/fs": "0.0.14",
     "@magic/log": "0.1.9",
     "@magic/types": "0.1.15",
     "autoprefixer": "10.3.0",
