@@ -477,6 +477,9 @@ update dependency @magic/fs
 ##### 0.7.36
 remove local implementation of camel2kebab, use @magic/cases instead
 
-#### 0.7.37 - unreleased
+#### 0.7.37
+update dependencies
+
+#### 0.7.38 - unreleased
 ...
 
