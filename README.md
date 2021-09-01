@@ -480,6 +480,10 @@ remove local implementation of camel2kebab, use @magic/cases instead
 #### 0.7.37
 update dependencies
 
-#### 0.7.38 - unreleased
+#### 0.7.38
+**FIX**: update @magic/cases, which fixes overflow-x and other css props that end with an uppercase character
+overflowX is output as overflowx in earlier versions, the regex expected lowercase characters after the uppercase char
+
+#### 0.7.39 - unreleased
 ...
 
