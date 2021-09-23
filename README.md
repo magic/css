@@ -484,6 +484,9 @@ update dependencies
 **FIX**: update @magic/cases, which fixes overflow-x and other css props that end with an uppercase character
 overflowX is output as overflowx in earlier versions, the regex expected lowercase characters after the uppercase char
 
-#### 0.7.39 - unreleased
+#### 0.7.39
+update dependencies
+
+#### 0.7.40 - unreleased
 ...
 
