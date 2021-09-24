@@ -487,6 +487,9 @@ overflowX is output as overflowx in earlier versions, the regex expected lowerca
 #### 0.7.39
 update dependencies
 
-#### 0.7.40 - unreleased
+#### 0.7.40
+update dependencies
+
+#### 0.7.41 - unreleased
 ...
 
