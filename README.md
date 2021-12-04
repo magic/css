@@ -490,6 +490,9 @@ update dependencies
 #### 0.7.40
 update dependencies
 
-#### 0.7.41 - unreleased
+#### 0.7.41
+update dependencies
+
+#### 0.7.42 - unreleased
 ...
 
