@@ -236,10 +236,10 @@ await css.stringify(style)
   Pre(`
 const style = {
 '@keyframes anim-name': {
-  from {
+  from: {
     opacity: 0,
   },
-  to {
+  to: {
     opacity: 1,
   }
 }
@@ -268,9 +268,9 @@ await css.stringify(style)
       weights: [400, 600],
     },
   }
-  
+
   await css.stringify(style)
-  
+
   // css string
 
   @font-face {
@@ -285,7 +285,7 @@ await css.stringify(style)
     url('/fonts/font-name-400-normal.svg#font-name') format('svg');',
   }
 
-  // ... repeated for all styles and weights that were defined  
+  // ... repeated for all styles and weights that were defined
   `),
 
   div({ id: 'changelog' }, [
