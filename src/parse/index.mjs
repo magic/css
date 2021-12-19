@@ -67,6 +67,11 @@ const recurseParse = (mod, opts) => {
 
 const isStyle = style => style && style.length === 2 && is.string(style[0]) && is.object(style[1])
 
+/*
+ * we can not use deep.flatten here, the flattened array has a specific structure:
+ * [[key, styles], [key, styles]],
+ * deep.flatten would return [key, styles, key, styles]
+ */
 const flat = a => {
   if (isStyle(a)) {
     const [k, v] = a
@@ -83,6 +88,7 @@ const flat = a => {
         }
       }
     })
+
     return flattened
   }
 }
