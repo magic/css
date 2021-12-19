@@ -13,7 +13,7 @@ const expect = ({ css }) =>
   css ===
   [
     '@font-face {',
-    'font-family: "font-name";',
+    "font-family: 'font-name';",
     'font-weight: normal;',
     'font-style: normal;',
     "src: url('/root/font-name.eot');",
