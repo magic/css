@@ -19,8 +19,8 @@ const expect = ({ css }) =>
     "src: url('/root/font-name.eot');",
     "src: url('/root/font-name.eot#iefix') format('embedded-opentype'),",
     "url('/root/font-name.ttf') format('truetype'),",
-    "url('/root/font-name.woff') format('woff'),",
     "url('/root/font-name.woff2') format('woff2'),",
+    "url('/root/font-name.woff') format('woff'),",
     "url('/root/font-name.svg#font-name') format('svg');",
     '}\n',
   ].join(' ')
