@@ -62,10 +62,10 @@ const fontV2 = {
     url: '/url/',
     styles: {
       normal: {
-        400: [ 'FontFamilyv2', 'Font Family v2' ],
+        400: ['FontFamilyv2', 'Font Family v2'],
       },
       italic: {
-        400: [ 'FontFamilyv2Italic', 'FontFamilyv2-Italic' ],
+        400: ['FontFamilyv2Italic', 'FontFamilyv2-Italic'],
       },
     },
   },
@@ -74,9 +74,21 @@ const fontV2 = {
 const fontV2String = `@font-face { font-family: \"font-family-v2\"; font-style: normal; font-weight: 400; src: local(FontFamilyv2),local(Font Family v2),url('/url/font-family-v2-400-normal.woff2') format('woff2'); }\n\n@font-face { font-family: \"font-family-v2\"; font-style: italic; font-weight: 400; src: local(FontFamilyv2Italic),local(FontFamilyv2-Italic),url('/url/font-family-v2-400-italic.woff2') format('woff2'); }\n`
 
 export default [
-  { fn: css.parse(styleArray), expect: css.parse(styleObject), info: 'parse test => array and object should be parsed to the same structure.' },
+  {
+    fn: css.parse(styleArray),
+    expect: css.parse(styleObject),
+    info: 'parse test => array and object should be parsed to the same structure.',
+  },
   { fn: css.stringify(styleArray), expect: stringifiedString, info: 'stringify test' },
-  { fn: css.stringify(overflowX), expect: overflowXString, info: 'test of overflow-x works, to make sure kebab2camel works correctly.' },
+  {
+    fn: css.stringify(overflowX),
+    expect: overflowXString,
+    info: 'test of overflow-x works, to make sure kebab2camel works correctly.',
+  },
   { fn: css.stringify(fontV2), expect: fontV2String, info: 'font v2 test' },
-  { fn: css.parse(() => styleArray), expect: css.parse(styleObject), info: 'theme can be a function returning an array.' },
+  {
+    fn: css.parse(() => styleArray),
+    expect: css.parse(styleObject),
+    info: 'theme can be a function returning an array.',
+  },
 ]
