@@ -54,10 +54,11 @@ const overflowX = {
   },
 }
 
-const overflowXString = `body { overflow-x: 20px; }`
+const overflowXString = 'body { overflow-x: 20px; }\n'
 
 export default [
-  { fn: css.parse(styleArray), expect: css.parse(styleObject) },
-  { fn: css.stringify(styleArray), expect: t => t.trim() === stringifiedString },
-  { fn: css.stringify(overflowX), expect: t => t.trim() === overflowXString },
+  { fn: css.parse(styleArray), expect: css.parse(styleObject), info: 'parse test => array and object should be parsed to the same structure.' },
+  { fn: css.stringify(styleArray), expect: stringifiedString, info: 'stringify test' },
+  { fn: css.stringify(overflowX), expect: overflowXString, info: 'test of overflow-x works, to make sure kebab2camel works correctly.' },
+  { fn: css.parse(() => styleArray), expect: css.parse(styleObject), info: 'theme can be a function returning an array.' },
 ]
