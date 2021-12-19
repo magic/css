@@ -2,6 +2,14 @@ import is from '@magic/types'
 
 import stringifyProps from './props.mjs'
 
+export const fontFileTypes = {
+  eot: url => `src: url('${url}.eot'); src: url('${url}.eot#iefix') format('embedded-opentype')`,
+  woff2: url => `url('${url}.woff2') format('woff2')`,
+  woff: url => `url('${url}.woff') format('woff')`,
+  ttf: url => `url('${url}.ttf') format('truetype')`,
+  svg: (url, family) => `url('${url}.svg#${family}') format('svg')`,
+}
+
 export const fontFaces = ({ res, name, items }) => {
   if (is.array(items)) {
     const fontStrings = []
@@ -33,15 +41,6 @@ export const fontFaces = ({ res, name, items }) => {
             ...rest,
           })}`
 
-          const fontFileTypes = {
-            eot: url =>
-              `src: url('${url}.eot'); src: url('${url}.eot#iefix') format('embedded-opentype')`,
-            ttf: url => `url('${url}.ttf') format('truetype')`,
-            woff: url => `url('${url}.woff') format('woff')`,
-            woff2: url => `url('${url}.woff2') format('woff2')`,
-            svg: url => `url('${url}.svg#${family}') format('svg')`,
-          }
-
           let fontFileString = 'src:'
           if (types.includes('eot')) {
             fontFileString = ''
@@ -50,7 +49,7 @@ export const fontFaces = ({ res, name, items }) => {
           const fontFileStrings = []
           Object.entries(fontFileTypes).map(([name, fn]) => {
             if (types.includes(name)) {
-              const str = fn(weightStyleUrl)
+              const str = fn(weightStyleUrl, family)
               fontFileStrings.push(str)
             }
           })
