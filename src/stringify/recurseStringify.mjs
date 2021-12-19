@@ -1,4 +1,5 @@
 import is from '@magic/types'
+import deep from '@magic/deep'
 
 import stringifyProps from './props.mjs'
 
@@ -10,59 +11,122 @@ export const fontFileTypes = {
   svg: (url, family) => `url('${url}.svg#${family}') format('svg')`,
 }
 
+const fontV1 = (name, font) => {
+  let { family, url, types = 'woff2', weights = 400, styles = 'normal', ...rest } = font
+
+  if (!url.endsWith('/')) {
+    url += '/'
+  }
+
+  if (!is.array(weights)) {
+    weights = [weights]
+  }
+
+  if (!is.array(types)) {
+    types = [types]
+  }
+
+  if (!is.array(styles)) {
+    styles = [styles]
+  }
+
+  return weights.map(fontWeight => {
+    return styles.map(fontStyle => {
+      const weightStyleUrl = `${url}${family}-${fontWeight}-${fontStyle}`
+
+      let fontString = `${name} ${recurseStringify({
+        fontFamily: `"${family}"`,
+        fontStyle,
+        fontWeight,
+        ...rest,
+      })}`
+
+      let fontFileString = 'src:'
+      if (types.includes('eot')) {
+        fontFileString = ''
+      }
+
+      const fontFileStrings = []
+      Object.entries(fontFileTypes).map(([name, fn]) => {
+        if (types.includes(name)) {
+          const str = fn(weightStyleUrl, family)
+          fontFileStrings.push(str)
+        }
+      })
+
+      fontFileString += fontFileStrings.join(',') + ';'
+
+      fontString = fontString.replace('}\n', `${fontFileString} }\n`)
+      return fontString
+    })
+  })
+}
+
+const fontV2 = (name, font) => {
+  let { family, url, types = 'woff2', styles, ...rest } = font
+
+  if (!url.endsWith('/')) {
+    url += '/'
+  }
+
+  if (!is.array(types)) {
+    types = [types]
+  }
+
+  const fontStrings = Object.entries(styles).map(entry => {
+    const [fontStyle, weights] = entry
+
+    return Object.entries(weights).map(([fontWeight, local]) => {
+      const weightStyleUrl = `${url}${family}-${fontWeight}-${fontStyle}`
+
+      const fontFileStrings = []
+
+      let fontFileString = ''
+      if (types.includes('eot')) {
+        fontFileString = ''
+      }
+
+      local.forEach(l => {
+        fontFileStrings.push(`local(${l})`)
+      })
+
+      Object.entries(fontFileTypes).map(([name, fn]) => {
+        if (types.includes(name)) {
+          const str = fn(weightStyleUrl, family)
+          fontFileStrings.push(str)
+        }
+      })
+
+      fontFileString += fontFileStrings.join(',')
+
+      const props = recurseStringify({
+        fontFamily: `"${family}"`,
+        fontStyle,
+        fontWeight,
+        src: fontFileString,
+        ...rest,
+      })
+
+      const fontString = `${name} ${props}`
+
+      return fontString
+    })
+  })
+
+  return deep.flatten(fontStrings).join('\n')
+}
+
 export const fontFaces = ({ res, name, items }) => {
   if (is.array(items)) {
-    const fontStrings = []
-
-    items.forEach(font => {
-      let { family, url, types = 'woff2', weights = 400, styles = 'normal', ...rest } = font
-
-      if (!url.endsWith('/')) {
-        url += '/'
+    const fontStrings = items.map(font => {
+      if (is.objectNative(font.styles)) {
+        return fontV2(name, font)
+      } else {
+        return fontV1(name, font)
       }
-      if (!is.array(weights)) {
-        weights = [weights]
-      }
-      if (!is.array(styles)) {
-        styles = [styles]
-      }
-      if (!is.array(types)) {
-        types = [types]
-      }
-
-      weights.forEach(fontWeight => {
-        styles.forEach(fontStyle => {
-          const weightStyleUrl = `${url}${family}-${fontWeight}-${fontStyle}`
-
-          let fontString = `${name} ${recurseStringify({
-            fontFamily: `"${family}"`,
-            fontStyle,
-            fontWeight,
-            ...rest,
-          })}`
-
-          let fontFileString = 'src:'
-          if (types.includes('eot')) {
-            fontFileString = ''
-          }
-
-          const fontFileStrings = []
-          Object.entries(fontFileTypes).map(([name, fn]) => {
-            if (types.includes(name)) {
-              const str = fn(weightStyleUrl, family)
-              fontFileStrings.push(str)
-            }
-          })
-
-          fontFileString += fontFileStrings.join(',') + ';'
-
-          fontString = fontString.replace('}\n', `${fontFileString} }\n`)
-          fontStrings.push(fontString)
-        })
-      })
     })
 
-    return fontStrings.join('\n')
+    return deep.flatten(fontStrings).join('\n')
   } else {
     const { fontFamily, fontDir = '', fontRoot, ...rest } = items
     res = `${name} ${recurseStringify({ fontFamily: `"${fontFamily}"`, ...rest })}`
