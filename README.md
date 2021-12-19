@@ -496,6 +496,11 @@ update dependencies
 #### 0.7.42
 update dependencies
 
-#### 0.7.43 - unreleased
+#### 0.7.43
+* update dependencies
+* added font v2 to allow handling of local() fonts (see https://magic.github.io/css/#styles-webfonts)
+* woff2 files are placed before woff files
+
+#### 0.7.44 - unreleased
 ...
 
