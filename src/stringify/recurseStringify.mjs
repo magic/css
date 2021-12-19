@@ -39,7 +39,7 @@ const fontV1 = (name, font) => {
       const weightStyleUrl = `${url}${family}-${fontWeight}-${fontStyle}`
 
       let fontString = `${name} ${recurseStringify({
-        fontFamily: `"${family}"`,
+        fontFamily: `'${family}'`,
         fontStyle,
         fontWeight,
         ...rest,
@@ -91,7 +91,7 @@ const fontV2 = (name, font) => {
       }
 
       local.forEach(l => {
-        fontFileStrings.push(`local(${l})`)
+        fontFileStrings.push(`local('${l}')`)
       })
 
       Object.entries(fontFileTypes).map(([name, fn]) => {
@@ -104,7 +104,7 @@ const fontV2 = (name, font) => {
       fontFileString += fontFileStrings.join(',')
 
       const props = recurseStringify({
-        fontFamily: `"${family}"`,
+        fontFamily: `'${family}'`,
         fontStyle,
         fontWeight,
         src: fontFileString,
@@ -133,7 +133,7 @@ export const fontFaces = ({ res, name, items }) => {
     return deep.flatten(fontStrings).join('\n')
   } else {
     const { fontFamily, fontDir = '', fontRoot, ...rest } = items
-    res = `${name} ${recurseStringify({ fontFamily: `"${fontFamily}"`, ...rest })}`
+    res = `${name} ${recurseStringify({ fontFamily: `'${fontFamily}'`, ...rest })}`
 
     const eotString = `src: url('${fontDir}${fontFamily}.eot');`
 
