@@ -82,11 +82,9 @@ export const fontFaces = ({ res, name, items }) => {
   }
 }
 
-export const recurseStringify = mod => {
-  let res = mod
-
-  if (is.array(mod)) {
-    const [name, items] = mod
+export const recurseStringify = res => {
+  if (is.array(res)) {
+    const [name, items] = res
     if (is.string(name)) {
       if (name.startsWith('@keyframes') || name.startsWith('@media')) {
         return `${name} { ${recurseStringify(items)} }\n`
@@ -95,9 +93,9 @@ export const recurseStringify = mod => {
       }
     }
 
-    return mod.map(recurseStringify).join(' ')
-  } else if (is.object(mod)) {
-    return `{ ${stringifyProps(mod)} }\n`
+    return res.map(recurseStringify).join(' ')
+  } else if (is.object(res)) {
+    return `{ ${stringifyProps(res)} }\n`
   }
 
   return res
