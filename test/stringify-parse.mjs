@@ -15,9 +15,7 @@ const styleObject = {
 
 const styleArray = [
   {
-    body: {
-      color: 'red',
-    },
+    body: { color: 'red' },
   },
   [
     {
