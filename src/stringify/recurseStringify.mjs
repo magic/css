@@ -13,8 +13,8 @@ export const fontFileTypes = {
 }
 
 const fontV1 = (name, font) => {
-  log.warn('W_DEPRECATED', 'this way of declaring fonts is deprecated.')
-  log('See: https://magic.github.io/css/#styles-webfonts for more information')
+  log.warn('W_DEPRECATED', 'font name', font.family, 'is declared in a deprecated way.')
+  log('See: https://magic.github.io/css/#styles-webfonts for more information.')
 
   let { family, url, types = 'woff2', weights = 400, styles = 'normal', ...rest } = font
 
