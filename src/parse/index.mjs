@@ -93,6 +93,9 @@ const flat = a => {
   }
 }
 
+/*
+ * parse the styles css object into an array of key-value pairs.
+ */
 const parse = (styles, opts = {}) => {
   // first check if the user sent us a function that resolves to a css object
   if (is.function(styles)) {
@@ -102,7 +105,7 @@ const parse = (styles, opts = {}) => {
   // this might trigger additionally to the is.function if statement above
   if (is.array(styles)) {
     styles = styles.map(s => recurseParse(s, opts))
-  } else if (!is.array(styles) && is.object(styles)) {
+  } else if (!is.array(styles) && is.objectNative(styles)) {
     styles = Object.entries(styles).map(s => recurseParse(s, opts))
   } else {
     log.error('invalid styles received', styles)
