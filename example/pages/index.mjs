@@ -259,6 +259,75 @@ await css.stringify(style)
 \``),
 
   h3({ id: 'styles-webfonts' }, 'webfonts'),
+  h4('Font V2'),
+  p('This approach allows definition of font-style, font-weight, and local font names.'),
+
+  h5('Pseudocode'),
+  Pre(`
+@font-face: {
+  family: 'name',
+  url: '/fonts/',
+  styles: {
+    (normal|italic): {
+      weight: ['LocalName', 'Local Name']
+    }
+  }
+}
+`),
+
+  Pre(`
+const style = {
+    '@font-face': {
+      family: 'font-name',
+      url: '/fonts/',
+      styles: {
+        normal: {
+          400: ['FontName', 'Font Name'],
+          600: ['FontNameBold', 'Font Name Bold']
+        },
+        italic: {
+          400: ['FontNameItalic', 'Font Name Italic'],
+        },
+      },
+    },
+  }
+
+  const out = await css.stringify(style)
+
+  // out.css string
+  @font-face {
+    font-family: 'font-name';
+    font-style: normal;
+    font-weight: 400;
+    src:
+      local('FontName'),
+      local('Font Name'),
+      url('/fonts/font-name-400-normal.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'font-name';
+    font-style: normal;
+    font-weight: 600;
+    src:
+      local('FontNameBold'),
+      local('Font Name Bold'),
+      url('/fonts/font-name-600-normal.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'font-name';
+    font-style: italic;
+    font-weight: 400;
+    src:
+      local('FontNameItalic'),
+      local('Font Name Italic'),
+      url('/fonts/font-name-400-italic.woff2') format('woff2');
+  }
+  `),
+
+  h4('Font V1 - DEPRECATED'),
+  p('This approach does not allow definition of local fonts to load, and therefore is deprecated.'),
   Pre(`
   const style = {
     '@font-face': {
@@ -269,12 +338,12 @@ await css.stringify(style)
     },
   }
 
-  await css.stringify(style)
+  const out = await css.stringify(style)
 
-  // css string
+  // out.css string
 
   @font-face {
-    font-family: "font-name";
+    font-family: 'font-name';
     font-style: normal;
     font-weight: normal;
     src: url('/fonts/font-name-400-normal.eot\');
