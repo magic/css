@@ -33,10 +33,8 @@ const recurseParse = (mod, opts) => {
   if (parent.startsWith('@keyframes') || parent.startsWith('@media')) {
     const i = parse(items)
     return [parent, i]
-  }
-
-  // handle font face declarations that are expected to expand
-  if (parent.startsWith('@font-face')) {
+  } else if (parent.startsWith('@font-face')) {
+    // handle font face declarations that are expected to expand
     let i = items
     if (is.string(items.url)) {
       i = [items]
