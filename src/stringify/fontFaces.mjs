@@ -2,6 +2,8 @@ import is from '@magic/types'
 import deep from '@magic/deep'
 import log from '@magic/log'
 
+import { recurseStringify } from './recurseStringify.mjs'
+
 export const fontFileTypes = {
   eot: url => `src: url('${url}.eot'); src: url('${url}.eot#iefix') format('embedded-opentype')`,
   woff2: url => `url('${url}.woff2') format('woff2')`,
