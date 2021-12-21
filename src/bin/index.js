@@ -64,11 +64,6 @@ const maybeWrite = async ({ args, commands, style }) => {
 }
 
 const run = async () => {
-  if (commands.all) {
-    log.error('E_NOT_SUPPORTED', '"mcss all" is not a supported command')
-    process.exit()
-  }
-
   if (!args.in) {
     args.in = cwd
     log.info('--in not specified, using process.cwd()', args.in)
@@ -84,14 +79,14 @@ const run = async () => {
 
   const result = await css(theme)
 
-  if (commands.stringify) {
+  if (commands.full) {
+    const style = JSON.stringify(result, null, 2)
+    maybeWrite({ args, commands, style })
+  } else if (commands.stringify) {
     const style = args.hasOwnProperty('minified') ? result.minified : result.css
     maybeWrite({ args, commands, style })
   } else if (commands.parse) {
     const style = JSON.stringify(result.parsed, null, 2)
-    maybeWrite({ args, commands, style })
-  } else if (commands.full) {
-    const style = JSON.stringify(result, null, 2)
     maybeWrite({ args, commands, style })
   } else {
     log.error('MISSING_COMMAND', 'Either parse, stringify or full are required.')
