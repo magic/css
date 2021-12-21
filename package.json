@@ -17,6 +17,10 @@
     "test": "t --exclude docs example config.js",
     "calls": "calls"
   },
+  "bin": {
+    "mcss": "src/bin/index.js",
+    "magic-css": "src/bin/index.js"
+  },
   "engines": {
     "node": ">=14.15.4"
   },
