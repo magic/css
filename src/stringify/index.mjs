@@ -7,7 +7,8 @@ import recurseStringify from './recurseStringify.mjs'
 import { fontFaces } from './fontFaces.mjs'
 
 const keyframes = ({ name, items, plugins }) => `${name} { ${recurseStringify(items, plugins)} }\n`
-const mediaqueries = ({ name, items, plugins }) => `${name} { ${recurseStringify(items, plugins)} }\n`
+const mediaqueries = ({ name, items, plugins }) =>
+  `${name} { ${recurseStringify(items, plugins)} }\n`
 
 /*
  * stringify the styles css object into a valid css string.

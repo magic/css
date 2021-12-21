@@ -7,7 +7,7 @@ export const recurseStringify = (res, plugins = []) => {
     const [name, items] = res
     if (is.string(name)) {
       let result = ''
-      Object.entries(plugins).forEach(([ lookup, fn ]) => {
+      Object.entries(plugins).forEach(([lookup, fn]) => {
         if (name.startsWith(lookup)) {
           result = fn({ name, items, plugins })
         }
