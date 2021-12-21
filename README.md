@@ -539,6 +539,9 @@ update dependencies
 * use single quotes in output css
 * add cli
 
-#### 0.7.44 - unreleased
+#### 0.7.44
+* css props can be arrays to provide css overloads `{ color: ['green', 'red'] }` turns into `color: green; color: red;`
+
+#### 0.7.45 - unreleased
 ...
 
