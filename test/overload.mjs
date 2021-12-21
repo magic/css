@@ -2,7 +2,7 @@ import css from '../src/index.mjs'
 
 const overload = {
   body: {
-    color: [ 'green', 'red' ],
+    color: ['green', 'red'],
   },
 }
 
