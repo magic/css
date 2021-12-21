@@ -29,9 +29,9 @@ const fontV1 = {
   '@font-face': {
     url: '/url/',
     family: 'font-name',
-    types: [ 'eot', 'ttf', 'woff2', 'woff', 'svg' ],
-    weights: [ 400, 500, 600 ],
-    styles: [ 'normal', 'italic' ],
+    types: ['eot', 'ttf', 'woff2', 'woff', 'svg'],
+    weights: [400, 500, 600],
+    styles: ['normal', 'italic'],
   },
 }
 
@@ -48,7 +48,6 @@ const fontV1String = `
 
 @font-face { font-family: 'font-name'; font-style: italic; font-weight: 600; src: url('/url/font-name-600-italic.eot'); src: url('/url/font-name-600-italic.eot#iefix') format('embedded-opentype'),url('/url/font-name-600-italic.woff2') format('woff2'),url('/url/font-name-600-italic.woff') format('woff'),url('/url/font-name-600-italic.ttf') format('truetype'),url('/url/font-name-600-italic.svg#font-name') format('svg'); }
 `.trimStart()
-
 
 export default [
   { fn: async () => await css(fontFamily), expect, info: 'can handle web fonts' },

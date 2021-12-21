@@ -15,7 +15,7 @@ const stringify = async (styles, opts = {}) => {
   /*
    * test the resulting css using postcss and autoprefix vendors where needed.
    */
-  const result = await postcss([ autoprefixer ]).process(stringified, { from: undefined })
+  const result = await postcss([autoprefixer]).process(stringified, { from: undefined })
 
   result.warnings().forEach(warn => {
     console.warn(warn.toString())

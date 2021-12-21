@@ -24,7 +24,6 @@ const styleArray = [
   },
 ]
 
-
 const stringifiedString = 'body { color: green; }\n'
 
 const overflowX = {
