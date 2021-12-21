@@ -60,8 +60,9 @@ flags:
 --in       - directory with source files, needs index.js to exist - alias: ["--i", "-i"]
 
 examples:
-mcss parse --dir ./css --out ./css
-mcss stringify --dir ./styles --out ./css
+mcss parse --in ./styles --out ./css
+mcss stringify --in ./styles --out ./css
+mcss full --in ./styles --out ./css
 ```
 
 #### library:
