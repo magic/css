@@ -29,7 +29,42 @@ parse/stringify/write css in js
   npm install --save-exact @magic/css
 ```
 
+
 #### usage:
+
+##### cli:
+
+@magic/css includes a cli script that can handle most usecases the internal javascript api allows.
+
+to use this cli from any directory,
+`npm install -g @magic.css` is a useful shortcut.
+after the global install, you can just call `mcss` from anywhere in your terminal.
+
+after installation, add:
+`"mcss": "mcss"`
+to your package.json "scripts" section and then
+`npm run mcss`
+to see the help output below.
+
+```
+@magic/css
+commands:
+stringify - convert css in js to css
+parse     - convert css in js to an array of key value pairs
+full      - get a full result object.
+
+flags:
+--minified - output minified css - alias: ["--m", "-m"]
+--help     - alias: ["-h"]
+--out      - directory to write output files to. omit to print to stdout - alias: ["--o", "-o"]
+--in       - directory with source files, needs index.js to exist - alias: ["--i", "-i"]
+
+examples:
+mcss parse --dir ./css --out ./css
+mcss stringify --dir ./styles --out ./css
+```
+
+#### library:
 
 ##### init
 ```javascript
