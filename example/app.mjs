@@ -5,6 +5,7 @@ export const state = {
   logotext: '@magic/css',
   menu: [
     { to: '/#installation', text: 'installation' },
+    { to: '/#cli', text: 'cli' },
     { to: '/#import', text: 'import' },
     {
       to: '/#api',

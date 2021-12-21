@@ -13,9 +13,38 @@ export const View = state => [
   GitBadges('@magic/css'),
 
   h2({ id: 'installation' }, 'installation'),
-  Pre('npm install @magic/css'),
+  Pre('npm install --save-exact @magic/css'),
 
-  h2({ id: 'usage' }, 'usage'),
+  h2({ id: 'usage' }, 'usage:'),
+
+  h4({ id: 'cli' }, 'cli:'),
+
+  p('@magic/css includes a cli script that can handle most usecases the internal javascript api allows.'),
+
+  p([
+    'to use this cli from any directory, ',
+    Pre('npm install -g @magic.css'),
+    ' is a useful shortcut.',
+    ' after the global install, you can just call `mcss` from anywhere in your terminal to see the help.',
+  ]),
+
+  Pre(`
+@magic/css
+commands:
+stringify - convert css in js to css
+parse     - convert css in js to an array of key value pairs
+full      - get a full result object.
+
+flags:
+--minified - output minified css - alias: ["--m", "-m"]
+--help     - alias: ["-h"]
+--out      - directory to write output files to. omit to print to stdout - alias: ["--o", "-o"]
+--in       - directory with source files, needs index.js to exist - alias: ["--i", "-i"]
+
+examples:
+mcss parse --in ./css --out ./css
+mcss stringify --in ./styles --out ./css
+`),
 
   h3({ id: 'import' }, 'import'),
   Pre("import css from '@magic/css'"),
@@ -38,7 +67,7 @@ const style = {
   },
 }
 
-css(style)
+const result = await css(style)
 
 // returns
 Object {
@@ -66,8 +95,10 @@ const style = {
   },
 }
 
-css.parse(style)
-// ast`),
+const ast = css.parse(style)
+// ast
+[['.className #id', { color: 'orange' } ]]
+`),
 
   h3({ id: 'api-stringify' }, 'stringify'),
   Pre(`
