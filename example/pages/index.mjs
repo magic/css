@@ -19,7 +19,9 @@ export const View = state => [
 
   h4({ id: 'cli' }, 'cli:'),
 
-  p('@magic/css includes a cli script that can handle most usecases the internal javascript api allows.'),
+  p(
+    '@magic/css includes a cli script that can handle most usecases the internal javascript api allows.',
+  ),
 
   p([
     'to use this cli from any directory, ',
