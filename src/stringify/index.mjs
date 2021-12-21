@@ -25,7 +25,7 @@ const stringify = async (styles, opts = {}) => {
 
   const parsed = parse(styles, opts)
 
-  const stringified = recurseStringify(parsed, plugins.stringify)
+  const stringified = recurseStringify(parsed, plugins.stringify, opts)
 
   /*
    * test the resulting css using postcss and autoprefix vendors where needed.
