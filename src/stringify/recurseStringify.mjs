@@ -2,7 +2,7 @@ import is from '@magic/types'
 
 import stringifyProps from './props.mjs'
 
-export const recurseStringify = (res, plugins) => {
+export const recurseStringify = (res, plugins = []) => {
   if (is.array(res)) {
     const [name, items] = res
     if (is.string(name)) {
