@@ -390,6 +390,25 @@ const style = {
   // ... repeated for all styles and weights that were defined
   `),
 
+  h4({ id: 'styles-css-overload' }, 'css overload'),
+  p('Css allows overloads for props, to provide fallback values for old browsers'),
+  Pre(`
+{
+  body: {
+    color: ['green', 'red'],
+  },
+}
+  `),
+
+  p('turns into'),
+
+  Pre(`
+body {
+  color: green;
+  color: red;
+}
+`),
+
   h2({ id: 'source' }, 'source'),
   p([
     'the source for this page is in the ',
