@@ -1,20 +1,23 @@
 import is from '@magic/types'
 
 import stringifyProps from './props.mjs'
-import { fontFaces } from './fontFaces.mjs'
 
-export const recurseStringify = res => {
+export const recurseStringify = (res, plugins) => {
   if (is.array(res)) {
     const [name, items] = res
     if (is.string(name)) {
-      if (name.startsWith('@keyframes') || name.startsWith('@media')) {
-        return `${name} { ${recurseStringify(items)} }\n`
-      } else if (name.startsWith('@font-face')) {
-        return fontFaces({ res, name, items })
+      let result = ''
+      Object.entries(plugins).forEach(([ lookup, fn ]) => {
+        if (name.startsWith(lookup)) {
+          result = fn({ name, items, plugins })
+        }
+      })
+      if (result) {
+        return result
       }
     }
 
-    return res.map(recurseStringify).join(' ')
+    return res.map(r => recurseStringify(r, plugins)).join(' ')
   } else if (is.object(res)) {
     return `{ ${stringifyProps(res)} }\n`
   }
