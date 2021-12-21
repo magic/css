@@ -27,13 +27,13 @@ const { args, commands } = cli({
       stringify: 'convert css in js to css',
     },
     options: {
-      '--in': 'directory with source files, needs index.js to exist',
+      '--in': 'directory with index.js that has a css in js object as default export',
       '--out': 'directory to write output files to. omit to print to stdout',
       '--minified': 'output minified css',
     },
     example: `
-mcss parse --dir ./css --out ./css
-mcss stringify --dir ./styles --out ./css
+mcss parse --in ./css --out ./css
+mcss stringify --in ./styles --out ./css
 `.trim(),
   },
 })
