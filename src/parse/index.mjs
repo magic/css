@@ -29,8 +29,8 @@ const recurseParse = (mod, opts) => {
   let children = []
   const props = {}
 
-  // media and keyframes are special, they provide a full body of css rules
   if (parent.startsWith('@keyframes') || parent.startsWith('@media')) {
+    // media and keyframes are special, they provide a full body of css rules
     const i = parse(items)
     return [parent, i]
   } else if (parent.startsWith('@font-face')) {
@@ -100,12 +100,14 @@ const parse = (styles, opts = {}) => {
     styles = styles(opts)
   }
 
-  // this might trigger additionally to the is.function if statement above
   if (is.array(styles)) {
+    // if styles are an array, map over the items
     styles = styles.map(s => recurseParse(s, opts))
-  } else if (!is.array(styles) && is.objectNative(styles)) {
+  } else if (is.objectNative(styles)) {
+    // styles are an object
     styles = Object.entries(styles).map(s => recurseParse(s, opts))
   } else {
+    // unknown styles
     log.error('invalid styles received', styles)
   }
 
