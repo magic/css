@@ -500,7 +500,8 @@ update dependencies
 * update dependencies
 * added font v2 to allow handling of local() fonts (see https://magic.github.io/css/#styles-webfonts)
 * woff2 files are placed before woff files
-* use single quotes everywhere
+* use single quotes in output css
+* add cli
 
 #### 0.7.44 - unreleased
 ...
