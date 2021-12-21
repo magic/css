@@ -45,14 +45,18 @@ const recurseParse = (mod, opts) => {
     }
   }
 
-  Object.entries(items).forEach(([name, item]) => {
-    if (is.object(item)) {
-      name = getSelector(parent, name)
-      children = deep.merge(children, recurseParse([name, item], opts))
-    } else {
-      props[name] = item
-    }
-  })
+  if (is.objectNative(items)) {
+    Object.entries(items).forEach(([name, item]) => {
+      if (is.array(item)) {
+        props[name] = item
+      } else if (is.objectNative(item)) {
+        name = getSelector(parent, name)
+        children = deep.merge(children, recurseParse([name, item], opts))
+      } else {
+        props[name] = item
+      }
+    })
+  }
 
   if (is.empty(props)) {
     if (!is.empty(children)) {
