@@ -543,6 +543,9 @@ update dependencies
 * css props can be arrays to provide css overloads `{ color: ['green', 'red'] }` turns into `color: green; color: red;`
 * update dependencies
 
-#### 0.7.45 - unreleased
+#### 0.7.45
+update dependencies
+
+#### 0.7.46 - unreleased
 ...
 
