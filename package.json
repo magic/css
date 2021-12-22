@@ -38,8 +38,8 @@
   "main": "src/index.mjs",
   "dependencies": {
     "@magic/cases": "0.0.5",
-    "@magic/deep": "0.1.7",
-    "@magic/fs": "0.0.18",
+    "@magic/deep": "0.1.8",
+    "@magic/fs": "0.0.19",
     "@magic/log": "0.1.10",
     "@magic/types": "0.1.16",
     "autoprefixer": "10.4.0",
