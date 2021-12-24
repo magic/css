@@ -1,4 +1,4 @@
-import { is, tryCatch } from '@magic/test'
+import { is, version, tryCatch } from '@magic/test'
 import path from 'path'
 import fs from 'fs'
 
@@ -65,7 +65,18 @@ const write = () => css.write(style, opts)
 
 const expectWritten = () => fs.existsSync(outFile)
 
+const spec = {
+  parse: 'fn',
+  stringify: 'fn',
+  write: 'fn',
+  minify: 'fn',
+  classes: 'fn',
+  selectors: 'fn',
+  ids: 'fn',
+}
+
 export default [
+  ...version(css, spec),
   { fn: css, expect: is.object, info: 'css returns an object' },
   { fn: css({ div: { color: 'green' } }), expect: is.object, info: 'css returns an object' },
   { fn: () => css.parse, expect: is.fn, info: 'css.parse is a function' },
