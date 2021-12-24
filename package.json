@@ -37,11 +37,11 @@
   },
   "main": "src/index.mjs",
   "dependencies": {
-    "@magic/cases": "0.0.5",
-    "@magic/deep": "0.1.8",
-    "@magic/fs": "0.0.19",
-    "@magic/log": "0.1.10",
-    "@magic/types": "0.1.16",
+    "@magic/cases": "0.0.6",
+    "@magic/deep": "0.1.9",
+    "@magic/fs": "0.0.20",
+    "@magic/log": "0.1.11",
+    "@magic/types": "0.1.17",
     "autoprefixer": "10.4.0",
     "postcss": "8.4.5"
   },
@@ -52,8 +52,8 @@
     "@magic-modules/pre": "0.0.11",
     "@magic-themes/docs": "0.0.14",
     "@magic/core": "0.0.133",
-    "@magic/format": "0.0.33",
-    "@magic/test": "0.1.77"
+    "@magic/format": "0.0.34",
+    "@magic/test": "0.2.0"
   },
   "keywords": [
     "css-in-js",
