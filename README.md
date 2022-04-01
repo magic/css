@@ -555,6 +555,9 @@ update dependencies
 #### 0.7.48
 update dependencies
 
-#### 0.7.49 - unreleased
+#### 0.7.49
+update dependencies
+
+#### 0.7.50 - unreleased
 ...
 
