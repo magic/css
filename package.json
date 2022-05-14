@@ -38,12 +38,12 @@
   "main": "src/index.mjs",
   "dependencies": {
     "@magic/cases": "0.0.8",
-    "@magic/deep": "0.1.13",
-    "@magic/fs": "0.0.25",
-    "@magic/log": "0.1.15",
-    "@magic/types": "0.1.20",
-    "autoprefixer": "10.4.4",
-    "postcss": "8.4.12"
+    "@magic/deep": "0.1.14",
+    "@magic/fs": "0.0.26",
+    "@magic/log": "0.1.16",
+    "@magic/types": "0.1.21",
+    "autoprefixer": "10.4.7",
+    "postcss": "8.4.13"
   },
   "devDependencies": {
     "@magic-modules/git-badges": "0.0.12",
@@ -51,9 +51,9 @@
     "@magic-modules/no-spy": "0.0.7",
     "@magic-modules/pre": "0.0.11",
     "@magic-themes/docs": "0.0.14",
-    "@magic/core": "0.0.140",
-    "@magic/format": "0.0.39",
-    "@magic/test": "0.2.10"
+    "@magic/core": "0.0.141",
+    "@magic/format": "0.0.41",
+    "@magic/test": "0.2.12"
   },
   "keywords": [
     "css-in-js",
