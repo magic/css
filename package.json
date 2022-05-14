@@ -38,10 +38,10 @@
   "main": "src/index.mjs",
   "dependencies": {
     "@magic/cases": "0.0.8",
-    "@magic/deep": "0.1.14",
-    "@magic/fs": "0.0.26",
-    "@magic/log": "0.1.16",
-    "@magic/types": "0.1.21",
+    "@magic/deep": "0.1.15",
+    "@magic/fs": "0.0.27",
+    "@magic/log": "0.1.17",
+    "@magic/types": "0.1.22",
     "autoprefixer": "10.4.7",
     "postcss": "8.4.13"
   },
@@ -51,7 +51,7 @@
     "@magic-modules/no-spy": "0.0.7",
     "@magic-modules/pre": "0.0.11",
     "@magic-themes/docs": "0.0.14",
-    "@magic/core": "0.0.141",
+    "@magic/core": "0.0.142",
     "@magic/format": "0.0.41",
     "@magic/test": "0.2.12"
   },
