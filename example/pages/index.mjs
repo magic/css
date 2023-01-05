@@ -246,9 +246,23 @@ await css.stringify(style)
 `),
 
   h3({ id: 'styles-media-queries' }, 'media queries'),
+
+  p('Mediaqueries can use the vars.widths object to determine appropriate breakpoint sizes.'),
+  p('Default widths:'),
+  Pre(`
+vars.widths = {
+  tablet: '500px',
+  laptop: '900px',
+  desktop: '1200px',
+  agency: '1600px',
+}
+`),
+
+  p('Usage of the vars.widths in media queries:'),
+
   Pre(`
 const style = {
-  '@media screen and (min-width: 500px)': {
+  [\`@media screen and(min-width: \${vars.widths?.tablet || '500px'})\`]: {
     '#id': {
       color: opts.textColor,
     },
