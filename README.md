@@ -658,6 +658,21 @@ update dependencies
 
 update dependencies
 
-#### 0.7.53 - unreleased
+#### 0.7.53
+
+- update dependencies
+- update docs to reflect usage of vars.widths.{tablet|laptop|desktop}
+- add defaults for opts.widths, to make sure we can use media queries at all times.
+
+```javascript
+opts.widths = {
+  tablet: '500px',
+  laptop: '900px',
+  desktop: '1200px',
+  agency: '1600px',
+}
+```
+
+#### 0.7.54 - unreleased
 
 ...
