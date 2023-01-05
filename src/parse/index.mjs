@@ -99,6 +99,18 @@ const flat = a => {
  * parse the styles css object into an array of key-value pairs.
  */
 const parse = (styles, opts = {}) => {
+  const defaultWidths = {
+    tablet: '500px',
+    laptop: '900px',
+    desktop: '1200px',
+    agency: '1600px',
+  }
+
+  opts.widths = {
+    ...defaultWidths,
+    ...opts.widths,
+  }
+
   // first check if the user sent us a function that resolves to a css object
   if (is.function(styles)) {
     styles = styles(opts)
