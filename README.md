@@ -673,6 +673,10 @@ opts.widths = {
 }
 ```
 
-#### 0.7.54 - unreleased
+#### 0.7.54
+
+update dependencies
+
+#### 0.7.55 - unreleased
 
 ...
