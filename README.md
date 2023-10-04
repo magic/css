@@ -677,6 +677,10 @@ opts.widths = {
 
 update dependencies
 
-#### 0.7.55 - unreleased
+#### 0.7.55
+
+update dependencies
+
+#### 0.7.56 - unreleased
 
 ...
