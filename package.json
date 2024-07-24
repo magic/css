@@ -39,11 +39,11 @@
   "dependencies": {
     "@magic/cases": "0.0.9",
     "@magic/deep": "0.1.16",
-    "@magic/fs": "0.0.29",
+    "@magic/fs": "0.0.30",
     "@magic/log": "0.1.18",
     "@magic/types": "0.1.23",
-    "autoprefixer": "10.4.16",
-    "postcss": "8.4.31"
+    "autoprefixer": "10.4.19",
+    "postcss": "8.4.40"
   },
   "devDependencies": {
     "@magic-modules/git-badges": "0.0.12",
@@ -52,8 +52,8 @@
     "@magic-modules/pre": "0.0.12",
     "@magic-themes/docs": "0.0.15",
     "@magic/core": "0.0.156",
-    "@magic/format": "0.0.53",
-    "@magic/test": "0.2.18"
+    "@magic/format": "0.0.60",
+    "@magic/test": "0.2.19"
   },
   "keywords": [
     "css-in-js",
