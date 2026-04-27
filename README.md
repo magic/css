@@ -685,6 +685,10 @@ update dependencies
 
 update dependencies
 
-#### 0.7.57 - unreleased
+#### 0.7.57
+
+update dependencies
+
+#### 0.7.58 - unreleased
 
 ...
