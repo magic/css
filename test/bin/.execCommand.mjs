@@ -3,21 +3,26 @@ import { fs, log } from '@magic/test'
 
 const execFile = (p, args = [], opts = {}) =>
   new Promise((resolve, reject) => {
-    child_process.execFile(p, args.filter(a => a), opts, (err, stdout, stderr) => {
-      if (err) {
-        reject(err)
-        return
-      }
-      if (stderr) {
-        reject(stderr)
-        return
-      }
+    child_process.execFile(
+      p,
+      args.filter(a => a),
+      opts,
+      (err, stdout, stderr) => {
+        if (err) {
+          reject(err)
+          return
+        }
+        if (stderr) {
+          reject(stderr)
+          return
+        }
 
-      if (stdout) {
-        resolve(stdout)
-        return
-      }
-    })
+        if (stdout) {
+          resolve(stdout)
+          return
+        }
+      },
+    )
   })
 
 export const execCommand = props => {
@@ -26,7 +31,7 @@ export const execCommand = props => {
   return async () => {
     let oldContent = `${Math.random()}`
 
-    if (out && await fs.exists(out)) {
+    if (out && (await fs.exists(out))) {
       oldContent = await fs.readFile(out, 'utf8')
 
       await fs.rmrf(out)
