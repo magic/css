@@ -13,7 +13,7 @@
     "clean": "magic clean",
     "serve": "magic serve",
     "dev": "magic dev --watch src",
-    "format": "f -w --exclude docs",
+    "format": "f -w --exclude docs test/.theme/",
     "test": "t --exclude docs example config.js",
     "calls": "calls"
   },
@@ -37,13 +37,13 @@
   },
   "main": "src/index.mjs",
   "dependencies": {
-    "@magic/cases": "0.0.9",
-    "@magic/deep": "0.1.16",
-    "@magic/fs": "0.0.30",
-    "@magic/log": "0.1.18",
-    "@magic/types": "0.1.23",
-    "autoprefixer": "10.4.19",
-    "postcss": "8.4.40"
+    "@magic/cases": "0.0.11",
+    "@magic/deep": "0.1.20",
+    "@magic/fs": "0.0.37",
+    "@magic/log": "0.1.21",
+    "@magic/types": "0.1.33",
+    "autoprefixer": "10.5.0",
+    "postcss": "8.5.12"
   },
   "devDependencies": {
     "@magic-modules/git-badges": "0.0.12",
@@ -52,7 +52,7 @@
     "@magic-modules/pre": "0.0.12",
     "@magic-themes/docs": "0.0.15",
     "@magic/core": "0.0.156",
-    "@magic/format": "0.0.60",
+    "@magic/format": "0.0.73",
     "@magic/test": "0.2.19"
   },
   "keywords": [
